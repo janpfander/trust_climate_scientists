@@ -1,6 +1,6 @@
 ---
 title: "Jan Pfänder"
-subtitle: PhD candidate, École Normale Supérieure (ENS-PSL), *France*
+subtitle: Incoming postdoc, Eawag, *Switzerland*
 sortby: "1"
 image: /images/jan.jpeg
 toc: false

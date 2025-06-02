@@ -23,9 +23,9 @@ Submit your short intervention proposal via this survey [ADD LINK].
 
 # Why should I participate in the STICS project?
 
-There is increasing concern that people do not trust climate scientists enough, in particular in the United States. Many people have ideas for how to address this problem. Now is an opportunity to gather and rigorously test many of these ideas. We needed your expertise and the rigor of massive experimentation to address this large issue.
+There is increasing concern that people do not trust scientists, and especially climate scientists. This can have profound implications by limiting support for evidence-based policymaking and reducing societal resilience to climate change. Many people have ideas for how to address this problem. Now is an opportunity to gather and rigorously test many of these ideas. We needed your expertise and the rigor of massive experimentation to address this issue.
 
-Everyone whose intervention is selected for testing will be offered co-authorship on the primary publication resulting from the challenge. 
+Teams whose intervention is selected for testing will be offered co-authorship on the primary publication resulting from the challenge.
 
 # What is an intervention? 
 
@@ -33,17 +33,14 @@ Social scientists often call an idea that has the potential to change how people
 
 # What are the outcomes?
 
-Our main outcome of interest are people's perception of climate scientists' trustworthiness. Check-out the research design section [research design section](research_design.qmd) for more details on the outcomes and how we measure them. 
+Our main outcome of interest is people's perception of climate scientists' trustworthiness. Check-out the research design section [research design section](research_design.qmd) for more details on the outcomes and how we measure them. 
 
 # What are the Requirements for My Intervention?
 
 - Ethical: The intervention must be approved by Stanford's and the ETH Zurich's Institutional Review Board (see details below).
 - Online: The intervention must be deployable online.
 - Short: The intervention must be no longer than 8 minutes.
-- Scalable: The intervention must be able to handle up to 1,000 participants at the same
-time.
-- Comprehensible: The intervention must be understandable to an English-speaking
-audience.
+- Scalable: The intervention must be able to be tested with around 1,000 participants at the same time.
 - Costless: The intervention must not pay participants in addition to what they are
 already being paid to participate in the study.
 - Aligned: You cannot add additional measures for evaluating your intervention
@@ -61,30 +58,23 @@ thermometers at 100),
 offensive,
 - you may not ask participants to engage in hateful or disturbing behaviors.
 
-Further, your intervention must obtain ethics approval by XX's Institutional Review
-Board (IRB). If your intervention is selected, our team will obtain IRB approval for your
-intervention. If the IRB requires changes to your intervention, we will work with you to make
-those changes while maintaining as much consistency as possible to your original idea. You
-are encouraged to contact us via sdchallenge@stanford.edu if you have concerns about
-ethics approval. We will not select interventions that attempt to game the system in some
-way, e.g., by instructing participants on how to reply to the DVs.
+Further, your intervention must obtain ethics approval by by Stanford’s and the ETH Zurich’s Institutional Review Board (IRB). If your intervention is selected, our team will obtain IRB approval for your intervention. If the IRB requires changes to your intervention, we will work with you to make those changes while maintaining as much consistency as possible to your original idea. You are encouraged to contact us via [stics.megastudy@gmail.com](mailto:stics.megastudy@gmail.com) if you have concerns about ethics approval. We will not select interventions that attempt to game the system in some way, e.g., by instructing participants on how to reply to the DVs.
 :::
 
 # How will you select the interventions?
 
-Our expert team--the research supervisors and the expert advisory board--will provide review submissions and select the 9 most promising interventions for testing. Members of the advisory board are experts on trust in science from diverse backgrounds, including academics from different disciplines as well as practitioners. 
+Our expert team will review submissions and select the 9 most promising interventions for testing. Members of the advisory board are experts on trust in science from diverse backgrounds, including academics from different disciplines as well as practitioners. 
 
-The selection process is **annonymous**: Only the Project lead--who will neither review pre-selected interventions, nor vote during the final selection--knows about the identity of the contributors.
+The selection process is **anonymous**: Only the Project lead--who will neither review pre-selected interventions, nor vote during the final selection--knows about the identity of the contributors.
 
-The selection process has two stages: First, all contributors to submit a very short description of their study. We will then pre-select interventions that we deem feasible and promising. Second, pre-selected contributors submit a detailed intervention design. The expert team will review these interventions to check whether they satisfy the requirements for interventions. We will notify you if your intervention does not satisfy the requirements and work with you, within reason, to revise the intervention so that it is eligible. You are welcome to contact us with questions about your intervention before you submit. 
+The selection process has two stages: First, all contributors submit a very short description of their study. We will then pre-select interventions that we deem feasible and promising. Second, pre-selected contributors submit a detailed intervention design. The expert team will review these interventions to check whether they satisfy the requirements for interventions. We will notify you if your intervention does not satisfy the requirements and work with you, within reason, to revise the intervention so that it is eligible. You are welcome to contact us with questions about your intervention before you submit. 
 
-Each intervention will be reviewed by at least 2 experts. Reviews will be based on the following criteria:
+Each intervention will be reviewed by at least 4 experts. Reviews will be based on the following criteria:
 
 - What is the expected success of this intervention?
 - How novel is this intervention? 
-- Reviewers will reveal if they know the identity of the proposers to avoid conflicts of interest.
 
-In a plenary meeting, the whole expert team will then vote for the final interventions based on the reviews. 
+In a plenary meeting, the whole expert team will then vote on the final interventions based on the reviews. 
 
 # How can I participate?
 

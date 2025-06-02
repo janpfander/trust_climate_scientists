@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,7 +58,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a973770d809960bcbda85a0f6824f60f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -134,6 +157,12 @@ background-size: cover;
 <span class="menu-text">Team</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:stics.megastudy@gmail.com"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="bi:envelope" style="font-size: 1.1em;" aria-label="Icon envelope from bi Iconify.design set." title="E-mail"></iconify-icon> Write us an email</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -170,7 +199,7 @@ background-size: cover;
   <li><a href="#participants" id="toc-participants" class="nav-link" data-scroll-target="#participants">Participants</a>
   <ul class="collapse">
   <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size">Sample size</a></li>
-  <li><a href="#recruitement" id="toc-recruitement" class="nav-link" data-scroll-target="#recruitement">Recruitement</a></li>
+  <li><a href="#recruitment" id="toc-recruitment" class="nav-link" data-scroll-target="#recruitment">Recruitment</a></li>
   </ul></li>
   <li><a href="#open-science" id="toc-open-science" class="nav-link" data-scroll-target="#open-science">Open science</a></li>
   <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a></li>
@@ -186,15 +215,14 @@ background-size: cover;
 
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<p>Climate change is one of the most pressing societal issues (Rogelj et al., 2023). It requires urgent action at both the policymaking and individual level (IPCC, 2023).</p>
-<p>Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action (Todorova et al., 2024; see also Bonfanti et al., 2024; Cologna &amp; Siegrist, 2020; Hornsey et al., 2016).</p>
-<p>While trust in scientists is moderately high globally (Cologna et al., 2025), climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general (Druckman et al., 2024; Ghasemi et al., 2024; Schrøder, 2023; Schug et al., 2024). Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.</p>
+<p>Climate change is one of the most pressing societal issues and requires urgent action at both the policymaking and individual level <span class="citation" data-cites="calvinIPCC2023Climate2023 rogeljCredibilityGapNetzero2023">(<a href="#ref-calvinIPCC2023Climate2023" role="doc-biblioref">Calvin et al. 2023</a>; <a href="#ref-rogeljCredibilityGapNetzero2023" role="doc-biblioref">Rogelj et al. 2023</a>)</span>.</p>
+<p>Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action <span class="citation" data-cites="todorovaMachineLearningIdentifies2025 colognaRoleTrustClimate2020 hornseyMetaanalysesDeterminantsOutcomes2016">(<a href="#ref-todorovaMachineLearningIdentifies2025" role="doc-biblioref">Todorova et al. 2025</a>; <a href="#ref-colognaRoleTrustClimate2020" role="doc-biblioref">Cologna and Siegrist 2020</a>; <a href="#ref-hornseyMetaanalysesDeterminantsOutcomes2016" role="doc-biblioref">Hornsey et al. 2016</a>)</span>.</p>
+<p>While trust in scientists is moderately high globally <span class="citation" data-cites="colognaTrustScientistsTheir2025">(<a href="#ref-colognaTrustScientistsTheir2025" role="doc-biblioref">Cologna et al. 2025</a>)</span>, climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general <span class="citation" data-cites="druckmanContinuityChangeTrust2024 ghasemiInvestigatingTrustGap2024 schroderDonTellMe schugPublicPerceptionsTrustworthiness2024">(<a href="#ref-druckmanContinuityChangeTrust2024" role="doc-biblioref">Druckman et al., n.d.</a>; <a href="#ref-ghasemiInvestigatingTrustGap2024" role="doc-biblioref">Ghasemi et al., n.d.</a>; <a href="#ref-schroderDonTellMe" role="doc-biblioref">Schrøder, n.d.</a>; <a href="#ref-schugPublicPerceptionsTrustworthiness2024" role="doc-biblioref">Schug, Bilandzic, and Kinnebrock 2024</a>)</span>. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.</p>
 <p>Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.</p>
 </section>
 <section id="outcomes" class="level1">
 <h1>Outcomes</h1>
-<p>Our main outcome of interest are people’s perception of climate scientists’ trustworthiness.</p>
-<p>In addition to this, we will also measure attitudes towards climate change, and behavioral outcomes.</p>
+<p>Our main outcome of interest is people’s perception of climate scientists’ trustworthiness. In addition to this, we will also measure attitudes towards climate change, support for climate policies, normative perceptions of climate scientists, and pro-climate behavioral outcomes.</p>
 <p>[tbd]</p>
 </section>
 <section id="participants" class="level1">
@@ -202,26 +230,58 @@ background-size: cover;
 <section id="sample-size" class="level2">
 <h2 class="anchored" data-anchor-id="sample-size">Sample size</h2>
 <p>An a priori power analysis using G*Power (Faul et al., 2007), shows that for a One Way ANOVA with 10 conditions (9 interventions and one control condition), to achieve 95% power to detect a small effect size f of at least f = 0.05, at an alpha level of 0.05, a sample of N = 9,450 participants is needed. Since the interventions will be tested across population segments, and the approximate size of the segments will be determined in WP1, we err on the conservative side and aim to collect a US sample of N = 10,000 and a Swiss sample of N = 10,000, for a total of N = 20,000 participants, with approximately N = 1,000 participants per condition per country.</p>
-<p>Once we have selected interventions, we will run a final power simulation to be included into our preregistration.</p>
+<p>Once we have selected interventions, we will run a final power simulation to be included in our preregistration.</p>
 </section>
-<section id="recruitement" class="level2">
-<h2 class="anchored" data-anchor-id="recruitement">Recruitement</h2>
-<p>Representative samples for age, gender, and education in both countries will be recruited by the market research company Bilendi &amp; respondi.</p>
+<section id="recruitment" class="level2">
+<h2 class="anchored" data-anchor-id="recruitment">Recruitment</h2>
+<p>We will recruit representative samples for age, gender, and education in both countries.</p>
 </section>
 </section>
 <section id="open-science" class="level1">
 <h1>Open science</h1>
 <p>Following best open-science research practices, a detailed overview of data collection procedures, research questions, and analyses will be preregistered on the Open Science Framework.</p>
-<p>Upon publication, all data and code will be publicly available.</p>
+<p>Upon publication, all data, code, and materials will be publicly available.</p>
 </section>
 <section id="timeline" class="level1">
 <h1>Timeline</h1>
 <p>[tbd]</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-calvinIPCC2023Climate2023" class="csl-entry" role="listitem">
+Calvin, Katherine, Dipak Dasgupta, Gerhard Krinner, Aditi Mukherji, Peter W. Thorne, Christopher Trisos, José Romero, et al. 2023. <span>“IPCC, 2023: Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Core Writing Team, H. Lee and J. Romero (Eds.)]. IPCC, Geneva, Switzerland.”</span> <a href="https://doi.org/10.59327/IPCC/AR6-9789291691647">https://doi.org/10.59327/IPCC/AR6-9789291691647</a>.
+</div>
+<div id="ref-colognaTrustScientistsTheir2025" class="csl-entry" role="listitem">
+Cologna, Viktoria, Niels G. Mede, Sebastian Berger, John Besley, Cameron Brick, Marina Joubert, Edward W. Maibach, et al. 2025. <span>“Trust in Scientists and Their Role in Society Across 68 Countries.”</span> <em>Nature Human Behaviour</em>, January, 1–18. <a href="https://doi.org/10.1038/s41562-024-02090-5">https://doi.org/10.1038/s41562-024-02090-5</a>.
+</div>
+<div id="ref-colognaRoleTrustClimate2020" class="csl-entry" role="listitem">
+Cologna, Viktoria, and Michael Siegrist. 2020. <span>“The Role of Trust for Climate Change Mitigation and Adaptation Behaviour: A Meta-Analysis.”</span> <em>Journal of Environmental Psychology</em> 69 (June): 101428. <a href="https://doi.org/10.1016/j.jenvp.2020.101428">https://doi.org/10.1016/j.jenvp.2020.101428</a>.
+</div>
+<div id="ref-druckmanContinuityChangeTrust2024" class="csl-entry" role="listitem">
+Druckman, James N., Jonathan Schulman, Alauna C. Safarpour, Matthew Baum, Katherine Ognyanova, Mailbox Kenny, Kristin Lunz Trujillo, et al. n.d. <span>“Continuity and Change in Trust in Scientists in the United States: Demographic Stability and Partisan Polarization.”</span> <a href="https://doi.org/10.2139/ssrn.4929030">https://doi.org/10.2139/ssrn.4929030</a>.
+</div>
+<div id="ref-ghasemiInvestigatingTrustGap2024" class="csl-entry" role="listitem">
+Ghasemi, Omid, Viktoria Cologna, Niels G. Mede, Samantha Stanley, Noel Strahm, Robert M Ross, Mark Alfano, et al. n.d. <span>“Investigating the Trust Gap Between Scientists and Climate Scientists in 68 Countries.”</span> <a href="https://doi.org/10.31219/osf.io/f3qbu">https://doi.org/10.31219/osf.io/f3qbu</a>.
+</div>
+<div id="ref-hornseyMetaanalysesDeterminantsOutcomes2016" class="csl-entry" role="listitem">
+Hornsey, Matthew J., Emily A. Harris, Paul G. Bain, and Kelly S. Fielding. 2016. <span>“Meta-Analyses of the Determinants and Outcomes of Belief in Climate Change.”</span> <em>Nature Climate Change</em> 6 (6): 622–26. <a href="https://doi.org/10.1038/nclimate2943">https://doi.org/10.1038/nclimate2943</a>.
+</div>
+<div id="ref-rogeljCredibilityGapNetzero2023" class="csl-entry" role="listitem">
+Rogelj, Joeri, Taryn Fransen, Michel G. J. den Elzen, Robin D. Lamboll, Clea Schumer, Takeshi Kuramochi, Frederic Hans, Silke Mooldijk, and Joana Portugal-Pereira. 2023. <span>“Credibility Gap in Net-Zero Climate Targets Leaves World at High Risk.”</span> <em>Science</em> 380 (6649): 1014–16. <a href="https://doi.org/10.1126/science.adg6248">https://doi.org/10.1126/science.adg6248</a>.
+</div>
+<div id="ref-schroderDonTellMe" class="csl-entry" role="listitem">
+Schrøder, Thor Bech. n.d. <span>“Don’t Tell Me What I Don’t Want to Hear! Politicization and Ideological Conflict Explain Why Citizens Have Lower Trust in Climate Scientists and Economists Than in Other Natural Scientists.”</span> <em>Political Psychology</em> n/a (n/a). <a href="https://doi.org/10.1111/pops.12866">https://doi.org/10.1111/pops.12866</a>.
+</div>
+<div id="ref-schugPublicPerceptionsTrustworthiness2024" class="csl-entry" role="listitem">
+Schug, Markus, Helena Bilandzic, and Susanne Kinnebrock. 2024. <span>“Public perceptions of trustworthiness and authenticity towards scientists in controversial scientific fields.”</span> <em>Journal of Science Communication</em> 23 (9): A03. <a href="https://doi.org/10.22323/2.23090203">https://doi.org/10.22323/2.23090203</a>.
+</div>
+<div id="ref-todorovaMachineLearningIdentifies2025" class="csl-entry" role="listitem">
+Todorova, Boryana, David Steyrl, Matthew J. Hornsey, Samuel Pearson, Cameron Brick, Florian Lange, Jay J. Van Bavel, Madalina Vlasceanu, Claus Lamm, and Kimberly C. Doell. 2025. <span>“Machine Learning Identifies Key Individual and Nation-Level Factors Predicting Climate-Relevant Beliefs and Behaviors.”</span> <em>Npj Climate Action</em> 4 (1): 46. <a href="https://doi.org/10.1038/s44168-025-00251-4">https://doi.org/10.1038/s44168-025-00251-4</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -640,6 +700,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="faux-block"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2025 Jan Pfänder</span></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><span class="faux-block">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a></span>, <span class="faux-block"><a href="https://github.com/janpfander/trust_climate_scientists/tree/main">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></span></p>
+</div>
+  </div>
+</footer>
 
 
 

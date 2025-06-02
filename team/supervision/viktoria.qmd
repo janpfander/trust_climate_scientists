@@ -1,6 +1,6 @@
 ---
 title: "Viktoria Cologna"
-subtitle: Early-Career Fellow, Collegium Helveticum, *Switzerland*
+subtitle: Incoming group leader, Eawag, *Switzerland*
 sortby: "1"
 image: /images/viktoria.jpg
 toc: false

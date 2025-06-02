@@ -13,6 +13,19 @@ website:
       - newsletter.qmd
       - faq.qmd
       - team.qmd
+      
+    # Contact
+    right:
+      - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}} Write us an email"
+        href: "mailto:stics.megastudy@gmail.com" 
+
+  page-footer: 
+    background: light
+    left: |
+      <span class="faux-block">{{< fa brands creative-commons >}} {{< var years >}} Jan Pfänder</span>
+    right: |
+      <span class="faux-block">Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)</span>, 
+      <span class="faux-block">[View the source at {{< fa brands github >}} GitHub]({{< var github-url >}})</span>
 
 format:
   html:
@@ -22,5 +35,7 @@ format:
     css: styles.css
     toc: true
 
-editor: visual
+editor: source
+
+
 

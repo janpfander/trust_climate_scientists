@@ -1,17 +1,32 @@
 ---
-title: "Strengthening Trust in Climate Scientists (STICS)"
-toc: false
-description: |
-  A call for a collaborative megastudy 
+title: | 
+  Strengthening Trust in Climate Scientists 
   
+  (STICS)
+toc: false
+# subtitle: A call for a collaborative megastudy
+description: |
+  
+  **A call for a collaborative megastudy**
+  
+  Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States and Switzerland. 
+  
+  We invite you--whether you are an academic or a practitioner--to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team and expert advisory board. We will select the most promising interventions and test them in a megastudy--a large, online experiment. 
+  
+  Successful contributors will receive co-authorship in the primary publication arising from this project.
+  
+  For more info, check out the [call for collaborations](call_for_collaborations.qmd) and the [research design section](research_design.qmd).
+
 title-block-banner: images/windmills.jpg
 title-block-banner-color: white
+
 include-in-header:
   - text: |
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: bottom;
         height: 600px;
+        position: relative;
       }
 
       /* Increase title and description font sizes */
@@ -20,14 +35,39 @@ include-in-header:
         font-weight: bold;
       }
 
-      .quarto-title-block .description {
-        font-size: 1.5rem;
+      .quarto-title-block .subtitle {
+        font-size: 2rem;
         margin-top: 2rem;
-        <!-- position: absolute; -->
-        <!-- bottom: 20px; -->
       }
-      </style>
+
+      .quarto-title-block .description {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+        position: absolute;
+        color: black;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        max-width: 95%;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
       
+      .quarto-title-block .description a {
+        color: #007BFF; /* Bootstrap blue */
+        text-decoration: underline;
+      }
+
+
+      </style>
+
+format:
+  html:
+    page-layout: full
+
 listing:
   id: newsletter
   contents: newsletter
@@ -41,14 +81,7 @@ listing:
   filter-ui: false
 ---
 
-# What is this project about? 
-
-Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to short, online interventions that strengthen people's trust in climate scientists in the United States and Switzerland. We invite you--whether you are an academic or a practitioner--to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team, with the help of our expert advisory board. We will select the most promising interventions an test them in a megastudy--a large, online experiment. Successful contributors will receive co-authorship in published research and public recognition. 
-
-If your interested, check out the [call for collaborations](call_for_collaborations.qmd). 
-
-If you want to know more about the project, check out the [research design section](research_design.qmd).
-
+# Newsletter
 
 :::{#newsletter}
 :::
