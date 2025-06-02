@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A call for a collaborative megastudy">
 
-<title>Strengthening Trust in Climate Scientists (STICS) – Home</title>
+<title>Newsletter – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,20 +71,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-newsletter .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-newsletter'] = new List('listing-newsletter', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -117,23 +116,11 @@ background-size: cover;
       }
 </style>
 <style>
-.quarto-title-block .quarto-title-banner {
-  background-position-y: bottom;
-  height: 600px;
-}
-
-/* Increase title and description font sizes */
-.quarto-title-block .title {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.quarto-title-block .description {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-
-
-}
+  /* Use bottom part of the banner image */
+  .quarto-title-block .quarto-title-banner {
+    background-position: center bottom;
+    background-size: cover;
+  }
 </style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -169,7 +156,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -195,7 +182,7 @@ window.Quarto = {
 <span class="menu-text">Collaborate</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./newsletter.html"> 
+    <a class="nav-link active" href="./newsletter.html" aria-current="page"> 
 <span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
@@ -216,18 +203,14 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Strengthening Trust in Climate Scientists (STICS)</h1>
-                  <div>
-        <div class="description">
-          <p>A call for a collaborative megastudy</p>
-        </div>
-      </div>
-                </div>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Newsletter</h1>
+            <p class="subtitle lead">Regular updates on the project</p>
+                      </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -235,36 +218,31 @@ window.Quarto = {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<section id="what-is-this-project-about" class="level1">
-<h1>What is this project about?</h1>
-<p>Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to short, online interventions that strengthen people’s trust in climate scientists in the United States and Switzerland. We invite you–whether you are an academic or a practitioner–to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team, with the help of our expert advisory board. We will select the most promising interventions an test them in a megastudy–a large, online experiment. Successful contributors will receive co-authorship in published research and public recognition.</p>
-<p>If your interested, check out the <a href="./call_for_collaborations.html">call for collaborations</a>.</p>
-<p>If you want to know more about the project, check out the <a href="./research_design.html">research design section</a>.</p>
-<div id="listing-newsletter" class="quarto-listing quarto-listing-container-default">
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
 
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div>
-
-
-
-</section>
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

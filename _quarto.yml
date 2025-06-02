@@ -1,14 +1,18 @@
 project:
   type: website
   output-dir: docs
+  
+freeze: auto 
 
 website:
-  title: "trust_climate_scientists"
+  title: "Home"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - research_design.qmd
+      - call_for_collaborations.qmd
+      - newsletter.qmd
+      - faq.qmd
+      - team.qmd
 
 format:
   html:

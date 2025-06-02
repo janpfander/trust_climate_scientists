@@ -1,0 +1,67 @@
+---
+title: "Team"
+toc: true
+page-layout: full
+title-block-banner: images/windmills.jpg
+title-block-banner-color: white
+include-in-header:
+  - text: |
+      <style>
+        /* Use bottom part of the banner image */
+        .quarto-title-block .quarto-title-banner {
+          background-position: center bottom;
+          background-size: cover;
+        }
+      </style>
+
+listing:
+  - id: lead
+    contents: "lead/*.qmd"
+    type: grid
+    image-height: 325px
+    grid-columns: 4
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    grid-item-border: false
+    sort: sortby
+    field-display-names: 
+      started: "Started"
+  - id: supervision
+    contents: "supervision/*.qmd"
+    type: grid
+    image-height: 325px
+    grid-columns: 4
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    grid-item-border: false
+    sort: sortby
+    field-display-names: 
+      started: "Started"
+  - id: advisory
+    contents: "advisory/*.qmd"
+    type: grid
+    image-height: 325px
+    grid-columns: 4
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    grid-item-border: false
+    sort: sortby
+    field-display-names: 
+      started: "Started"
+---
+
+# Project lead
+
+:::{#lead}
+:::
+
+# Supervision
+
+:::{#supervision}
+:::
+
+# Advisory board
+
+:::{#advisory}
+:::
+

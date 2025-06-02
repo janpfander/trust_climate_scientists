@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A call for a collaborative megastudy">
 
-<title>Strengthening Trust in Climate Scientists (STICS) – Home</title>
+<title>Collaborate – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,35 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-newsletter .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-newsletter'] = new List('listing-newsletter', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>
 
       .quarto-title-block .quarto-title-banner h1,
@@ -117,59 +85,18 @@ background-size: cover;
       }
 </style>
 <style>
-.quarto-title-block .quarto-title-banner {
-  background-position-y: bottom;
-  height: 600px;
-}
-
-/* Increase title and description font sizes */
-.quarto-title-block .title {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.quarto-title-block .description {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-
-
-}
+  /* Use bottom part of the banner image */
+  .quarto-title-block .quarto-title-banner {
+    background-position: center;
+    background-size: cover;
+  }
 </style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -191,7 +118,7 @@ window.Quarto = {
 <span class="menu-text">Research Design</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./call_for_collaborations.html"> 
+    <a class="nav-link active" href="./call_for_collaborations.html" aria-current="page"> 
 <span class="menu-text">Collaborate</span></a>
   </li>  
   <li class="nav-item">
@@ -217,13 +144,8 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Strengthening Trust in Climate Scientists (STICS)</h1>
-                  <div>
-        <div class="description">
-          <p>A call for a collaborative megastudy</p>
-        </div>
-      </div>
-                </div>
+      <h1 class="title">Collaborate</h1>
+                      </div>
   </div>
     
   
@@ -238,7 +160,20 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-should-i-participate-in-the-stics-project" id="toc-why-should-i-participate-in-the-stics-project" class="nav-link active" data-scroll-target="#why-should-i-participate-in-the-stics-project">Why should I participate in the STICS project?</a></li>
+  <li><a href="#what-is-an-intervention" id="toc-what-is-an-intervention" class="nav-link" data-scroll-target="#what-is-an-intervention">What is an intervention?</a></li>
+  <li><a href="#what-are-the-outcomes" id="toc-what-are-the-outcomes" class="nav-link" data-scroll-target="#what-are-the-outcomes">What are the outcomes?</a></li>
+  <li><a href="#what-are-the-requirements-for-my-intervention" id="toc-what-are-the-requirements-for-my-intervention" class="nav-link" data-scroll-target="#what-are-the-requirements-for-my-intervention">What are the Requirements for My Intervention?</a></li>
+  <li><a href="#how-will-you-select-the-interventions" id="toc-how-will-you-select-the-interventions" class="nav-link" data-scroll-target="#how-will-you-select-the-interventions">How will you select the interventions?</a></li>
+  <li><a href="#how-can-i-participate" id="toc-how-can-i-participate" class="nav-link" data-scroll-target="#how-can-i-participate">How can I participate?</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -246,20 +181,81 @@ window.Quarto = {
 
 
 
-<section id="what-is-this-project-about" class="level1">
-<h1>What is this project about?</h1>
-<p>Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to short, online interventions that strengthen people’s trust in climate scientists in the United States and Switzerland. We invite you–whether you are an academic or a practitioner–to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team, with the help of our expert advisory board. We will select the most promising interventions an test them in a megastudy–a large, online experiment. Successful contributors will receive co-authorship in published research and public recognition.</p>
-<p>If your interested, check out the <a href="./call_for_collaborations.html">call for collaborations</a>.</p>
-<p>If you want to know more about the project, check out the <a href="./research_design.html">research design section</a>.</p>
-<div id="listing-newsletter" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+<div class="callout-title-container flex-fill">
+Submission are now open
 </div>
 </div>
-
+<div class="callout-body-container callout-body">
+<p>We will accept submissions until August 31, 2025.</p>
+<p>Submit your short intervention proposal via this survey [ADD LINK].</p>
+</div>
+</div>
+<section id="why-should-i-participate-in-the-stics-project" class="level1">
+<h1>Why should I participate in the STICS project?</h1>
+<p>There is increasing concern that people do not trust climate scientists enough, in particular in the United States. Many people have ideas for how to address this problem. Now is an opportunity to gather and rigorously test many of these ideas. We needed your expertise and the rigor of massive experimentation to address this large issue.</p>
+<p>Everyone whose intervention is selected for testing will be offered co-authorship on the primary publication resulting from the challenge.</p>
+</section>
+<section id="what-is-an-intervention" class="level1">
+<h1>What is an intervention?</h1>
+<p>Social scientists often call an idea that has the potential to change how people think or behave an “intervention.” In the case of the STICS project, an intervention is any idea that may influence the outcome variables we are interested in.</p>
+</section>
+<section id="what-are-the-outcomes" class="level1">
+<h1>What are the outcomes?</h1>
+<p>Our main outcome of interest are people’s perception of climate scientists’ trustworthiness. Check-out the research design section <a href="./research_design.html">research design section</a> for more details on the outcomes and how we measure them.</p>
+</section>
+<section id="what-are-the-requirements-for-my-intervention" class="level1">
+<h1>What are the Requirements for My Intervention?</h1>
+<ul>
+<li>Ethical: The intervention must be approved by Stanford’s and the ETH Zurich’s Institutional Review Board (see details below).</li>
+<li>Online: The intervention must be deployable online.</li>
+<li>Short: The intervention must be no longer than 8 minutes.</li>
+<li>Scalable: The intervention must be able to handle up to 1,000 participants at the same time.</li>
+<li>Comprehensible: The intervention must be understandable to an English-speaking audience.</li>
+<li>Costless: The intervention must not pay participants in addition to what they are already being paid to participate in the study.</li>
+<li>Aligned: You cannot add additional measures for evaluating your intervention</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ethical requirements
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your intervention must provide accurate and true information without exposing participants to unnecessary risks or harm:</p>
+<ul>
+<li>you may not deceive participants,</li>
+<li>you may not ask participants to state false beliefs (e.g.&nbsp;ask them to rate all feeling thermometers at 100),</li>
+<li>you may not present information to participants that is hateful, disturbing, or offensive,</li>
+<li>you may not ask participants to engage in hateful or disturbing behaviors.</li>
+</ul>
+<p>Further, your intervention must obtain ethics approval by XX’s Institutional Review Board (IRB). If your intervention is selected, our team will obtain IRB approval for your intervention. If the IRB requires changes to your intervention, we will work with you to make those changes while maintaining as much consistency as possible to your original idea. You are encouraged to contact us via sdchallenge@stanford.edu if you have concerns about ethics approval. We will not select interventions that attempt to game the system in some way, e.g., by instructing participants on how to reply to the DVs.</p>
+</div>
+</div>
+</section>
+<section id="how-will-you-select-the-interventions" class="level1">
+<h1>How will you select the interventions?</h1>
+<p>Our expert team–the research supervisors and the expert advisory board–will provide review submissions and select the 9 most promising interventions for testing. Members of the advisory board are experts on trust in science from diverse backgrounds, including academics from different disciplines as well as practitioners.</p>
+<p>The selection process is <strong>annonymous</strong>: Only the Project lead–who will neither review pre-selected interventions, nor vote during the final selection–knows about the identity of the contributors.</p>
+<p>The selection process has two stages: First, all contributors to submit a very short description of their study. We will then pre-select interventions that we deem feasible and promising. Second, pre-selected contributors submit a detailed intervention design. The expert team will review these interventions to check whether they satisfy the requirements for interventions. We will notify you if your intervention does not satisfy the requirements and work with you, within reason, to revise the intervention so that it is eligible. You are welcome to contact us with questions about your intervention before you submit.</p>
+<p>Each intervention will be reviewed by at least 2 experts. Reviews will be based on the following criteria:</p>
+<ul>
+<li>What is the expected success of this intervention?</li>
+<li>How novel is this intervention?</li>
+<li>Reviewers will reveal if they know the identity of the proposers to avoid conflicts of interest.</li>
+</ul>
+<p>In a plenary meeting, the whole expert team will then vote for the final interventions based on the reviews.</p>
+</section>
+<section id="how-can-i-participate" class="level1">
+<h1>How can I participate?</h1>
+<p>Submit a short description [max 500 words] of your intervention via this google survey. [ADD SURVEY LINK]</p>
 
 
 </section>

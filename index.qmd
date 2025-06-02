@@ -1,11 +1,54 @@
 ---
-title: "trust_climate_scientists"
+title: "Strengthening Trust in Climate Scientists (STICS)"
+toc: false
+description: |
+  A call for a collaborative megastudy 
+  
+title-block-banner: images/windmills.jpg
+title-block-banner-color: white
+include-in-header:
+  - text: |
+      <style>
+      .quarto-title-block .quarto-title-banner {
+        background-position-y: bottom;
+        height: 600px;
+      }
+
+      /* Increase title and description font sizes */
+      .quarto-title-block .title {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .quarto-title-block .description {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        <!-- position: absolute; -->
+        <!-- bottom: 20px; -->
+      }
+      </style>
+      
+listing:
+  id: newsletter
+  contents: newsletter
+  sort: "date desc"
+  type: default
+  image-align: right
+  max-description-length: 175
+  date-format: medium
+  categories: false
+  sort-ui: false
+  filter-ui: false
 ---
 
-This is a Quarto website.
+# What is this project about? 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to short, online interventions that strengthen people's trust in climate scientists in the United States and Switzerland. We invite you--whether you are an academic or a practitioner--to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team, with the help of our expert advisory board. We will select the most promising interventions an test them in a megastudy--a large, online experiment. Successful contributors will receive co-authorship in published research and public recognition. 
 
-```{r}
-1 + 1
-```
+If your interested, check out the [call for collaborations](call_for_collaborations.qmd). 
+
+If you want to know more about the project, check out the [research design section](research_design.qmd).
+
+
+:::{#newsletter}
+:::

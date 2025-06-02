@@ -1,0 +1,20 @@
+---
+title: "Viktoria Cologna"
+subtitle: Early-Career Fellow, Collegium Helveticum, *Switzerland*
+sortby: "1"
+image: /images/viktoria.jpg
+toc: false
+comments: false
+
+about:
+  id: person-profile
+  template: jolla
+  image-shape: round
+  links:
+    - icon: link
+      text: website
+      href: https://www.viktoriacologna.com/
+---
+
+::: {#person-profile}
+:::

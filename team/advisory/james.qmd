@@ -1,0 +1,20 @@
+---
+title: "James Druckman"
+subtitle: Professor, University of Rochester, *United States*
+sortby: "4"
+image: /images/james.jpeg
+toc: false
+comments: false
+
+about:
+  id: person-profile
+  template: jolla
+  image-shape: round
+  links:
+    - icon: link
+      text: website
+      href: https://sites.google.com/view/jamie-druckman
+---
+
+::: {#person-profile}
+:::

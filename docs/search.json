@@ -1,16 +1,142 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "team/advisory/hugo.html",
+    "href": "team/advisory/hugo.html",
+    "title": "Hugo Mercier",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/mike.html",
+    "href": "team/advisory/mike.html",
+    "title": "Mike S. Schäfer",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/john.html",
+    "href": "team/advisory/john.html",
+    "title": "John C. Besley",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/sebastian.html",
+    "href": "team/advisory/sebastian.html",
+    "title": "Sebastian Berger",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/supervision/viktoria.html",
+    "href": "team/supervision/viktoria.html",
+    "title": "Viktoria Cologna",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/supervision/sara.html",
+    "href": "team/supervision/sara.html",
+    "title": "Sara Constantino",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "faq.html",
+    "href": "faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "Why the US and Switzerland?\nIn the US, recent evidence suggested a decline of trust in scientists in general. This is in line with the current government policies that prevent climate action and deny the climate crisis.\nIn Switzerland, trust is below the global average, potentially hindering the country’s capacity to implement evidence-based climate policies (Cologna et al., 2025)."
+  },
+  {
+    "objectID": "newsletter.html",
+    "href": "newsletter.html",
+    "title": "Newsletter",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "research_design.html",
+    "href": "research_design.html",
+    "title": "Research Design",
+    "section": "",
+    "text": "Climate change is one of the most pressing societal issues (Rogelj et al., 2023). It requires urgent action at both the policymaking and individual level (IPCC, 2023).\nTrust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action (Todorova et al., 2024; see also Bonfanti et al., 2024; Cologna & Siegrist, 2020; Hornsey et al., 2016).\nWhile trust in scientists is moderately high globally (Cologna et al., 2025), climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general (Druckman et al., 2024; Ghasemi et al., 2024; Schrøder, 2023; Schug et al., 2024). Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.\nIncreasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap."
+  },
+  {
+    "objectID": "research_design.html#sample-size",
+    "href": "research_design.html#sample-size",
+    "title": "Research Design",
+    "section": "Sample size",
+    "text": "Sample size\nAn a priori power analysis using G*Power (Faul et al., 2007), shows that for a One Way ANOVA with 10 conditions (9 interventions and one control condition), to achieve 95% power to detect a small effect size f of at least f = 0.05, at an alpha level of 0.05, a sample of N = 9,450 participants is needed. Since the interventions will be tested across population segments, and the approximate size of the segments will be determined in WP1, we err on the conservative side and aim to collect a US sample of N = 10,000 and a Swiss sample of N = 10,000, for a total of N = 20,000 participants, with approximately N = 1,000 participants per condition per country.\nOnce we have selected interventions, we will run a final power simulation to be included into our preregistration."
+  },
+  {
+    "objectID": "research_design.html#recruitement",
+    "href": "research_design.html#recruitement",
+    "title": "Research Design",
+    "section": "Recruitement",
+    "text": "Recruitement\nRepresentative samples for age, gender, and education in both countries will be recruited by the market research company Bilendi & respondi."
+  },
+  {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Team",
+    "section": "",
+    "text": "Project lead\n\n\n\n\n\n\n\n\n\n\nJan Pfänder\n\n\nPhD candidate, École Normale Supérieure (ENS-PSL), France\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nSupervision\n\n\n\n\n\n\n\n\n\n\nViktoria Cologna\n\n\nEarly-Career Fellow, Collegium Helveticum, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\n\nMadalina Vlasceanu\n\n\nAssistant Professor, Stanford, United States\n\n\n\n\n\n\n\n\n\n\n\n\n\nSara Constantino\n\n\nAssistant Professor, Northeastern University, United States\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAdvisory board\n\n\n\n\n\n\n\n\n\n\nCameron Brick\n\n\nAssistant Professor, University of Amsterdam, Netherlands\n\n\n\n\n\n\n\n\n\n\n\n\n\nJohn C. Besley\n\n\nProfessor, Michigan State University, United States\n\n\n\n\n\n\n\n\n\n\n\n\n\nEdward Wile Maibach\n\n\nProfessor, George Mason University, United States\n\n\n\n\n\n\n\n\n\n\n\n\n\nJames Druckman\n\n\nProfessor, University of Rochester, United States\n\n\n\n\n\n\n\n\n\n\n\n\n\nSebastian Berger\n\n\nAssistant Professor, University of Bern, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\n\nHugo Mercier\n\n\nResearch Director at the CNRS, Institut Jean Nicod, France\n\n\n\n\n\n\n\n\n\n\n\n\n\nMario Scharfbillig\n\n\nScience Policy Advisor, Joint Research Centre (JRC), European Commission\n\n\n\n\n\n\n\n\n\n\n\n\n\nMike S. Schäfer\n\n\nProfessor, University of Zurich, Switzerland\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "trust_climate_scientists",
+    "title": "Strengthening Trust in Climate Scientists (STICS)",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "What is this project about?\nStrengthening Trust in Climate Scientists (STICS) is a collaborative research project to short, online interventions that strengthen people’s trust in climate scientists in the United States and Switzerland. We invite you–whether you are an academic or a practitioner–to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team, with the help of our expert advisory board. We will select the most promising interventions an test them in a megastudy–a large, online experiment. Successful contributors will receive co-authorship in published research and public recognition.\nIf your interested, check out the call for collaborations.\nIf you want to know more about the project, check out the research design section.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "team/lead/jan.html",
+    "href": "team/lead/jan.html",
+    "title": "Jan Pfänder",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/supervision/madalina.html",
+    "href": "team/supervision/madalina.html",
+    "title": "Madalina Vlasceanu",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/edward.html",
+    "href": "team/advisory/edward.html",
+    "title": "Edward Wile Maibach",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/cameron.html",
+    "href": "team/advisory/cameron.html",
+    "title": "Cameron Brick",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/mario.html",
+    "href": "team/advisory/mario.html",
+    "title": "Mario Scharfbillig",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "team/advisory/james.html",
+    "href": "team/advisory/james.html",
+    "title": "James Druckman",
+    "section": "",
+    "text": "website"
+  },
+  {
+    "objectID": "call_for_collaborations.html",
+    "href": "call_for_collaborations.html",
+    "title": "Collaborate",
+    "section": "",
+    "text": "Submission are now open\n\n\n\nWe will accept submissions until August 31, 2025.\nSubmit your short intervention proposal via this survey [ADD LINK].\n\n\n\nWhy should I participate in the STICS project?\nThere is increasing concern that people do not trust climate scientists enough, in particular in the United States. Many people have ideas for how to address this problem. Now is an opportunity to gather and rigorously test many of these ideas. We needed your expertise and the rigor of massive experimentation to address this large issue.\nEveryone whose intervention is selected for testing will be offered co-authorship on the primary publication resulting from the challenge.\n\n\nWhat is an intervention?\nSocial scientists often call an idea that has the potential to change how people think or behave an “intervention.” In the case of the STICS project, an intervention is any idea that may influence the outcome variables we are interested in.\n\n\nWhat are the outcomes?\nOur main outcome of interest are people’s perception of climate scientists’ trustworthiness. Check-out the research design section research design section for more details on the outcomes and how we measure them.\n\n\nWhat are the Requirements for My Intervention?\n\nEthical: The intervention must be approved by Stanford’s and the ETH Zurich’s Institutional Review Board (see details below).\nOnline: The intervention must be deployable online.\nShort: The intervention must be no longer than 8 minutes.\nScalable: The intervention must be able to handle up to 1,000 participants at the same time.\nComprehensible: The intervention must be understandable to an English-speaking audience.\nCostless: The intervention must not pay participants in addition to what they are already being paid to participate in the study.\nAligned: You cannot add additional measures for evaluating your intervention\n\n\n\n\n\n\n\nEthical requirements\n\n\n\nYour intervention must provide accurate and true information without exposing participants to unnecessary risks or harm:\n\nyou may not deceive participants,\nyou may not ask participants to state false beliefs (e.g. ask them to rate all feeling thermometers at 100),\nyou may not present information to participants that is hateful, disturbing, or offensive,\nyou may not ask participants to engage in hateful or disturbing behaviors.\n\nFurther, your intervention must obtain ethics approval by XX’s Institutional Review Board (IRB). If your intervention is selected, our team will obtain IRB approval for your intervention. If the IRB requires changes to your intervention, we will work with you to make those changes while maintaining as much consistency as possible to your original idea. You are encouraged to contact us via sdchallenge@stanford.edu if you have concerns about ethics approval. We will not select interventions that attempt to game the system in some way, e.g., by instructing participants on how to reply to the DVs.\n\n\n\n\nHow will you select the interventions?\nOur expert team–the research supervisors and the expert advisory board–will provide review submissions and select the 9 most promising interventions for testing. Members of the advisory board are experts on trust in science from diverse backgrounds, including academics from different disciplines as well as practitioners.\nThe selection process is annonymous: Only the Project lead–who will neither review pre-selected interventions, nor vote during the final selection–knows about the identity of the contributors.\nThe selection process has two stages: First, all contributors to submit a very short description of their study. We will then pre-select interventions that we deem feasible and promising. Second, pre-selected contributors submit a detailed intervention design. The expert team will review these interventions to check whether they satisfy the requirements for interventions. We will notify you if your intervention does not satisfy the requirements and work with you, within reason, to revise the intervention so that it is eligible. You are welcome to contact us with questions about your intervention before you submit.\nEach intervention will be reviewed by at least 2 experts. Reviews will be based on the following criteria:\n\nWhat is the expected success of this intervention?\nHow novel is this intervention?\nReviewers will reveal if they know the identity of the proposers to avoid conflicts of interest.\n\nIn a plenary meeting, the whole expert team will then vote for the final interventions based on the reviews.\n\n\nHow can I participate?\nSubmit a short description [max 500 words] of your intervention via this google survey. [ADD SURVEY LINK]"
   }
 ]

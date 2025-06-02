@@ -1,0 +1,26 @@
+---
+title: "Newsletter"
+subtitle: "Regular updates on the project"
+listing:
+  contents: newsletter
+  sort: "date desc"
+  type: default
+  image-align: right
+  max-description-length: 175
+  date-format: medium
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: images/windmills.jpg
+title-block-banner-color: white
+include-in-header:
+  - text: |
+      <style>
+        /* Use bottom part of the banner image */
+        .quarto-title-block .quarto-title-banner {
+          background-position: center bottom;
+          background-size: cover;
+        }
+      </style>
+---

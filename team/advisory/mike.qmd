@@ -1,0 +1,20 @@
+---
+title: "Mike S. Schäfer"
+subtitle: Professor, University of Zurich, *Switzerland*
+sortby: "7"
+image: /images/mike.jpg
+toc: false
+comments: false
+
+about:
+  id: person-profile
+  template: jolla
+  image-shape: round
+  links:
+    - icon: link
+      text: website
+      href: https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html
+---
+
+::: {#person-profile}
+:::
