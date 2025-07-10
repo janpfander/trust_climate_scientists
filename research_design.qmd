@@ -33,7 +33,7 @@ Climate change is one of the most pressing societal issues and requires urgent a
 
 Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action [@todorovaMachineLearningIdentifies2025; @colognaRoleTrustClimate2020; @hornseyMetaanalysesDeterminantsOutcomes2016].
 
-While trust in scientists is moderately high globally [@colognaTrustClimate scientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiInvestigatingTrustGap2024; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
+While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiInvestigatingTrustGap2024; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
 
 Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.
 
@@ -79,29 +79,7 @@ trustworthiness_items <- tribble(
   "Openness", "How willing or unwilling are most climate scientists to be transparent?", 
     "(1) Very unwilling, (2) Somewhat unwilling, (3) Neither willing nor unwilling, (4) Somewhat willing, (5) Very willing",
   "Openness", "How much or little attention do climate scientists pay to others' views?", 
-    "(1) Pay very little attention to others' views, (2) Pay only a small amount of attention to others' views, (3) Pay a moderate amount of attention to others' views, (4) Pay a lot of attention to others' views, (5) Pay a great deal of attention to others' views",
-  
-# Normative Perceptions of Science and Society
-  "", "Climate scientists should work closely with politicians to integrate scientific results into policy-making", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "", "Climate scientists should actively advocate for specific policies", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "", "Climate scientists should communicate their findings to politicians", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "", "Climate scientists should be more involved in the policy-making process", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "", "Climate scientists should communicate about science with the general public", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "", "Climate scientists should remain independent from the policy-making process", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  
-  # Willingness to be vulnerable to climate scientists
-  "", "How much or little should people rely on climate scientists’ guidance when making lifestyle choices related to climate science?", 
-    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
-  "", "How much or little should governments rely on climate scientists’ guidance when making decisions related to climate science?", 
-    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
-  "", "How much or little control do you want climate scientists to have on government decisions related to science?", 
-    "(1) No control at all, (2) A little control, (3) A moderate amount of control, (4) A lot of control, (5) Complete control"
+    "(1) Pay very little attention to others' views, (2) Pay only a small amount of attention to others' views, (3) Pay a moderate amount of attention to others' views, (4) Pay a lot of attention to others' views, (5) Pay a great deal of attention to others' views"
 ) |>
   group_by(Dimension) |>
   mutate(Dimension = ifelse(row_number() == 1, Dimension, "")) |>
@@ -110,22 +88,72 @@ trustworthiness_items <- tribble(
 # Display the table
 trustworthiness_items |>
   kable(col.names = c("Dimension", "Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
-  kable_styling(full_width = FALSE, font_size = 11, position = "center") |>
-  pack_rows("Trustworthiness of climate scientists", 1, 12) |>
-  pack_rows("Normative perceptions of climate scientists", 13, 18) |>
-  pack_rows("Willingness to be vulnerable to the advice of climate scientists", 19, 21)
+  kable_styling(full_width = FALSE, font_size = 11, position = "center") 
 ```
 
 ## Behavioral measures
 
-### Donation 
+### Donation
 
+To assess consequential and impactful behavior, participants will be given the option to donate a monetary bonus to a non-profit scientific association in the area of climate science (American Geophysical Union in the US or European Geosciences Union in Switzerland) or keep it for themselves. AGU and EGU were chosen because they are the leading scientific associations for scientists working on climate change. Participants will be informed of the following:
+
+> “For the next question, we would like you to allocate $10 [10 CHF for Swiss participants] between yourself and the American Geophysical Union (AGU) [European Geosciences Union (EGU)]—a non-profit scientific association that envisions a thriving, sustainable and equitable future supported by scientific discovery, innovation and action. AGU [EGU] is the largest scientific association in the area of climate change in the US [in Europe], with over 15,000 scientist members. You can give all of the money to AGU [EGU] and keep none for yourself, or you can keep all the money for yourself and give none to AGU [EGU], or you can pick any split in between.”
+
+[Slider]
+
+> "**Important: We will randomly select a subset of 100 participants and actually implement their choices.**"
 
 ### Petition
 
-## Normative perceptions (scientists in policy)
+[*to be done*]
+
+## Normative perceptions & Willingness to be vulnerable
+
+```{r}
+# Full table
+normative_items <- tribble(
+  ~Item, ~Response_Options,
+  
+# Normative Perceptions of Science and Society
+  "Climate scientists should work closely with politicians to integrate scientific results into policy-making", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "Climate scientists should actively advocate for specific policies", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "Climate scientists should communicate their findings to politicians", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "Climate scientists should be more involved in the policy-making process", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "Climate scientists should communicate about science with the general public", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "Climate scientists should remain independent from the policy-making process", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  
+  # Willingness to be vulnerable to climate scientists
+  "How much or little should people rely on climate scientists’ guidance when making lifestyle choices related to climate science?", 
+    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
+  "How much or little should governments rely on climate scientists’ guidance when making decisions related to climate science?", 
+    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
+  "How much or little control do you want climate scientists to have on government decisions related to science?", 
+    "(1) No control at all, (2) A little control, (3) A moderate amount of control, (4) A lot of control, (5) Complete control"
+) 
+
+# Display the table
+normative_items |>
+  kable(col.names = c("Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
+  kable_styling(full_width = FALSE, font_size = 11, position = "center") |>
+  pack_rows("Normative perceptions of climate scientists", 1, 6) |>
+  pack_rows("Willingness to be vulnerable to the advice of climate scientists", 7, 9)
+```
 
 ## Funding
+
+\[*to be discussed*\] 
+
+Form the National [Science Foundation (NSF) – Science & Engineering Indicators](https://ncses.nsf.gov/pubs/nsb20227/public-perceptions-of-science-and-technology#general-perceptions-of-s-t):
+
+> Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government. \[Strongly disagree - Strongly agree\][^1]
+
+[^1]: The question, with slightly different wording, has been asked in @ophirFactorsAssessingSciences2023: "How strongly do you disagree or agree that even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge should be funded by the federal government? (5-point likert scale)"
 
 # Participants
 

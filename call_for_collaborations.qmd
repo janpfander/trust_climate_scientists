@@ -14,11 +14,11 @@ include-in-header:
 ---
 
 ::: {.callout-note}
-## Submission are now open
+## Submission open on October 1st
 
-We will accept submissions until August 31, 2025. 
+We will accept submissions until October 21st, 2025. 
 
-Submit your short intervention proposal via this survey [ADD LINK].
+Submit your short intervention proposal via this survey [*LINK TO BE ADDED*].
 :::
 
 # Why should I participate in the STICS project?
