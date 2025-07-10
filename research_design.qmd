@@ -11,8 +11,21 @@ include-in-header:
           background-size: cover;
         }
       </style>
+      
+execute:
+  echo: false   # Don't show code
+  warning: false
+  message: false
+
 bibliography: references.bib
 ---
+
+```{r setup}
+library(tidyverse)
+library(kableExtra)
+library(lubridate)
+library(ganttrify)
+```
 
 # Motivation
 
@@ -20,15 +33,99 @@ Climate change is one of the most pressing societal issues and requires urgent a
 
 Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action [@todorovaMachineLearningIdentifies2025; @colognaRoleTrustClimate2020; @hornseyMetaanalysesDeterminantsOutcomes2016].
 
-While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiInvestigatingTrustGap2024; @schroderDonTellMe; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
+While trust in scientists is moderately high globally [@colognaTrustClimate scientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiInvestigatingTrustGap2024; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
 
 Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.
 
 # Outcomes
 
+## Climate scientists' trustworthiness
+
 Our main outcome of interest is people's perception of climate scientists' trustworthiness. In addition to this, we will also measure attitudes towards climate change, support for climate policies, normative perceptions of climate scientists, and pro-climate behavioral outcomes.
 
-\[tbd\]
+```{r}
+# Full table
+trustworthiness_items <- tribble(
+  ~Dimension, ~Item, ~Response_Options,
+  
+  # Competence
+  "", "We are interested in your general opinion about climate scientists, including scientists working at universities, in government, at companies, and for non-profit organizations.", "",
+  "Competence", "How competent or incompetent are most climate scientists?", 
+    "(1) Very incompetent, (2) Somewhat incompetent, (3) Neither competent nor incompetent, (4) Somewhat competent, (5) Very competent",
+  "Competence", "How intelligent or unintelligent are most climate scientists?", 
+    "(1) Very unintelligent, (2) Somewhat unintelligent, (3) Neither intelligent nor unintelligent, (4) Somewhat intelligent, (5) Very intelligent",
+  "Competence", "How qualified or unqualified are most scientists when it comes to conducting high-quality research?", 
+    "(1) Very unqualified, (2) Somewhat unqualified, (3) Neither qualified nor unqualified, (4) Somewhat qualified, (5) Very qualified",
+  
+  # Integrity
+  "Integrity", "How honest or dishonest are most climate scientists?", 
+    "(1) Very dishonest, (2) Somewhat dishonest, (3) Neither honest nor dishonest, (4) Somewhat honest, (5) Very honest",
+  "Integrity", "How ethical or unethical are most climate scientists?", 
+    "(1) Very unethical, (2) Somewhat unethical, (3) Neither ethical nor unethical, (4) Somewhat ethical, (5) Very ethical",
+  "Integrity", "How sincere or insincere are most climate scientists?", 
+    "(1) Very insincere, (2) Somewhat insincere, (3) Neither sincere nor insincere, (4) Somewhat sincere, (5) Very sincere",
+  
+  # Benevolence
+  "Benevolence", "How concerned or unconcerned are most climate scientists about people’s wellbeing?", 
+    "(1) Very unconcerned, (2) Somewhat unconcerned, (3) Neither concerned nor unconcerned, (4) Somewhat concerned, (5) Very concerned",
+  "Benevolence", "How eager or uneager are most climate scientists to improve others’ lives?", 
+    "(1) Very uneager, (2) Somewhat uneager, (3) Neither eager nor uneager, (4) Somewhat eager, (5) Very eager",
+  "Benevolence", "How considerate or inconsiderate are most climate scientists of others’ interests?", 
+    "(1) Very inconsiderate, (2) Somewhat inconsiderate, (3) Neither considerate nor inconsiderate, (4) Somewhat considerate, (5) Very considerate",
+  
+  # Openness
+  "Openness", "How open, if at all, are most climate scientists to feedback?", 
+    "(1) Not open, (2) Somewhat not open, (3) Neither open nor not open, (4) Somewhat open, (5) Very open",
+  "Openness", "How willing or unwilling are most climate scientists to be transparent?", 
+    "(1) Very unwilling, (2) Somewhat unwilling, (3) Neither willing nor unwilling, (4) Somewhat willing, (5) Very willing",
+  "Openness", "How much or little attention do climate scientists pay to others' views?", 
+    "(1) Pay very little attention to others' views, (2) Pay only a small amount of attention to others' views, (3) Pay a moderate amount of attention to others' views, (4) Pay a lot of attention to others' views, (5) Pay a great deal of attention to others' views",
+  
+# Normative Perceptions of Science and Society
+  "", "Climate scientists should work closely with politicians to integrate scientific results into policy-making", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "", "Climate scientists should actively advocate for specific policies", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "", "Climate scientists should communicate their findings to politicians", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "", "Climate scientists should be more involved in the policy-making process", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "", "Climate scientists should communicate about science with the general public", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  "", "Climate scientists should remain independent from the policy-making process", 
+    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
+  
+  # Willingness to be vulnerable to climate scientists
+  "", "How much or little should people rely on climate scientists’ guidance when making lifestyle choices related to climate science?", 
+    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
+  "", "How much or little should governments rely on climate scientists’ guidance when making decisions related to climate science?", 
+    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
+  "", "How much or little control do you want climate scientists to have on government decisions related to science?", 
+    "(1) No control at all, (2) A little control, (3) A moderate amount of control, (4) A lot of control, (5) Complete control"
+) |>
+  group_by(Dimension) |>
+  mutate(Dimension = ifelse(row_number() == 1, Dimension, "")) |>
+  ungroup()
+
+# Display the table
+trustworthiness_items |>
+  kable(col.names = c("Dimension", "Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
+  kable_styling(full_width = FALSE, font_size = 11, position = "center") |>
+  pack_rows("Trustworthiness of climate scientists", 1, 12) |>
+  pack_rows("Normative perceptions of climate scientists", 13, 18) |>
+  pack_rows("Willingness to be vulnerable to the advice of climate scientists", 19, 21)
+```
+
+## Behavioral measures
+
+### Donation 
+
+
+### Petition
+
+## Normative perceptions (scientists in policy)
+
+## Funding
 
 # Participants
 
@@ -50,4 +147,59 @@ Upon publication, all data, code, and materials will be publicly available.
 
 # Timeline
 
-\[tbd\]
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+
+
+# this visualization uses the ganttrify package (https://github.com/giocomai/ganttrify/)
+
+# Months for mapping
+# May 2025	1
+# June	2
+# July	3
+# August	4
+# September	5
+# October	6
+# November	7
+# December	8
+# January	9
+# February	10
+# March	11
+# April	12
+
+gantt_data <- tribble(
+  ~wp, ~activity, ~start_date, ~end_date,
+
+  # 1: Project setup
+  "1: Project setup", "Set-up advisory board",           1, 1,
+  "1: Project setup", "Create website",                  1, 1,
+  "1: Project setup", "Pick outcomes",                   2, 3,
+  "1: Project setup", "Define submission guidelines",    2, 3,
+  "1: Project setup", "Pick outcomes",                   5, 5,
+  "1: Project setup", "Define submission guidelines",    5, 5,
+
+  # 2: Interventions & Registration
+  "2: Interventions & Registration", "Power analysis",                5, 5,
+  "2: Interventions & Registration", "Call for interventions",        6, 6,
+  "2: Interventions & Registration", "Preregistration",               6, 7,
+  "2: Interventions & Registration", "Select interventions",          7, 7,
+  "2: Interventions & Registration", "Program survey",                7, 7,
+  "2: Interventions & Registration", "IRB approval",                  7, 9,
+
+  # 3: Data, Analysis & Write-up
+  "3: Data, Analysis & Write-up", "Collect data",         10, 10,
+  "3: Data, Analysis & Write-up", "Analyse data",         10, 10,
+  "3: Data, Analysis & Write-up", "Write manuscript",     10, 12,
+  "3: Data, Analysis & Write-up", "Feedback on manuscript", 11, 11,
+  "3: Data, Analysis & Write-up", "Submit manuscript",    12, 12
+)
+
+ganttrify(
+  project = gantt_data,
+  project_start = "2025-05-01",
+  font_family = "sans",
+  colour_palette = MetBrewer::met.brewer("Lakota")
+) 
+```

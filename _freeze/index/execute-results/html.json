@@ -1,0 +1,17 @@
+{
+  "hash": "746a9a84e905d75fe7bdac63d78e79b3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: | \n  Strengthening Trust in Climate Scientists \n  \n  (STICS)\ntoc: false\n# subtitle: A call for a collaborative megastudy\ndescription: |\n  \n  **A call for a collaborative megastudy**\n  \n  Strengthening Trust in Climate Scientists (STICS) is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States and Switzerland. \n  \n  We invite you--whether you are an academic or a practitioner--to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team and expert advisory board. We will select the most promising interventions and test them in a megastudy--a large, online experiment. \n  \n  Successful contributors will receive co-authorship in the primary publication arising from this project.\n  \n  For more info, check out the [call for collaborations](call_for_collaborations.qmd) and the [research design section](research_design.qmd).\n\ntitle-block-banner: images/windmills.jpg\ntitle-block-banner-color: white\n\ninclude-in-header:\n  - text: |\n      <style>\n      .quarto-title-block .quarto-title-banner {\n        background-position-y: bottom;\n        height: 600px;\n        position: relative;\n      }\n\n      /* Increase title and description font sizes */\n      .quarto-title-block .title {\n        font-size: 3rem;\n        font-weight: bold;\n      }\n\n      .quarto-title-block .subtitle {\n        font-size: 2rem;\n        margin-top: 2rem;\n      }\n\n      .quarto-title-block .description {\n        font-size: 1.2rem;\n        margin-top: 2rem;\n        position: absolute;\n        color: black;\n        bottom: 20px;\n        left: 50%;\n        transform: translateX(-50%);\n        background-color: rgba(255, 255, 255, 0.8);\n        padding: 1rem 2rem;\n        border-radius: 10px;\n        max-width: 95%;\n        text-align: center;\n        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);\n      }\n      \n      .quarto-title-block .description a {\n        color: #007BFF; /* Bootstrap blue */\n        text-decoration: underline;\n      }\n\n\n      </style>\n\nformat:\n  html:\n    page-layout: full\n    \nexecute:\n  echo: false   # Don't show code\n  warning: false\n  message: false\n\nlisting:\n  id: newsletter\n  contents: newsletter\n  sort: \"date desc\"\n  type: default\n  image-align: right\n  max-description-length: 175\n  date-format: medium\n  categories: false\n  sort-ui: false\n  filter-ui: false\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell layout-align=\"center\"}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){fig-align='center' width=960}\n:::\n:::\n\n\n\n# Newsletter\n\n:::{#newsletter}\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
