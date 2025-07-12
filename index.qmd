@@ -87,7 +87,7 @@ listing:
   filter-ui: false
 ---
 
-# Latest news
+# News
 
 :::{#newsletter}
 :::
