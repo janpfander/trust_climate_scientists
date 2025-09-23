@@ -2,14 +2,14 @@
 title: "Team"
 toc: true
 page-layout: full
-title-block-banner: images/windmills.jpg
-title-block-banner-color: white
+title-block-banner: images/alternative_2.jpeg
+title-block-banner-color: black
 include-in-header:
   - text: |
       <style>
         /* Use bottom part of the banner image */
         .quarto-title-block .quarto-title-banner {
-          background-position: center bottom;
+          background-position: center;
           background-size: cover;
         }
       </style>
@@ -53,6 +53,12 @@ listing:
 
   - id: advisory
     contents:
+      - image: images/naomi.jpg
+        path: https://histsci.fas.harvard.edu/people/naomi-oreskes
+        title: "[Naomi Oreskes](https://histsci.fas.harvard.edu/people/naomi-oreskes)"
+        subtitle: Professor, Harvard University, *United States*
+        sortby: "1"      
+      
       - image: images/cameron.jpg
         path: https://www.cameronbrick.com/
         title: "[Cameron Brick](https://www.cameronbrick.com/)"
@@ -116,7 +122,7 @@ link-external-newwindow: true
     
 ---
 
-# Research Team
+# Research team
 
 :::{#research-team}
 :::

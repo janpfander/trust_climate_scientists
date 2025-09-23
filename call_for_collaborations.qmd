@@ -1,7 +1,7 @@
 ---
 title: "Collaborate"
-title-block-banner: images/windmills.jpg
-title-block-banner-color: white
+title-block-banner: images/alternative_2.jpeg
+title-block-banner-color: black
 include-in-header:
   - text: |
       <style>
@@ -15,9 +15,9 @@ bibliography: references.bib
 ---
 
 ::: callout-note
-## Submission open on October 1st
+## Submission open on October 6th, 2025.
 
-We will accept submissions until October 21st, 2025.
+We will accept submissions *until October 31st, 2025*.
 
 Submit your short intervention proposal via this survey \[*LINK TO BE ADDED*\].
 :::

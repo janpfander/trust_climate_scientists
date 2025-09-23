@@ -38,5 +38,9 @@ format:
 
 editor: source
 
+title-block:
+  banner: images/alternative_2.jpeg
+  banner-color: black
+
 
 

@@ -1,7 +1,7 @@
 ---
 title: "FAQ"
-title-block-banner: images/windmills.jpg
-title-block-banner-color: white
+title-block-banner: images/alternative_2.jpeg
+title-block-banner-color: black
 include-in-header:
   - text: |
       <style>
@@ -13,8 +13,4 @@ include-in-header:
       </style>
 ---
 
-# Why the US and Switzerland?
 
-In the US, recent evidence suggested a decline of trust in scientists in general. This is in line with the current government policies that prevent climate action and deny the climate crisis. 
-
-In Switzerland, trust is below the global average, potentially hindering the country’s capacity to implement evidence-based climate policies (Cologna et al., 2025).

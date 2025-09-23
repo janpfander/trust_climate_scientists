@@ -1,7 +1,7 @@
 ---
 title: "Research Design"
-title-block-banner: images/windmills.jpg
-title-block-banner-color: white
+title-block-banner: images/alternative_2.jpeg
+title-block-banner-color: black
 include-in-header:
   - text: |
       <style>
@@ -39,11 +39,13 @@ Increasing trust in climate scientists may therefore be an important lever to ac
 
 # Outcomes
 
-## Climate scientists' trustworthiness
-
-Our main outcome of interest is people's perception of climate scientists' trustworthiness. In addition to this, we will also measure attitudes towards climate change, support for climate policies, normative perceptions of climate scientists, and pro-climate behavioral outcomes.
+Our main outcome of interest is people's perception of climate scientists' trustworthiness, along various dimensions (see @tbl-trustworthiness). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.
 
 ```{r}
+#| label: tbl-trustworthiness
+#| tbl-cap: "Our measure of perceived trustworthiness of climate scientists will be an index of the items presented here."
+
+
 # Full table
 trustworthiness_items <- tribble(
   ~Dimension, ~Item, ~Response_Options,
@@ -90,70 +92,6 @@ trustworthiness_items |>
   kable(col.names = c("Dimension", "Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
   kable_styling(full_width = FALSE, font_size = 11, position = "center") 
 ```
-
-## Behavioral measures
-
-### Donation
-
-To assess consequential and impactful behavior, participants will be given the option to donate a monetary bonus to a non-profit scientific association in the area of climate science (American Geophysical Union in the US or European Geosciences Union in Switzerland) or keep it for themselves. AGU and EGU were chosen because they are the leading scientific associations for scientists working on climate change. Participants will be informed of the following:
-
-> “For the next question, we would like you to allocate \$10 \[10 CHF for Swiss participants\] between yourself and the American Geophysical Union (AGU) \[European Geosciences Union (EGU)\]—a non-profit scientific association that envisions a thriving, sustainable and equitable future supported by scientific discovery, innovation and action. AGU \[EGU\] is the largest scientific association in the area of climate change in the US \[in Europe\], with over 15,000 scientist members. You can give all of the money to AGU \[EGU\] and keep none for yourself, or you can keep all the money for yourself and give none to AGU \[EGU\], or you can pick any split in between.”
-
-\[Slider\]
-
-> "**Important: We will randomly select a subset of 100 participants and actually implement their choices.**"
-
-### Petition
-
-\[*to be done*\]
-
-## Normative perceptions & Willingness to be vulnerable
-
-```{r}
-# Full table
-normative_items <- tribble(
-  ~Item, ~Response_Options,
-  
-# Normative Perceptions of Science and Society
-  "Climate scientists should work closely with politicians to integrate scientific results into policy-making", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "Climate scientists should actively advocate for specific policies", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "Climate scientists should communicate their findings to politicians", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "Climate scientists should be more involved in the policy-making process", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "Climate scientists should communicate about science with the general public", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  "Climate scientists should remain independent from the policy-making process", 
-    "(1) Strongly disagree, (2) Disagree, (3) Neither agree nor disagree, (4) Agree, (5) Strongly agree",
-  
-  # Willingness to be vulnerable to climate scientists
-  "How much or little should people rely on climate scientists’ guidance when making lifestyle choices related to climate science?", 
-    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
-  "How much or little should governments rely on climate scientists’ guidance when making decisions related to climate science?", 
-    "(1) Not at all, (2) A little, (3) A moderate amount, (4) A lot, (5) A great deal",
-  "How much or little control do you want climate scientists to have on government decisions related to science?", 
-    "(1) No control at all, (2) A little control, (3) A moderate amount of control, (4) A lot of control, (5) Complete control"
-) 
-
-# Display the table
-normative_items |>
-  kable(col.names = c("Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
-  kable_styling(full_width = FALSE, font_size = 11, position = "center") |>
-  pack_rows("Normative perceptions of climate scientists", 1, 6) |>
-  pack_rows("Willingness to be vulnerable to the advice of climate scientists", 7, 9)
-```
-
-## Funding
-
-\[*to be discussed*\]
-
-Form the National [Science Foundation (NSF) – Science & Engineering Indicators](https://ncses.nsf.gov/pubs/nsb20227/public-perceptions-of-science-and-technology#general-perceptions-of-s-t):
-
-> Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government. \[Strongly disagree - Strongly agree\][^1]
-
-[^1]: The question, with slightly different wording, has been asked in @ophirFactorsAssessingSciences2023: "How strongly do you disagree or agree that even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge should be funded by the federal government? (5-point likert scale)"
 
 # Participants
 
