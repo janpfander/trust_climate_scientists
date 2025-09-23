@@ -5,20 +5,7 @@
   },
   {
     "listing": "/team.html",
-    "items": [
-      "/team/lead/jan.html",
-      "/team/supervision/viktoria.html",
-      "/team/supervision/madalina.html",
-      "/team/supervision/sara.html",
-      "/team/advisory/cameron.html",
-      "/team/advisory/john.html",
-      "/team/advisory/edward.html",
-      "/team/advisory/james.html",
-      "/team/advisory/sebastian.html",
-      "/team/advisory/hugo.html",
-      "/team/advisory/mario.html",
-      "/team/advisory/mike.html"
-    ]
+    "items": []
   },
   {
     "listing": "/index.html",

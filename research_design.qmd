@@ -33,7 +33,7 @@ Climate change is one of the most pressing societal issues and requires urgent a
 
 Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action [@todorovaMachineLearningIdentifies2025; @colognaRoleTrustClimate2020; @hornseyMetaanalysesDeterminantsOutcomes2016].
 
-While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiInvestigatingTrustGap2024; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
+While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiGapsPublicTrust2025; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
 
 Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.
 
@@ -97,15 +97,15 @@ trustworthiness_items |>
 
 To assess consequential and impactful behavior, participants will be given the option to donate a monetary bonus to a non-profit scientific association in the area of climate science (American Geophysical Union in the US or European Geosciences Union in Switzerland) or keep it for themselves. AGU and EGU were chosen because they are the leading scientific associations for scientists working on climate change. Participants will be informed of the following:
 
-> “For the next question, we would like you to allocate $10 [10 CHF for Swiss participants] between yourself and the American Geophysical Union (AGU) [European Geosciences Union (EGU)]—a non-profit scientific association that envisions a thriving, sustainable and equitable future supported by scientific discovery, innovation and action. AGU [EGU] is the largest scientific association in the area of climate change in the US [in Europe], with over 15,000 scientist members. You can give all of the money to AGU [EGU] and keep none for yourself, or you can keep all the money for yourself and give none to AGU [EGU], or you can pick any split in between.”
+> “For the next question, we would like you to allocate \$10 \[10 CHF for Swiss participants\] between yourself and the American Geophysical Union (AGU) \[European Geosciences Union (EGU)\]—a non-profit scientific association that envisions a thriving, sustainable and equitable future supported by scientific discovery, innovation and action. AGU \[EGU\] is the largest scientific association in the area of climate change in the US \[in Europe\], with over 15,000 scientist members. You can give all of the money to AGU \[EGU\] and keep none for yourself, or you can keep all the money for yourself and give none to AGU \[EGU\], or you can pick any split in between.”
 
-[Slider]
+\[Slider\]
 
 > "**Important: We will randomly select a subset of 100 participants and actually implement their choices.**"
 
 ### Petition
 
-[*to be done*]
+\[*to be done*\]
 
 ## Normative perceptions & Willingness to be vulnerable
 
@@ -147,7 +147,7 @@ normative_items |>
 
 ## Funding
 
-\[*to be discussed*\] 
+\[*to be discussed*\]
 
 Form the National [Science Foundation (NSF) – Science & Engineering Indicators](https://ncses.nsf.gov/pubs/nsb20227/public-perceptions-of-science-and-technology#general-perceptions-of-s-t):
 
