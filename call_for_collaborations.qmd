@@ -26,7 +26,13 @@ Submit your short intervention proposal via this survey \[*LINK TO BE ADDED*\].
 
 [^1]: This call for collaboration is inspired by other megastudies, in particular @voelkelMegastudyTesting252024
 
-There is increasing concern that people do not trust scientists, and in particular climate scientists [@ghasemiGapsPublicTrust2025]. This can have profound implications by limiting support for evidence-based policymaking and reducing societal resilience to climate change. Many people have ideas for how to address this problem. Now is an opportunity to gather and rigorously test many of these ideas. We need your expertise and the rigor of massive experimentation to address this issue.
+While trust in scientists is moderately high globally, climate scientists are less trusted than scientists in general [@ghasemiGapsPublicTrust2025] scientists of other disciplines [@gligoricHowSocialEvaluations2024].
+
+Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
+
+Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With this megastudy, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
+
+Join our efforts to make a significant contribution to addressing this issue!
 
 Teams whose intervention is selected for testing will be offered co-authorship on the primary publication resulting from the challenge.
 
@@ -34,11 +40,15 @@ Teams whose intervention is selected for testing will be offered co-authorship o
 
 Social scientists often call an idea that has the potential to change how people think or behave an "intervention." In our project, an intervention is any idea that may influence the outcome variable we are interested in, namely trust in climate scientists.
 
-# **Who can collaborate?**
+# Who can collaborate?
 
-This call is open to researchers at any level, as well as practitioners. Authorship will be limited to two people per submitted intervention.
+This call is open to researchers at any level, as well as practitioners.
 
-# Who are the participants? 
+# How many collaborators per team?
+
+Authorship will be limited to two people per submitted intervention.
+
+# Who are the participants?
 
 All participants will be based in the US and over the age of 18. Our sample will be a non-probability online sample of Americans that is representative regarding several major demographic benchmarks. Due to filtering based on attention checks, participants can be expected to be relatively attentive to intervention materials.
 
@@ -46,13 +56,13 @@ All participants will be based in the US and over the age of 18. Our sample will
 
 Intervention proposals need to target trustworthiness of climate scientists (see details below) and be:
 
--   Text-based (e.g., no videos),
--   Theoretically motivated (rooted in the scientific literature),
--   Online (i.e. deployable in an online survey experiment),
--   Short (no longer than 5 minutes),
--   Costless: (i.e. not paying participants in addition to what they are already being paid to participate in the study),
--   Aligned (e.g., no additional measures for evaluating your intervention can be added),
--   Ethical (the intervention must be approved by Stanford's Institutional Review Board, see details below).
+-   Text-based (e.g., no videos)
+-   Theoretically motivated (rooted in the scientific literature)
+-   Online (i.e. deployable in an online survey experiment)
+-   Short (no longer than 5 minutes)
+-   Costless: (i.e. not paying participants in addition to what they are already being paid to participate in the study)
+-   Aligned (e.g., no additional measures for evaluating your intervention can be added)
+-   Ethical (the intervention must be approved by Stanford's Institutional Review Board, see details below)
 
 ::: callout-tip
 ## Ethical requirements
@@ -69,17 +79,17 @@ Further, your intervention must obtain ethics approval by Stanford’s Instituti
 
 # What are the outcomes?
 
-Our main outcome of interest is people's perception of climate scientists' trustworthiness. Check-out the research design section [research design section](research_design.qmd) for more details on the outcomes and how we measure them.
+The outcome of interest that interventions should target are perceptions of climate scientists' trustworthiness (see the [research design section](research_design.qmd) for more details).
 
 # Can I Submit Different Interventions for Different Participants?
 
-It is acceptable for an intervention to vary based on participant features (e.g., their partisanship, gender, race). For example, an “ingroup source” intervention can ask use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. If you have questions whether your interventions satisfy these criteria, you are welcome to email us about the suitability of your intervention before you submit it.
+It is acceptable for an intervention to vary based on participant features (e.g., their partisanship, gender, race). For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. If you have questions whether your intervention satisfies these criteria, you are welcome to [email us](mailto:stics.megastudy@gmail.com) about the suitability of your intervention before you submit it.
 
 # How will you select the interventions?
 
-Our expert team, comprised of the research team and an advisory board, will review submissions and select the most promising interventions for testing. Members of the advisory board are experts on trust in science and behavioral science from diverse backgrounds, including academics from different disciplines as well as practitioners.
+Our expert team, composed of the research team and an advisory board, will review submissions and select the most promising interventions for testing. Members of the advisory board are experts on trust in science and behavioral science from diverse backgrounds, including academics from different disciplines as well as practitioners.
 
-We aim to test up to 10 interventions, with a well-powered sample (\~1000 participants per condition). Members of the advisory board are experts on trust in science and behavioral science from diverse backgrounds, including academics from different disciplines as well as practitioners.
+We aim to test up to 10 interventions, with a well-powered sample (\~1000 participants per condition).
 
 The selection process is **anonymous**: Only the Project Lead, Jan, knows about the identity of the contributors and will not be involved in the selection process.
 
