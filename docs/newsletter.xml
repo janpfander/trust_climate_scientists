@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Home</title>
+<link>https://janpfander.github.io/trust_climate_scientists/newsletter.html</link>
+<atom:link href="https://janpfander.github.io/trust_climate_scientists/newsletter.xml" rel="self" type="application/rss+xml"/>
+<description>The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States.</description>
+<generator>quarto-1.8.24</generator>
+<lastBuildDate>Mon, 24 Jun 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>An example newsletter post</title>
+  <dc:creator>Jan Pfänder</dc:creator>
+  <link>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-06/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="welcome" class="level1">
+<h1>Welcome!</h1>
+<p>This is a sample newsletter post for testing the RSS Feed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" class="img-fluid figure-img"></p>
+<figcaption>Here is an image</figcaption>
+</figure>
+</div>
+<p>And That’s it.</p>
+
+
+<!-- -->
+
+</section>
+
+ ]]></description>
+  <category>project onset</category>
+  <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-06/</guid>
+  <pubDate>Mon, 24 Jun 2024 22:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

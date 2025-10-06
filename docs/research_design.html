@@ -165,8 +165,13 @@ background-size: cover;
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="mailto:stics.megastudy@gmail.com"> 
+    <a class="nav-link" href="mailto:trustin.megastudy@gmail.com"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="bi:envelope" style="font-size: 1.1em;" aria-label="Icon envelope from bi Iconify.design set." title="E-mail"></iconify-icon> Write us an email</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./newsletter.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -201,6 +206,7 @@ background-size: cover;
    
   <ul>
   <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#survey-process" id="toc-survey-process" class="nav-link" data-scroll-target="#survey-process">Survey process</a></li>
   <li><a href="#outcomes" id="toc-outcomes" class="nav-link" data-scroll-target="#outcomes">Outcomes</a></li>
   <li><a href="#participants" id="toc-participants" class="nav-link" data-scroll-target="#participants">Participants</a>
   <ul class="collapse">
@@ -226,16 +232,20 @@ background-size: cover;
 <p>While trust in scientists is moderately high globally <span class="citation" data-cites="colognaTrustScientistsTheir2025">(<a href="#ref-colognaTrustScientistsTheir2025" role="doc-biblioref">Cologna et al. 2025</a>)</span>, climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general <span class="citation" data-cites="druckmanContinuityChangeTrust2024 ghasemiGapsPublicTrust2025 schroderDontTellMe2023 schugPublicPerceptionsTrustworthiness2024">(<a href="#ref-druckmanContinuityChangeTrust2024" role="doc-biblioref">Druckman et al. 2024</a>; <a href="#ref-ghasemiGapsPublicTrust2025" role="doc-biblioref">Ghasemi et al. 2025</a>; <a href="#ref-schroderDontTellMe2023" role="doc-biblioref">Schrøder 2023</a>; <a href="#ref-schugPublicPerceptionsTrustworthiness2024" role="doc-biblioref">Schug, Bilandzic, and Kinnebrock 2024</a>)</span>. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.</p>
 <p>Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.</p>
 </section>
+<section id="survey-process" class="level1">
+<h1>Survey process</h1>
+<p><img src="images/survey_process.png" class="img-fluid"></p>
+</section>
 <section id="outcomes" class="level1">
 <h1>Outcomes</h1>
-<p>Our main outcome of interest is people’s perception of climate scientists’ trustworthiness, along various dimensions (see <a href="#tbl-trustworthiness" class="quarto-xref">Table&nbsp;1</a>). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.</p>
+<p>Our main outcome of interest is people’s trust in climate scientists, along various dimensions (see <a href="#tbl-trust" class="quarto-xref">Table&nbsp;1</a>). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.</p>
 <div class="cell">
-<div id="tbl-trustworthiness" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="tbl-trust" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-trustworthiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Our measure of perceived trustworthiness of climate scientists will be an index of the items presented here.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-trust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Our measure of trust in climate scientists.
 </figcaption>
-<div aria-describedby="tbl-trustworthiness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-trust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="table do-not-create-environment cell caption-top table-sm table-striped small">
 <thead>
@@ -248,7 +258,7 @@ Table&nbsp;1: Our measure of perceived trustworthiness of climate scientists wil
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">We are interested in your general opinion about climate scientists, including scientists working at universities, in government, at companies, and for non-profit organizations. In answering the following questions, think about climate scientists specifically in the context of their work/research.</td>
+<td style="text-align: left;">We are interested in your general opinion about climate scientists. In answering the following questions, think about climate scientists specifically in the context of their work/research.</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
@@ -456,7 +466,7 @@ Todorova, Boryana, David Steyrl, Matthew J. Hornsey, Samuel Pearson, Cameron Bri
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/janpfander\.github\.io\/trust_climate_scientists\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

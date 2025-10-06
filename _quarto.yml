@@ -6,6 +6,8 @@ freeze: auto
 
 website:
   title: "Home"
+  site-url: https://janpfander.github.io/trust_climate_scientists/
+  description: "The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States."
   navbar:
     left:
       - research_design.qmd
@@ -17,7 +19,9 @@ website:
     # Contact
     right:
       - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}} Write us an email"
-        href: "mailto:stics.megastudy@gmail.com" 
+        href: "mailto:trustin.megastudy@gmail.com" 
+      - icon: rss
+        href: newsletter.xml
 
   page-footer: 
     background: light

@@ -2,15 +2,19 @@
 title: | 
   Strengthening Trust in Climate Scientists 
   
+  (Trust-In Megastudy)
+  
 toc: false
 # subtitle: A call for a collaborative megastudy
 description: |
   
-  **A call for a collaborative megastudy**
+  **Call for a collaboration**
   
-  *Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States and Switzerland. 
+  *Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States. 
   
-  We invite you--whether you are an academic or a practitioner--to join this effort by submitting an intervention proposal. All submitted interventions will be evaluated by our research team and expert advisory board. We will select the most promising interventions and test them in a megastudy--a large, online experiment. 
+  We invite you---whether you are an academic at any career stage or a practitioner---to join this effort by submitting an intervention proposal. 
+  
+  We will select the most promising interventions and test them in a *megastudy*---a large, online experiment.
   
   Successful contributors will receive co-authorship in the primary publication arising from this project.
   
@@ -24,8 +28,14 @@ include-in-header:
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: bottom;
-        height: 600px;
+        height: 700px;
         position: relative;
+      }
+
+      /* Center title and subtitle */
+      .quarto-title-block .title,
+      .quarto-title-block .subtitle {
+        text-align: center;
       }
 
       /* Increase title and description font sizes */
@@ -44,7 +54,7 @@ include-in-header:
         margin-top: 2rem;
         position: absolute;
         color: black;
-        bottom: 20px;
+        bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
         background-color: rgba(255, 255, 255, 0.9);
@@ -59,9 +69,8 @@ include-in-header:
         color: #007BFF; /* Bootstrap blue */
         text-decoration: underline;
       }
-
-
       </style>
+
 
 format:
   html:

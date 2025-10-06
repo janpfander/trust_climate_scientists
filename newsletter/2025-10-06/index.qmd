@@ -1,12 +1,17 @@
 ---
 title: "An example newsletter post"
-image: preview-image.png
 date: 2024-06-25
 description: "Welcome"
 #image: "downloads/PNG/grp-summarize-02@4x.png"
 categories:
   - project onset
-draft: true
+draft: false
 ---
 
-This is a sample newsletter post for our first board meeting.
+# Welcome!
+
+This is a sample newsletter post for testing the RSS Feed. 
+
+![Here is an image](../../images/windmills.jpg)
+
+And That's it. 

@@ -37,13 +37,17 @@ While trust in scientists is moderately high globally [@colognaTrustScientistsTh
 
 Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.
 
+# Survey process
+
+![](images/survey_process.png)
+
 # Outcomes
 
-Our main outcome of interest is people's perception of climate scientists' trustworthiness, along various dimensions (see @tbl-trustworthiness). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.
+Our main outcome of interest is people's trust in climate scientists, along various dimensions (see @tbl-trust). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.
 
 ```{r}
-#| label: tbl-trustworthiness
-#| tbl-cap: "Our measure of perceived trustworthiness of climate scientists will be an index of the items presented here."
+#| label: tbl-trust
+#| tbl-cap: "Our measure of trust in climate scientists."
 
 
 # Full table
@@ -51,7 +55,7 @@ trustworthiness_items <- tribble(
   ~Dimension, ~Item, ~Response_Options,
   
   # Competence
-  "", "We are interested in your general opinion about climate scientists, including scientists working at universities, in government, at companies, and for non-profit organizations. In answering the following questions, think about climate scientists specifically in the context of their work/research.", "",
+  "", "We are interested in your general opinion about climate scientists. In answering the following questions, think about climate scientists specifically in the context of their work/research.", "",
   "Competence", "How incompetent or competent are most climate scientists?", 
     "(1) Very incompetent, (2) Somewhat incompetent, (3) Neither competent nor incompetent, (4) Somewhat competent, (5) Very competent",
   "Competence", "How unintelligent or intelligent are most climate scientists?", 

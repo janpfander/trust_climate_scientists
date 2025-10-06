@@ -1,7 +1,9 @@
 [
   {
     "listing": "/newsletter.html",
-    "items": []
+    "items": [
+      "/newsletter/2025-10-06/index.html"
+    ]
   },
   {
     "listing": "/team.html",
@@ -9,6 +11,8 @@
   },
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/newsletter/2025-10-06/index.html"
+    ]
   }
 ]

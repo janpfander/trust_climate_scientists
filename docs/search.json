@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "newsletter/2025-10-06/index.html",
+    "href": "newsletter/2025-10-06/index.html",
+    "title": "An example newsletter post",
+    "section": "",
+    "text": "Welcome!\nThis is a sample newsletter post for testing the RSS Feed.\n\n\n\nHere is an image\n\n\nAnd That’s it."
+  },
+  {
     "objectID": "team/advisory/hugo.html",
     "href": "team/advisory/hugo.html",
     "title": "Hugo Mercier",
@@ -46,7 +53,7 @@
     "href": "newsletter.html",
     "title": "Newsletter",
     "section": "",
-    "text": "No matching items"
+    "text": "An example newsletter post\n\n\n\nproject onset\n\n\n\nWelcome\n\n\n\n\n\nJun 25, 2024\n\n\nJan Pfänder\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "research_design.html",
@@ -128,9 +135,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Strengthening Trust in Climate Scientists",
+    "title": "Strengthening Trust in Climate Scientists\n(Trust-In Megastudy)",
     "section": "",
-    "text": "News\n\n\n\n\nNo matching items"
+    "text": "News\n\n\n\n\n\n\n\n\n\n\nAn example newsletter post\n\n\nWelcome\n\n\n\n\n\nJun 25, 2024\n\n\nJan Pfänder\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "team/lead/jan.html",
@@ -179,7 +186,7 @@
     "href": "call_for_collaborations.html",
     "title": "Collaborate",
     "section": "",
-    "text": "NoteSubmission open on October 6th, 2025.\n\n\n\nWe will accept submissions until October 31st, 2025.\nSubmit your short intervention proposal via this survey [LINK TO BE ADDED]."
+    "text": "NoteSubmission open on Tuesday, October 13, 2025.\n\n\n\nWe will accept submissions until Tuesday, November 6, 2025.\nSubmit your short intervention proposal via this survey [LINK TO BE ADDED]."
   },
   {
     "objectID": "call_for_collaborations.html#footnotes",

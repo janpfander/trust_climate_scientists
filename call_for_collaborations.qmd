@@ -15,9 +15,9 @@ bibliography: references.bib
 ---
 
 ::: callout-note
-## Submission open on October 6th, 2025.
+## Submission open on Tuesday, October 13, 2025.
 
-We will accept submissions *until October 31st, 2025*.
+We will accept submissions *until Tuesday, November 6, 2025*.
 
 Submit your short intervention proposal via this survey \[*LINK TO BE ADDED*\].
 :::
@@ -30,7 +30,7 @@ While trust in scientists is moderately high globally, climate scientists are le
 
 Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
 
-Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With this megastudy, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
+Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With the Trust-In Megastudy, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
 
 Join our efforts to make a significant contribution to addressing this issue!
 
@@ -46,7 +46,11 @@ This call is open to researchers at any level, as well as practitioners.
 
 # How many collaborators per team?
 
-Authorship will be limited to two people per submitted intervention.
+Authorship will be limited to **two people** per submitted intervention.
+
+# How many interventions per team?
+
+Collaborators can only be in one team, and each team can make **only one** intervention proposal.
 
 # Who are the participants?
 
@@ -74,7 +78,7 @@ Your intervention must provide accurate and true information without exposing pa
 -   you may not present information to participants that is hateful, disturbing, or offensive,
 -   you may not ask participants to engage in hateful or disturbing behaviors.
 
-Further, your intervention must obtain ethics approval by Stanford’s Institutional Review Board (IRB). If your intervention is selected, our team will obtain IRB approval for your intervention. If the IRB requires changes to your intervention, we will work with you to make those changes while maintaining as much consistency as possible to your original idea. You are encouraged to contact us via [stics.megastudy\@gmail.com](mailto:stics.megastudy@gmail.com) if you have concerns about ethics approval. We will not select interventions that attempt to game the system in some way, e.g., by instructing participants on how to reply to the DVs.
+Further, your intervention must obtain ethics approval by Stanford’s Institutional Review Board (IRB). If your intervention is selected, our team will obtain IRB approval for your intervention. If the IRB requires changes to your intervention, we will work with you to make those changes while maintaining as much consistency as possible to your original idea. You are encouraged to contact us via [{{< var email >}}](mailto:{{< var email >}}) if you have concerns about ethics approval. We will not select interventions that attempt to game the system in some way, e.g., by instructing participants on how to reply to the DVs.
 :::
 
 # What are the outcomes?
@@ -83,7 +87,7 @@ The outcome of interest that interventions should target are perceptions of clim
 
 # Can I Submit Different Interventions for Different Participants?
 
-It is acceptable for an intervention to vary based on participant features (e.g., their partisanship, gender, race). For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. If you have questions whether your intervention satisfies these criteria, you are welcome to [email us](mailto:stics.megastudy@gmail.com) about the suitability of your intervention before you submit it.
+It is acceptable for an intervention to vary based on participant features (e.g., their partisanship, gender, race). For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. If you have questions whether your intervention satisfies these criteria, you are welcome to [email us]((mailto:{{< var email >}})) about the suitability of your intervention before you submit it.
 
 # How will you select the interventions?
 
