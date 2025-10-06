@@ -15,11 +15,11 @@ bibliography: references.bib
 ---
 
 ::: callout-note
-## Submission open on Tuesday, October 13, 2025.
+## Submission are open!
 
-We will accept submissions *until Tuesday, November 6, 2025*.
+We will accept submissions **until Tuesday, November 11, 2025 at 23:59 Central European Time (CET)**.
 
-Submit your short intervention proposal via this survey \[*LINK TO BE ADDED*\].
+Submit your short intervention proposal via this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg).
 :::
 
 # Why should I participate in the project?[^1]
@@ -30,7 +30,7 @@ While trust in scientists is moderately high globally, climate scientists are le
 
 Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
 
-Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With the Trust-In Megastudy, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
+Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With the *Trust-In Megastudy*, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
 
 Join our efforts to make a significant contribution to addressing this issue!
 
@@ -46,11 +46,11 @@ This call is open to researchers at any level, as well as practitioners.
 
 # How many collaborators per team?
 
-Authorship will be limited to **two people** per submitted intervention.
+Authorship will be limited to **two people** per team. It is also possible to submit an intervention proposal alone.
 
-# How many interventions per team?
+# How many intervention proposals per team?
 
-Collaborators can only be in one team, and each team can make **only one** intervention proposal.
+Each team can make **up to two** intervention proposals. If a team submits two proposals, the proposals will be evaluated independently of each other.
 
 # Who are the participants?
 
@@ -58,7 +58,7 @@ All participants will be based in the US and over the age of 18. Our sample will
 
 # What are the requirements for my intervention?
 
-Intervention proposals need to target trustworthiness of climate scientists (see details below) and be:
+Intervention proposals need to target trust in climate scientists (see details below) and be:
 
 -   Text-based (e.g., no videos)
 -   Theoretically motivated (rooted in the scientific literature)
@@ -101,4 +101,6 @@ The expert team will review interventions to check whether they satisfy the requ
 
 # How can I participate?
 
-Submit a detailed description \[max 1000 words\] of your intervention via this google survey. \[ADD SURVEY LINK\]
+Fill out this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg)
+
+During this survey, we will ask you to provide a detailed description (max 500 words) of your intervention. 

@@ -10,27 +10,37 @@
 <atom:link href="https://janpfander.github.io/trust_climate_scientists/newsletter.xml" rel="self" type="application/rss+xml"/>
 <description>The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States.</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Mon, 24 Jun 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 12 Oct 2025 22:00:00 GMT</lastBuildDate>
 <item>
-  <title>An example newsletter post</title>
+  <title>Now launched: Call for Collaboration</title>
   <dc:creator>Jan Pfänder</dc:creator>
-  <link>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-06/</link>
+  <link>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<section id="welcome" class="level1">
-<h1>Welcome!</h1>
-<p>This is a sample newsletter post for testing the RSS Feed.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" class="img-fluid figure-img"></p>
-<figcaption>Here is an image</figcaption>
-</figure>
-</div>
-<p>And That’s it.</p>
+<section id="welcome-to-the-trust-in-megastudy" class="level1">
+<h1>Welcome to the <em>Trust-In Megastudy</em></h1>
+<p>The <em>Trust-In Megastudy</em> is a collaborative research project designed to strengthen people’s <strong>trust in climate scientists</strong> in the United States.</p>
+</section>
+<section id="collaborate-with-us" class="level1">
+<h1>🤝 Collaborate with Us</h1>
+<p>We invite researchers at any career stage—from students to principal investigators—as well as practitioners to submit intervention ideas.</p>
+<p>Successful contributors will receive <strong>co-authorship</strong> in the primary publication arising from this project.</p>
+</section>
+<section id="what-were-looking-for" class="level1">
+<h1>🔍 What We’re Looking For</h1>
+<p>We are seeking <strong>short, text-based informational interventions</strong> that could increase trust in climate scientists.<br>
+The most promising interventions will be selected and tested in a <strong>megastudy</strong>—a large-scale online experiment designed for robust, replicable results.</p>
+<p>Learn about submission rules and how to contribute on our<br>
+👉 <a href="../../call_for_collaborations.html"><strong>Call for Collaborations page</strong></a></p>
+<hr>
+<p>🔗 <strong>More information</strong></p>
+<p>For more information about the project and the team, visit <a href="../../index.html">our website</a>.</p>
+<p>💌 Questions? Email us anytime at<br>
+<a href="mailto:trustin.megastudy@gmail.com">trustin.megastudy@gmail.com</a></p>
 
 
 <!-- -->
@@ -38,9 +48,10 @@
 </section>
 
  ]]></description>
-  <category>project onset</category>
-  <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-06/</guid>
-  <pubDate>Mon, 24 Jun 2024 22:00:00 GMT</pubDate>
+  <category>interventions</category>
+  <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</guid>
+  <pubDate>Sun, 12 Oct 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,42 @@
+---
+title: "Now launched: Call for Collaboration"
+date: 2025-10-13
+description: "Join the Trust-In Megastudy—a collaborative effort to strengthen public trust in climate scientists in the United States."
+categories:
+  - interventions
+draft: false
+image: "../../images/windmills.jpg"
+---
+
+# Welcome to the *Trust-In Megastudy*
+
+The *Trust-In Megastudy* is a collaborative research project designed to strengthen people’s **trust in climate scientists** in the United States.
+
+
+# 🤝 Collaborate with Us
+
+We invite researchers at any career stage—from students to principal investigators—as well as practitioners to submit intervention ideas.
+
+Successful contributors will receive **co-authorship** in the primary publication arising from this project.
+
+# 🔍 What We’re Looking For
+
+We are seeking **short, text-based informational interventions** that could increase trust in climate scientists.  
+The most promising interventions will be selected and tested in a **megastudy**---a large-scale online experiment designed for robust, replicable results.
+
+Learn about submission rules and how to contribute on our  
+👉 [**Call for Collaborations page**](../../call_for_collaborations.qmd)
+
+---
+
+🔗 **More information**
+
+For more information about the project and the team, visit  [our website](../../index.qmd).
+
+💌 Questions? Email us anytime at  
+[{{< var email >}}](mailto:{{< var email >}})
+
+
+
+
+

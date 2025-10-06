@@ -105,7 +105,7 @@ Once we have selected interventions, we will run a power simulation to be includ
 
 ## Recruitment
 
-We will recruit representative samples for several demographic variables.
+We will recruit a representative sample of the U.S. population based on several demographic variables.
 
 # Open science
 
