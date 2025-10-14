@@ -29,21 +29,21 @@ library(ganttrify)
 
 # Motivation
 
-Climate change is one of the most pressing societal issues and requires urgent action at both the policymaking and individual level [@calvinIPCC2023Climate2023; @rogeljCredibilityGapNetzero2023].
+While trust in scientists is moderately high globally, climate scientists are less trusted than scientists in general [@ghasemiGapsPublicTrust2025] and scientists of other disciplines [@gligoricHowSocialEvaluations2024].
 
-Trust in climate scientists is one of the strongest predictors of belief in climate change, support for climate policy, and climate action [@todorovaMachineLearningIdentifies2025; @colognaRoleTrustClimate2020; @hornseyMetaanalysesDeterminantsOutcomes2016].
+Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
 
 While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiGapsPublicTrust2025; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
 
-Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The STICS project aims to fill this gap.
+Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The *Strengthening Trust in Climate Scientists Megastudy* aims to fill this gap.
 
 # Survey process
 
 ![](images/survey_process.png)
 
-# Outcomes
+# Outcome(s)
 
-Our main outcome of interest is people's trust in climate scientists, along various dimensions (see @tbl-trust). In addition to this, we will also measure several other variables which remain to be determined. All intervention proposals should only target the main outcome variable.
+Our main outcome of interest is people's trust in climate scientists, along various dimensions (see @tbl-trust). All intervention proposals should only target this outcome variable. In addition, we will also measure several other variables which remain to be determined. 
 
 ```{r}
 #| label: tbl-trust
@@ -96,6 +96,10 @@ trustworthiness_items |>
   kable(col.names = c("Dimension", "Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
   kable_styling(full_width = FALSE, font_size = 11, position = "center") 
 ```
+
+# Interventions
+
+For details on the interventions, please see the [Collaborate](call_for_collaborations.qmd) page.
 
 # Participants
 
@@ -150,18 +154,18 @@ gantt_data <- tribble(
 
   # 2: Interventions & Registration
   "2: Interventions & Registration", "Power analysis",                5, 5,
-  "2: Interventions & Registration", "Call for interventions",        6, 6,
-  "2: Interventions & Registration", "Preregistration",               6, 7,
-  "2: Interventions & Registration", "Select interventions",          7, 7,
-  "2: Interventions & Registration", "Program survey",                7, 7,
+  "2: Interventions & Registration", "Call for interventions",        6, 7,
+  "2: Interventions & Registration", "Preregistration",               7, 8,
+  "2: Interventions & Registration", "Select interventions",          7, 8,
+  "2: Interventions & Registration", "Program survey",                8, 9,
   "2: Interventions & Registration", "IRB approval",                  7, 9,
 
   # 3: Data, Analysis & Write-up
   "3: Data, Analysis & Write-up", "Collect data",         10, 10,
-  "3: Data, Analysis & Write-up", "Analyse data",         10, 10,
+  "3: Data, Analysis & Write-up", "Analyse data",         10, 11,
   "3: Data, Analysis & Write-up", "Write manuscript",     10, 12,
-  "3: Data, Analysis & Write-up", "Feedback on manuscript", 11, 11,
-  "3: Data, Analysis & Write-up", "Submit manuscript",    12, 12
+  "3: Data, Analysis & Write-up", "Feedback on manuscript", 11, 12,
+  "3: Data, Analysis & Write-up", "Submit manuscript",    13, 13
 )
 
 ganttrify(

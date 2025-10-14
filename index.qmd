@@ -2,23 +2,10 @@
 title: | 
   Strengthening Trust in Climate Scientists 
   
-  (Trust-In Megastudy)
+  Megastudy
   
 toc: false
 # subtitle: A call for a collaborative megastudy
-description: |
-  
-  **Call for a collaboration**
-  
-  *Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States. 
-  
-  We invite you---whether you are an academic at any career stage or a practitioner---to join this effort by submitting an intervention proposal. 
-  
-  We will select the most promising interventions and test them in a *megastudy*---a large, online experiment.
-  
-  Successful contributors will receive co-authorship in the primary publication arising from this project.
-  
-  For more info, check out the [call for collaborations](call_for_collaborations.qmd) and the [research design section](research_design.qmd).
 
 title-block-banner: images/alternative_2.jpeg
 title-block-banner-color: black
@@ -28,7 +15,7 @@ include-in-header:
       <style>
       .quarto-title-block .quarto-title-banner {
         background-position-y: bottom;
-        height: 700px;
+        height: 500px;
         position: relative;
       }
 
@@ -94,6 +81,25 @@ listing:
   sort-ui: false
   filter-ui: false
 ---
+
+  
+<div class="home-text">
+
+**Call for a collaboration**
+
+*Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States.  
+
+We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal.  
+
+We will select the most promising interventions and test them in a *megastudy*—a large, online experiment.
+
+**Successful contributors will receive co-authorship in the primary publication arising from this project.**
+
+👉 Learn about submission rules on our [**Call for Collaborations page**](../../call_for_collaborations.qmd).  
+
+📝 Submit your intervention proposal via our [**designated submission survey**](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg).
+
+</div>
 
 # News
 

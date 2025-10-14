@@ -6,11 +6,12 @@ categories:
   - interventions
 draft: false
 image: "../../images/windmills.jpg"
+title-block-banner-color: black
 ---
 
-# Welcome to the *Trust-In Megastudy*
+# Welcome!
 
-The *Trust-In Megastudy* is a collaborative research project designed to strengthen people’s **trust in climate scientists** in the United States.
+The **Strengthening Trust in Climate Scientists Megastudy** is a collaborative research project to be run in the United States.
 
 
 # 🤝 Collaborate with Us
@@ -19,13 +20,16 @@ We invite researchers at any career stage—from students to principal investiga
 
 Successful contributors will receive **co-authorship** in the primary publication arising from this project.
 
+Interventions can be submitted by individuals or teams, with a **maximum of two individuals** per team. Each team may propose **up to two interventions**, which will be evaluated independently.
+
 # 🔍 What We’re Looking For
 
 We are seeking **short, text-based informational interventions** that could increase trust in climate scientists.  
 The most promising interventions will be selected and tested in a **megastudy**---a large-scale online experiment designed for robust, replicable results.
 
-Learn about submission rules and how to contribute on our  
-👉 [**Call for Collaborations page**](../../call_for_collaborations.qmd)
+👉 Learn about submission rules and how to contribute on our [**Call for Collaborations page**](../../call_for_collaborations.qmd).
+
+📝 Submit your intervention proposal via our [**designated submission survey**](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg). 
 
 ---
 

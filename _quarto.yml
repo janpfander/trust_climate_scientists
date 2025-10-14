@@ -13,7 +13,6 @@ website:
       - research_design.qmd
       - call_for_collaborations.qmd
       - newsletter.qmd
-      - faq.qmd
       - team.qmd
       
     # Contact

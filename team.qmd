@@ -20,25 +20,25 @@ listing:
       - image: images/madalina.jpg
         path: https://profiles.stanford.edu/madalina-vlasceanu
         title: "[Madalina Vlasceanu](https://profiles.stanford.edu/madalina-vlasceanu)"
-        subtitle: Assistant Professor, Stanford, *United States*
-        sortby: "3"
+        subtitle: Assistant Professor, [Climate Cognition Lab](https://climatecognition.stanford.edu/) at Stanford University, *United States*
+        sortby: "2"
 
       - image: images/sara.png
-        path: https://saraconstantino.org/
-        title: "[Sara Constantino](https://www.saraconstantino.org/)"
-        subtitle: Assistant Professor, Northeastern University, *United States*
-        sortby: "4"
+        path: https://sustainability.stanford.edu/people/sara-constantino
+        title: "[Sara Constantino](https://sustainability.stanford.edu/people/sara-constantino)"
+        subtitle: Assistant Professor, Stanford University, *United States*
+        sortby: "3"
 
       - image: images/viktoria.jpg
         path: https://www.viktoriacologna.com/
         title: "[Viktoria Cologna](https://www.viktoriacologna.com/)"
-        subtitle: Group leader, Eawag, *Switzerland*
-        sortby: "2"
+        subtitle: Group leader, [Climate and Societal Change Group](https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/) at Eawag, *Switzerland*
+        sortby: "4"
 
       - path: https://janpfander.github.io/
         image: images/jan.jpeg
         title: "[Jan Pfänder](https://janpfander.github.io/)"
-        subtitle: Postdoc, Eawag, *Switzerland*
+        subtitle: Postdoc, [Climate and Societal Change Group](https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/) at Eawag, *Switzerland*
         sortby: "1"
 
     type: grid
@@ -53,59 +53,60 @@ listing:
 
   - id: advisory
     contents:
-      - image: images/naomi.jpg
-        path: https://histsci.fas.harvard.edu/people/naomi-oreskes
-        title: "[Naomi Oreskes](https://histsci.fas.harvard.edu/people/naomi-oreskes)"
-        subtitle: Professor, Harvard University, *United States*
-        sortby: "1"      
-      
-      - image: images/cameron.jpg
-        path: https://www.cameronbrick.com/
-        title: "[Cameron Brick](https://www.cameronbrick.com/)"
-        subtitle: Assistant Professor, University of Amsterdam, *Netherlands*
-        sortby: "1"
-
-      - image: images/edward.png
-        path: https://communication.gmu.edu/people/emaibach
-        title: "[Edward Wile Maibach](https://communication.gmu.edu/people/emaibach)"
-        subtitle: Professor, George Mason University, *United States*
-        sortby: "3"
-
-      - image: images/hugo.jpg
-        path: https://sites.google.com/site/hugomercier/
-        title: "[Hugo Mercier](https://sites.google.com/site/hugomercier/)"
-        subtitle: Research Director at the CNRS, Institut Jean Nicod, *France*
-        sortby: "6"
-
-      - image: images/james.jpeg
-        path: https://sites.google.com/view/jamie-druckman
-        title: "[James Druckman](https://sites.google.com/view/jamie-druckman)"
-        subtitle: Professor, University of Rochester, *United States*
-        sortby: "4"
+      - image: images/sebastian.jpg
+        path: https://sites.google.com/view/sebastianberger/start
+        title: "[Sebastian Berger](https://sites.google.com/view/sebastianberger/start)"
+        subtitle: Assistant Professor, University of Bern, *Switzerland*
+        sortby: "9"
 
       - image: images/john.jpg
         path: https://comartsci.msu.edu/our-people/john-c-besley
         title: "[John C. Besley](https://comartsci.msu.edu/our-people/john-c-besley)"
         subtitle: Professor, Michigan State University, *United States*
-        sortby: "2"
+        sortby: "8"
+
+      - image: images/cameron.jpg
+        path: https://www.cameronbrick.com/
+        title: "[Cameron Brick](https://www.cameronbrick.com/)"
+        subtitle: Assistant Professor, University of Amsterdam, *Netherlands*
+        sortby: "7"
+
+      - image: images/james.jpeg
+        path: https://sites.google.com/view/jamie-druckman
+        title: "[James Druckman](https://sites.google.com/view/jamie-druckman)"
+        subtitle: Professor, University of Rochester, *United States*
+        sortby: "6"
+
+      - image: images/edward.png
+        path: https://communication.gmu.edu/people/emaibach
+        title: "[Edward Wile Maibach](https://communication.gmu.edu/people/emaibach)"
+        subtitle: Professor, George Mason University, *United States*
+        sortby: "5"
+
+      - image: images/hugo.jpg
+        path: https://sites.google.com/site/hugomercier/
+        title: "[Hugo Mercier](https://sites.google.com/site/hugomercier/)"
+        subtitle: Research Director at the CNRS, Institut Jean Nicod, *France*
+        sortby: "4"
+
+      - image: images/naomi.jpg
+        path: https://histsci.fas.harvard.edu/people/naomi-oreskes
+        title: "[Naomi Oreskes](https://histsci.fas.harvard.edu/people/naomi-oreskes)"
+        subtitle: Professor, Harvard University, *United States*
+        sortby: "3"
 
       - image: images/mario.jpg
         path: https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en
         title: "[Mario Scharfbillig](https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en)"
         subtitle: Science Policy Advisor, Joint Research Centre (JRC), *European Commission*
-        sortby: "7"
+        sortby: "2"
 
       - image: images/mike.jpg
         path: https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html
         title: "[Mike S. Schäfer](https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html)"
         subtitle: Professor, University of Zurich, *Switzerland*
-        sortby: "7"
-
-      - image: images/sebastian.jpg
-        path: https://sites.google.com/view/sebastianberger/start
-        title: "[Sebastian Berger](https://sites.google.com/view/sebastianberger/start)"
-        subtitle: Assistant Professor, University of Bern, *Switzerland*
-        sortby: "5"
+        sortby: "1"
+        
 
     type: grid
     image-height: 150px

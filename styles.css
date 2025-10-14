@@ -1,1 +1,16 @@
 /* css styles */
+
+.home-text {
+        background-color: white;
+        color: black;
+        padding: 2rem;
+        text-align: center;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        max-width: 95%;
+        margin: 0 auto 2rem auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+      
+      
+  
