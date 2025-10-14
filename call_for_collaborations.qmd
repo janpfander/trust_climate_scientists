@@ -83,15 +83,17 @@ Further, your intervention must obtain ethics approval by Stanford’s Instituti
 
 The outcome that interventions should target is trust in climate scientists (see the [research design section](research_design.qmd) for more details).
 
-We will compare the efficacy of interventions based on how they change trust in climate scientists across the full sample, not within specific sub-groups.
+An intervention may focus on specific sub-dimensions of trustworthiness (e.g., competence, benevolence, expertise, or openness). However, we will evaluate the efficacy of interventions based on the **average effect across all dimensions**.
+
+Similarly, an intervention may target a specific sub-group of participants (e.g., Republicans). However, the efficacy of interventions will be assessed across the **full sample**, not within individual sub-groups.
 
 # Can I submit different interventions for different participants?
 
-It is acceptable for an intervention to vary based on participant features. Variables that will be available are age, gender, race, education, and partisan identity. 
+Intervention may target varying participant features. Variables that will be available are age, gender, race, education, and partisan identity. 
 
-However, all participants need to receive the same kind of intervention. For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. 
+For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. It is crucial that **all participants receive the same kind of intervention**.
 
-If you have questions whether your intervention satisfies these criteria, you are welcome to [email us]((mailto:{{< var email >}})) about the suitability of your intervention before you submit it.
+If you have questions whether your intervention satisfies these criteria, you are welcome to [email us]((mailto:{{< var email >}})).
 
 # Can I target a specific subgroup of participants? 
 

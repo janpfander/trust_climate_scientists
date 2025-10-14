@@ -25,6 +25,7 @@ library(tidyverse)
 library(kableExtra)
 library(lubridate)
 library(ganttrify)
+library(tinytable)
 ```
 
 # Motivation
@@ -47,45 +48,47 @@ Our main outcome of interest is people's trust in climate scientists, along vari
 
 ```{r}
 #| label: tbl-trust
-#| tbl-cap: "Our measure of trust in climate scientists."
+#| tbl-cap: "Multi-dimensional measure of trust in climate scientists. Answers are assessed with a slider from 0 to 100. Only the endpoints are labelled."
 
 
 # Full table
 trustworthiness_items <- tribble(
   ~Dimension, ~Item, ~Response_Options,
   
-  # Competence
+  # Introduction
   "", "We are interested in your general opinion about climate scientists. In answering the following questions, think about climate scientists specifically in the context of their work/research.", "",
+  
+  # Competence
   "Competence", "How incompetent or competent are most climate scientists?", 
-    "(1) Very incompetent, (2) Somewhat incompetent, (3) Neither competent nor incompetent, (4) Somewhat competent, (5) Very competent",
+    "0 = Very incompetent … 100 = Very competent",
   "Competence", "How unintelligent or intelligent are most climate scientists?", 
-    "(1) Very unintelligent, (2) Somewhat unintelligent, (3) Neither intelligent nor unintelligent, (4) Somewhat intelligent, (5) Very intelligent",
+    "0 = Very unintelligent … 100 = Very intelligent",
   "Competence", "How unqualified or qualified are most climate scientists?", 
-    "(1) Very unqualified, (2) Somewhat unqualified, (3) Neither qualified nor unqualified, (4) Somewhat qualified, (5) Very qualified",
+    "0 = Very unqualified … 100 = Very qualified",
   
   # Integrity
   "Integrity", "How dishonest or honest are most climate scientists?", 
-    "(1) Very dishonest, (2) Somewhat dishonest, (3) Neither honest nor dishonest, (4) Somewhat honest, (5) Very honest",
+    "0 = Very dishonest … 100 = Very honest",
   "Integrity", "How unethical or ethical are most climate scientists?", 
-    "(1) Very unethical, (2) Somewhat unethical, (3) Neither ethical nor unethical, (4) Somewhat ethical, (5) Very ethical",
+    "0 = Very unethical … 100 = Very ethical",
   "Integrity", "How insincere or sincere are most climate scientists?", 
-    "(1) Very insincere, (2) Somewhat insincere, (3) Neither sincere nor insincere, (4) Somewhat sincere, (5) Very sincere",
+    "0 = Very insincere … 100 = Very sincere",
   
   # Benevolence
   "Benevolence", "How unconcerned or concerned are most climate scientists about people’s wellbeing?", 
-    "(1) Very unconcerned, (2) Somewhat unconcerned, (3) Neither concerned nor unconcerned, (4) Somewhat concerned, (5) Very concerned",
+    "0 = Very unconcerned … 100 = Very concerned",
   "Benevolence", "How uneager or eager are most climate scientists to improve others’ lives?", 
-    "(1) Very uneager, (2) Somewhat uneager, (3) Neither eager nor uneager, (4) Somewhat eager, (5) Very eager",
+    "0 = Very uneager … 100 = Very eager",
   "Benevolence", "How inconsiderate or considerate are most climate scientists of others’ interests?", 
-    "(1) Very inconsiderate, (2) Somewhat inconsiderate, (3) Neither considerate nor inconsiderate, (4) Somewhat considerate, (5) Very considerate",
+    "0 = Very inconsiderate … 100 = Very considerate",
   
   # Openness
   "Openness", "How open, if at all, are most climate scientists to feedback?", 
-    "(1) Not open, (2) Somewhat not open, (3) Neither open nor not open, (4) Somewhat open, (5) Very open",
+    "0 = Not open … 100 = Very open",
   "Openness", "How unwilling or willing are most climate scientists to be transparent?", 
-    "(1) Very unwilling, (2) Somewhat unwilling, (3) Neither willing nor unwilling, (4) Somewhat willing, (5) Very willing",
+    "0 = Very unwilling … 100 = Very willing",
   "Openness", "How little or much attention do climate scientists pay to others' views?", 
-    "(1) Pay very little attention to others' views, (2) Pay only a small amount of attention to others' views, (3) Pay a moderate amount of attention to others' views, (4) Pay a lot of attention to others' views, (5) Pay a great deal of attention to others' views"
+    "0 = Very little attention … 100 = A great deal of attention"
 ) |>
   group_by(Dimension) |>
   mutate(Dimension = ifelse(row_number() == 1, Dimension, "")) |>
@@ -93,8 +96,20 @@ trustworthiness_items <- tribble(
 
 # Display the table
 trustworthiness_items |>
-  kable(col.names = c("Dimension", "Item", "Response Options"), escape = TRUE, longtable = TRUE) |>
-  kable_styling(full_width = FALSE, font_size = 11, position = "center") 
+  tt(width = 1) |>
+  setNames(c("Dimension", "Item", "Response Options")) |>
+  style_tt(
+    j = 1,
+    bold = TRUE) |>
+    style_tt(
+    i = 0,
+    bold = TRUE) |>
+  style_tt(          # make first column bold
+    font_size = 11,
+    align = "l",
+    alignv = "t"
+  )
+
 ```
 
 # Interventions

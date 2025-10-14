@@ -53,7 +53,7 @@ listing:
 
   - id: advisory
     contents:
-      - image: images/sebastian.jpg
+      - image: images/sebastian.jpeg
         path: https://sites.google.com/view/sebastianberger/start
         title: "[Sebastian Berger](https://sites.google.com/view/sebastianberger/start)"
         subtitle: Assistant Professor, University of Bern, *Switzerland*

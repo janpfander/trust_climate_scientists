@@ -109,8 +109,6 @@ background-image: url(images/alternative_2.jpg);
 background-size: cover;
       }
 </style>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <style>
   /* Use bottom part of the banner image */
   .quarto-title-block .quarto-title-banner {
@@ -236,86 +234,127 @@ background-size: cover;
 <div id="tbl-trust" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-trust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Our measure of trust in climate scientists.
+Table&nbsp;1: Multi-dimensional measure of trust in climate scientists. Answers are assessed with a slider from 0 to 100. Only the endpoints are labelled.
 </figcaption>
 <div aria-describedby="tbl-trust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Dimension</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Item</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Response Options</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">We are interested in your general opinion about climate scientists. In answering the following questions, think about climate scientists specifically in the context of their work/research.</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Competence</td>
-<td style="text-align: left;">How incompetent or competent are most climate scientists?</td>
-<td style="text-align: left;">(1) Very incompetent, (2) Somewhat incompetent, (3) Neither competent nor incompetent, (4) Somewhat competent, (5) Very competent</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How unintelligent or intelligent are most climate scientists?</td>
-<td style="text-align: left;">(1) Very unintelligent, (2) Somewhat unintelligent, (3) Neither intelligent nor unintelligent, (4) Somewhat intelligent, (5) Very intelligent</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How unqualified or qualified are most climate scientists?</td>
-<td style="text-align: left;">(1) Very unqualified, (2) Somewhat unqualified, (3) Neither qualified nor unqualified, (4) Somewhat qualified, (5) Very qualified</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Integrity</td>
-<td style="text-align: left;">How dishonest or honest are most climate scientists?</td>
-<td style="text-align: left;">(1) Very dishonest, (2) Somewhat dishonest, (3) Neither honest nor dishonest, (4) Somewhat honest, (5) Very honest</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How unethical or ethical are most climate scientists?</td>
-<td style="text-align: left;">(1) Very unethical, (2) Somewhat unethical, (3) Neither ethical nor unethical, (4) Somewhat ethical, (5) Very ethical</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How insincere or sincere are most climate scientists?</td>
-<td style="text-align: left;">(1) Very insincere, (2) Somewhat insincere, (3) Neither sincere nor insincere, (4) Somewhat sincere, (5) Very sincere</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Benevolence</td>
-<td style="text-align: left;">How unconcerned or concerned are most climate scientists about people’s wellbeing?</td>
-<td style="text-align: left;">(1) Very unconcerned, (2) Somewhat unconcerned, (3) Neither concerned nor unconcerned, (4) Somewhat concerned, (5) Very concerned</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How uneager or eager are most climate scientists to improve others’ lives?</td>
-<td style="text-align: left;">(1) Very uneager, (2) Somewhat uneager, (3) Neither eager nor uneager, (4) Somewhat eager, (5) Very eager</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How inconsiderate or considerate are most climate scientists of others’ interests?</td>
-<td style="text-align: left;">(1) Very inconsiderate, (2) Somewhat inconsiderate, (3) Neither considerate nor inconsiderate, (4) Somewhat considerate, (5) Very considerate</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Openness</td>
-<td style="text-align: left;">How open, if at all, are most climate scientists to feedback?</td>
-<td style="text-align: left;">(1) Not open, (2) Somewhat not open, (3) Neither open nor not open, (4) Somewhat open, (5) Very open</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How unwilling or willing are most climate scientists to be transparent?</td>
-<td style="text-align: left;">(1) Very unwilling, (2) Somewhat unwilling, (3) Neither willing nor unwilling, (4) Somewhat willing, (5) Very willing</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">How little or much attention do climate scientists pay to others' views?</td>
-<td style="text-align: left;">(1) Pay very little attention to others' views, (2) Pay only a small amount of attention to others' views, (3) Pay a moderate amount of attention to others' views, (4) Pay a lot of attention to others' views, (5) Pay a great deal of attention to others' views</td>
-</tr>
-</tbody>
-</table>
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_e140sb685mgklqniq8p9 = TinyTable.createTableFunctions("tinytable_e140sb685mgklqniq8p9");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 } ], css_id: 'tinytable_css_tm4xzgl0xj2e55jg2uow',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 } ], css_id: 'tinytable_css_3phveb114xks1rjoa398',}, 
+          { positions: [ { i: '13', j: 2 }, { i: '13', j: 3 } ], css_id: 'tinytable_css_f6rqyktk78ej4jrzrtz3',}, 
+          { positions: [ { i: '13', j: 1 } ], css_id: 'tinytable_css_aezzmy9vplt29egxpdzy',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_cvsty28x8edxjbvyt1vm',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_e140sb685mgklqniq8p9.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_e140sb685mgklqniq8p9 td.tinytable_css_tm4xzgl0xj2e55jg2uow, #tinytable_e140sb685mgklqniq8p9 th.tinytable_css_tm4xzgl0xj2e55jg2uow { text-align: left; vertical-align: top }
+    #tinytable_e140sb685mgklqniq8p9 td.tinytable_css_3phveb114xks1rjoa398, #tinytable_e140sb685mgklqniq8p9 th.tinytable_css_3phveb114xks1rjoa398 { font-weight: bold; text-align: left; vertical-align: top }
+    #tinytable_e140sb685mgklqniq8p9 td.tinytable_css_f6rqyktk78ej4jrzrtz3, #tinytable_e140sb685mgklqniq8p9 th.tinytable_css_f6rqyktk78ej4jrzrtz3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left; vertical-align: top }
+    #tinytable_e140sb685mgklqniq8p9 td.tinytable_css_aezzmy9vplt29egxpdzy, #tinytable_e140sb685mgklqniq8p9 th.tinytable_css_aezzmy9vplt29egxpdzy {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: left; vertical-align: top }
+    #tinytable_e140sb685mgklqniq8p9 td.tinytable_css_cvsty28x8edxjbvyt1vm, #tinytable_e140sb685mgklqniq8p9 th.tinytable_css_cvsty28x8edxjbvyt1vm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; text-align: left; vertical-align: top }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_e140sb685mgklqniq8p9" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Dimension</th>
+                <th scope="col" data-row="0" data-col="2">Item</th>
+                <th scope="col" data-row="0" data-col="3">Response Options</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1"></td>
+                  <td data-row="1" data-col="2">We are interested in your general opinion about climate scientists. In answering the following questions, think about climate scientists specifically in the context of their work/research.</td>
+                  <td data-row="1" data-col="3"></td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Competence</td>
+                  <td data-row="2" data-col="2">How incompetent or competent are most climate scientists?</td>
+                  <td data-row="2" data-col="3">0 = Very incompetent … 100 = Very competent</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1"></td>
+                  <td data-row="3" data-col="2">How unintelligent or intelligent are most climate scientists?</td>
+                  <td data-row="3" data-col="3">0 = Very unintelligent … 100 = Very intelligent</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">How unqualified or qualified are most climate scientists?</td>
+                  <td data-row="4" data-col="3">0 = Very unqualified … 100 = Very qualified</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">Integrity</td>
+                  <td data-row="5" data-col="2">How dishonest or honest are most climate scientists?</td>
+                  <td data-row="5" data-col="3">0 = Very dishonest … 100 = Very honest</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2">How unethical or ethical are most climate scientists?</td>
+                  <td data-row="6" data-col="3">0 = Very unethical … 100 = Very ethical</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1"></td>
+                  <td data-row="7" data-col="2">How insincere or sincere are most climate scientists?</td>
+                  <td data-row="7" data-col="3">0 = Very insincere … 100 = Very sincere</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">Benevolence</td>
+                  <td data-row="8" data-col="2">How unconcerned or concerned are most climate scientists about people’s wellbeing?</td>
+                  <td data-row="8" data-col="3">0 = Very unconcerned … 100 = Very concerned</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1"></td>
+                  <td data-row="9" data-col="2">How uneager or eager are most climate scientists to improve others’ lives?</td>
+                  <td data-row="9" data-col="3">0 = Very uneager … 100 = Very eager</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1"></td>
+                  <td data-row="10" data-col="2">How inconsiderate or considerate are most climate scientists of others’ interests?</td>
+                  <td data-row="10" data-col="3">0 = Very inconsiderate … 100 = Very considerate</td>
+                </tr>
+                <tr>
+                  <td data-row="11" data-col="1">Openness</td>
+                  <td data-row="11" data-col="2">How open, if at all, are most climate scientists to feedback?</td>
+                  <td data-row="11" data-col="3">0 = Not open … 100 = Very open</td>
+                </tr>
+                <tr>
+                  <td data-row="12" data-col="1"></td>
+                  <td data-row="12" data-col="2">How unwilling or willing are most climate scientists to be transparent?</td>
+                  <td data-row="12" data-col="3">0 = Very unwilling … 100 = Very willing</td>
+                </tr>
+                <tr>
+                  <td data-row="13" data-col="1"></td>
+                  <td data-row="13" data-col="2">How little or much attention do climate scientists pay to others' views?</td>
+                  <td data-row="13" data-col="3">0 = Very little attention … 100 = A great deal of attention</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
 </figure>
