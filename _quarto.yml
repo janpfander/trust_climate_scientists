@@ -17,7 +17,7 @@ website:
     # Contact
     right:
       - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}} Write us an email"
-        href: "mailto:trustin.megastudy@gmail.com" 
+        href: "mailto:{{< var email >}}" 
       - icon: rss
         href: newsletter.xml
 

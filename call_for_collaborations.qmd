@@ -93,7 +93,7 @@ Intervention may target varying participant features. Variables that will be ava
 
 For example, an “ingroup source” intervention can use a pro-Democrat source for informing Democrat participants, and a pro-Republican source for informing Republican participants. In this case, the intervention would have the exact same instructions for all participants, but the "ingroup" varies as a function of each participants' partisan affiliation. It is crucial that **all participants receive the same kind of intervention**.
 
-If you have questions whether your intervention satisfies these criteria, you are welcome to [email us]((mailto:{{< var email >}})).
+If you have questions whether your intervention satisfies these criteria, you are welcome to [email us](mailto:{{< var email >}}).
 
 # Can I target a specific subgroup of participants? 
 
