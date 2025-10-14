@@ -1,19 +1,17 @@
 ---
 title: "Now launched: Call for Collaboration"
 date: 2025-10-13
-description: "Join the Trust-In Megastudy—a collaborative effort to strengthen public trust in climate scientists in the United States."
+description: "Join us in a collaborative effort to strengthen public trust in climate scientists in the United States!"
 categories:
   - interventions
 draft: false
-image: "../../images/windmills.jpg"
-title-block-banner-color: black
+image: "../../images/launch.jpg"
+title-block-banner-color: white
 ---
 
-# Welcome!
+# 🤝 Collaborate with us!
 
 The **Strengthening Trust in Climate Scientists Megastudy** is a collaborative research project to be run in the United States.
-
-# 🤝 Collaborate with Us
 
 We invite researchers at any career stage—from students to principal investigators—as well as practitioners to submit intervention ideas.
 

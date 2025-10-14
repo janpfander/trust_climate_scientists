@@ -85,6 +85,7 @@ listing:
   max-items: 3
   type: default
   image-align: right
+  image-height: 200px
   max-description-length: 175
   date-format: medium
   categories: false
@@ -95,7 +96,7 @@ listing:
   
 <div class="home-text">
 
-🤝 **Collaborate with us!**
+# 🤝 **Collaborate with us!**
 
 *Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States.  
 

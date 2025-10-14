@@ -30,11 +30,9 @@ library(tinytable)
 
 # Motivation
 
-While trust in scientists is moderately high globally, climate scientists are less trusted than scientists in general [@ghasemiGapsPublicTrust2025] and scientists of other disciplines [@gligoricHowSocialEvaluations2024].
-
-Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
-
 While trust in scientists is moderately high globally [@colognaTrustScientistsTheir2025], climate scientists have consistently been found to be less trusted than scientists from other fields and scientists in general [@druckmanContinuityChangeTrust2024; @ghasemiGapsPublicTrust2025; @schroderDontTellMe2023; @schugPublicPerceptionsTrustworthiness2024]. Lower trust in climate scientists could hamper societies’ ability to address climate change, resulting in high personal and societal costs.
+
+Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictor of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
 
 Increasing trust in climate scientists may therefore be an important lever to accelerate climate action and strengthen societal resilience to climate change. There is currently only a small number of behavioral intervention studies on increasing trust in climate scientists. The *Strengthening Trust in Climate Scientists Megastudy* aims to fill this gap.
 
@@ -162,9 +160,9 @@ gantt_data <- tribble(
   # 1: Project setup
   "1: Project setup", "Set-up advisory board",           1, 1,
   "1: Project setup", "Create website",                  1, 1,
-  "1: Project setup", "Pick outcomes",                   2, 3,
+  "1: Project setup", "Select outcomes",                   2, 3,
   "1: Project setup", "Define submission guidelines",    2, 3,
-  "1: Project setup", "Pick outcomes",                   5, 5,
+  "1: Project setup", "Select outcomes",                   5, 5,
   "1: Project setup", "Define submission guidelines",    5, 5,
 
   # 2: Interventions & Registration

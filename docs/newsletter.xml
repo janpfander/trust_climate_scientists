@@ -21,12 +21,9 @@
 
 
 
-<section id="welcome" class="level1">
-<h1>Welcome!</h1>
-<p>The <strong>Strengthening Trust in Climate Scientists Megastudy</strong> is a collaborative research project to be run in the United States.</p>
-</section>
 <section id="collaborate-with-us" class="level1">
-<h1>🤝 Collaborate with Us</h1>
+<h1>🤝 Collaborate with us!</h1>
+<p>The <strong>Strengthening Trust in Climate Scientists Megastudy</strong> is a collaborative research project to be run in the United States.</p>
 <p>We invite researchers at any career stage—from students to principal investigators—as well as practitioners to submit intervention ideas.</p>
 <p>Successful contributors will receive <strong>co-authorship</strong> in the primary publication arising from this project.</p>
 <p>Interventions can be submitted by individuals or teams, with a <strong>maximum of two individuals</strong> per team. Each team may propose <strong>up to two interventions</strong>, which will be evaluated independently.</p>
@@ -52,7 +49,7 @@ The most promising interventions will be selected and tested in a <strong>megast
   <category>interventions</category>
   <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</guid>
   <pubDate>Sun, 12 Oct 2025 22:00:00 GMT</pubDate>
-  <media:content url="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://janpfander.github.io/trust_climate_scientists/images/launch.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

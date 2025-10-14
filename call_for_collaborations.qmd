@@ -28,9 +28,9 @@ Submit your short intervention proposal via this survey: [https://stanforduniver
 
 While trust in scientists is moderately high globally, climate scientists are less trusted than scientists in general [@ghasemiGapsPublicTrust2025] and scientists of other disciplines [@gligoricHowSocialEvaluations2024].
 
-Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictors of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
+Strengthening trust in climate scientists matters: Across 55 countries, trust in climate scientists was the strongest predictor of belief in climate change and support for climate policy [@todorovaMachineLearningIdentifies2025].
 
-Given current attacks on climate science–particularly in the US–and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas for how to address this problem. With the *Strengthening Trust in Climate Scientists Megastudy*, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
+Given current attacks on climate science---particularly in the US---and the urgent need to address climate change, more research is needed on how to increase trust in climate scientists. Many people have ideas on how to address this problem. With the *Strengthening Trust in Climate Scientists Megastudy*, we provide the opportunity to gather and rigorously test many of these ideas in a mega experiment.
 
 Join our efforts to make a significant contribution to addressing this issue!
 
@@ -101,7 +101,7 @@ You may target a specific subgroup of participants, but the efficacy of your int
 
 # How will you select the interventions?
 
-Our expert team, composed of the research team and an [advisory board](team.qmd), will review submissions and select the most promising interventions for testing. Members of the advisory board are experts on trust in science and behavioral science from diverse backgrounds, including academics from different disciplines as well as practitioners.
+Our expert team, composed of the research team and an [advisory board](team.qmd), will review submissions and select the most promising interventions for testing. Members of the advisory board are experts on trust in science and behavioral science from diverse backgrounds, including academics from different disciplines as well as a practitioner.
 
 We aim to test up to 10 interventions, with a well-powered sample (\~1000 participants per condition).
 

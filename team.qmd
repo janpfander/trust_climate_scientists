@@ -38,7 +38,7 @@ listing:
       - path: https://janpfander.github.io/
         image: images/jan.jpeg
         title: "[Jan Pfänder](https://janpfander.github.io/)"
-        subtitle: Postdoc, [Climate and Societal Change Group](https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/) at Eawag, *Switzerland*
+        subtitle: Project lead, Postdoc, [Climate and Societal Change Group](https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/) at Eawag, *Switzerland*
         sortby: "1"
 
     type: grid
@@ -56,7 +56,7 @@ listing:
       - image: images/sebastian.jpeg
         path: https://sites.google.com/view/sebastianberger/start
         title: "[Sebastian Berger](https://sites.google.com/view/sebastianberger/start)"
-        subtitle: Assistant Professor, University of Bern, *Switzerland*
+        subtitle: Lecturer, Bern University of Applied Sciences, *Switzerland*
         sortby: "9"
 
       - image: images/john.jpg
