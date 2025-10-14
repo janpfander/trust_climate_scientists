@@ -7,16 +7,23 @@ title: |
 toc: false
 # subtitle: A call for a collaborative megastudy
 
-title-block-banner: images/alternative_2.jpeg
-title-block-banner-color: black
+title-block-banner: images/alternative_2.jpg
+title-block-banner-color: white
+
 
 include-in-header:
   - text: |
       <style>
       .quarto-title-block .quarto-title-banner {
-        background-position-y: bottom;
-        height: 500px;
-        position: relative;
+      background-position-x: center;
+      background-position-y: top;
+      aspect-ratio: 24 / 9; 
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-top; /* moves title+subtitle toward bottom */
+      align-items: center;
+      padding-top: 2rem; /* space above description */
+      position: relative;
       }
 
       /* Center title and subtitle */
@@ -27,8 +34,11 @@ include-in-header:
 
       /* Increase title and description font sizes */
       .quarto-title-block .title {
-        font-size: 3rem;
-        font-weight: bold;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-top: 2em;
       }
 
       .quarto-title-block .subtitle {
@@ -85,17 +95,13 @@ listing:
   
 <div class="home-text">
 
-**Call for a collaboration**
+🤝 **Collaborate with us!**
 
 *Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States.  
 
-We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal.  
+We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal. We will select the most promising interventions and test them in a *megastudy*—a large, online experiment. **Successful contributors will receive co-authorship in the primary publication arising from this project.**
 
-We will select the most promising interventions and test them in a *megastudy*—a large, online experiment.
-
-**Successful contributors will receive co-authorship in the primary publication arising from this project.**
-
-👉 Learn about submission rules on our [**Call for Collaborations page**](../../call_for_collaborations.qmd).  
+👉 Learn about submission rules on our [**Collaborate page**](call_for_collaborations.qmd).  
 
 📝 Submit your intervention proposal via our [**designated submission survey**](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg).
 

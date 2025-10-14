@@ -13,7 +13,6 @@ title-block-banner-color: black
 
 The **Strengthening Trust in Climate Scientists Megastudy** is a collaborative research project to be run in the United States.
 
-
 # 🤝 Collaborate with Us
 
 We invite researchers at any career stage—from students to principal investigators—as well as practitioners to submit intervention ideas.

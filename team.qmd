@@ -2,8 +2,8 @@
 title: "Team"
 toc: true
 page-layout: full
-title-block-banner: images/alternative_2.jpeg
-title-block-banner-color: black
+title-block-banner: images/alternative_2.jpg
+title-block-banner-color: white
 include-in-header:
   - text: |
       <style>

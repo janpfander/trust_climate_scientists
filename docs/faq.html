@@ -85,8 +85,7 @@ ul.task-list li input[type="checkbox"] {
 
       .quarto-title-block .quarto-title-banner {
         color: black;
-background-image: url(images/alternative_2.jpeg);
-background-size: cover;
+background: images/alternative_2.jpeg;
       }
 </style>
 <style>
@@ -127,10 +126,6 @@ background-size: cover;
   <li class="nav-item">
     <a class="nav-link" href="./call_for_collaborations.html"> 
 <span class="menu-text">Collaborate</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./newsletter.html"> 
-<span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./team.html"> 
@@ -275,6 +270,11 @@ background-size: cover;
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

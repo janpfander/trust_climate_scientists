@@ -1,7 +1,7 @@
 ---
 title: "Collaborate"
-title-block-banner: images/alternative_2.jpeg
-title-block-banner-color: black
+title-block-banner: images/alternative_2.jpg
+title-block-banner-color: white
 include-in-header:
   - text: |
       <style>
@@ -49,14 +49,6 @@ This call is open to researchers at any level, as well as practitioners.
 Interventions can be submitted by individuals or teams, with a **maximum of two individuals** per team. Each team may propose **up to two interventions**, which will be evaluated independently.
 
 Each individual may participate in up to two teams. For example, Peter could submit two interventions as part of a team with Jane, and another two interventions as part of a second team with Martin.
-
-# How many collaborators per team?
-
-Authorship will be limited to **two people** per team. It is also possible to submit an intervention proposal alone.
-
-# How many intervention proposals per team?
-
-Each team can make **up to two** intervention proposals. If a team submits two proposals, the proposals will be evaluated independently of each other.
 
 # Who are the participants?
 
@@ -117,7 +109,15 @@ The expert team will review interventions to check whether they satisfy the requ
 
 The final decision on which interventions will be tested is at the discretion of the advisory board.
 
-# How can I participate?
+# Will I need to contribute in any other way? 
+
+No, your contribution consists only of designing an intervention. We have secured all funding necessary to run the study, and we will design the survey, analyze the data, and write the paper. You will have the opportunity to provide feedback on the paper during the editing phase before it is submitted to a journal.
+
+# Are interactive interventions allowed? 
+
+We are considering interactive intervention proposals (e.g., chatbots) as well. If you plan to submit an interactive intervention, please email us at [{{< var email >}}](mailto:{{< var email >}})!
+
+# How can I participate
 
 Fill out this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg)
 

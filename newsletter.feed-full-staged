@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Home</title>
+<link>https://janpfander.github.io/trust_climate_scientists/newsletter.html</link>
+<atom:link href="https://janpfander.github.io/trust_climate_scientists/newsletter.xml" rel="self" type="application/rss+xml"/>
+<description>The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States.</description>
+<generator>quarto-1.8.24</generator>
+<lastBuildDate>Sun, 12 Oct 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/newsletter/2025-10-13/index.html}</title>
+  <dc:creator>Jan Pfänder</dc:creator>
+  <link>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</link>
+  <description>{B4F502887207:/newsletter/2025-10-13/index.html}</description>
+  <category>interventions</category>
+  <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</guid>
+  <pubDate>Sun, 12 Oct 2025 22:00:00 GMT</pubDate>
+  <media:content url="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

@@ -100,12 +100,12 @@ div.csl-indent {
       .quarto-title-block .quarto-title-banner h5,
       .quarto-title-block .quarto-title-banner h6
       {
-        color: black;
+        color: white;
       }
 
       .quarto-title-block .quarto-title-banner {
-        color: black;
-background-image: url(images/alternative_2.jpeg);
+        color: white;
+background-image: url(images/alternative_2.jpg);
 background-size: cover;
       }
 </style>
@@ -149,10 +149,6 @@ background-size: cover;
   <li class="nav-item">
     <a class="nav-link" href="./call_for_collaborations.html"> 
 <span class="menu-text">Collaborate</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./newsletter.html"> 
-<span class="menu-text">Newsletter</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./team.html"> 
@@ -472,6 +468,11 @@ Todorova, Boryana, David Steyrl, Matthew J. Hornsey, Samuel Pearson, Cameron Bri
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

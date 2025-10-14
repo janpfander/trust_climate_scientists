@@ -12,7 +12,6 @@ website:
     left:
       - research_design.qmd
       - call_for_collaborations.qmd
-      - newsletter.qmd
       - team.qmd
       
     # Contact
@@ -38,6 +37,7 @@ format:
     css: styles.css
     toc: true
     code-fold: true
+    link-external-newwindow: true
 
 editor: source
 

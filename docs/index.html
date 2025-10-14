@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input5b94b206db77f8b7 – Home</title>
+<title>quarto-input42101bf4703a8bc6 – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,20 +111,26 @@ ul.task-list li input[type="checkbox"] {
       .quarto-title-block .quarto-title-banner h5,
       .quarto-title-block .quarto-title-banner h6
       {
-        color: black;
+        color: white;
       }
 
       .quarto-title-block .quarto-title-banner {
-        color: black;
-background-image: url(images/alternative_2.jpeg);
+        color: white;
+background-image: url(images/alternative_2.jpg);
 background-size: cover;
       }
 </style>
 <style>
 .quarto-title-block .quarto-title-banner {
-  background-position-y: bottom;
-  height: 500px;
-  position: relative;
+background-position-x: center;
+background-position-y: top;
+aspect-ratio: 24 / 9;
+display: flex;
+flex-direction: column;
+justify-content: flex-top; /* moves title+subtitle toward bottom */
+align-items: center;
+padding-top: 2rem; /* space above description */
+position: relative;
 }
 
 /* Center title and subtitle */
@@ -135,8 +141,11 @@ background-size: cover;
 
 /* Increase title and description font sizes */
 .quarto-title-block .title {
-  font-size: 3rem;
-  font-weight: bold;
+font-size: 3rem;
+font-weight: bold;
+color: white;
+text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+margin-top: 2em;
 }
 
 .quarto-title-block .subtitle {
@@ -227,10 +236,6 @@ window.Quarto = {
 <span class="menu-text">Collaborate</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./newsletter.html"> 
-<span class="menu-text">Newsletter</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./team.html"> 
 <span class="menu-text">Team</span></a>
   </li>  
@@ -282,19 +287,17 @@ window.Quarto = {
 
 
 <div class="home-text">
-<p><strong>Call for a collaboration</strong></p>
+<p>🤝 <strong>Collaborate with us!</strong></p>
 <p><em>Strengthening Trust in Climate Scientists</em> is a collaborative research project to test short, online interventions that strengthen people’s trust in climate scientists in the United States.</p>
-<p>We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal.</p>
-<p>We will select the most promising interventions and test them in a <em>megastudy</em>—a large, online experiment.</p>
-<p><strong>Successful contributors will receive co-authorship in the primary publication arising from this project.</strong></p>
-<p>👉 Learn about submission rules on our <a href="../../call_for_collaborations.qmd"><strong>Call for Collaborations page</strong></a>.</p>
+<p>We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal. We will select the most promising interventions and test them in a <em>megastudy</em>—a large, online experiment. <strong>Successful contributors will receive co-authorship in the primary publication arising from this project.</strong></p>
+<p>👉 Learn about submission rules on our <a href="./call_for_collaborations.html"><strong>Collaborate page</strong></a>.</p>
 <p>📝 Submit your intervention proposal via our <a href="https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg"><strong>designated submission survey</strong></a>.</p>
 </div>
 <section id="news" class="level1">
 <h1>News</h1>
 <div id="listing-newsletter" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="aW50ZXJ2ZW50aW9ucw==" data-listing-date-sort="1760306400000" data-listing-file-modified-sort="1760431208890" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
+<div class="quarto-post image-right" data-index="0" data-categories="aW50ZXJ2ZW50aW9ucw==" data-listing-date-sort="1760306400000" data-listing-file-modified-sort="1760447327521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
 <div class="thumbnail"><a href="./newsletter/2025-10-13/index.html" class="no-external">
 
 <img loading="lazy" src="./images/windmills.jpg" class="thumbnail-image">
@@ -415,6 +418,11 @@ Jan Pfänder
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
