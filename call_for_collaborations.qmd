@@ -97,7 +97,7 @@ If you have questions whether your intervention satisfies these criteria, you ar
 
 # Can I target a specific subgroup of participants? 
 
-You may target a specific subgroup of participants, but the efficacy of your intervention will be evaluated based on its average effect across the entire sample.
+You may target a specific subgroup of participants, but the efficacy of your intervention will be evaluated based on its average effect across the **entire sample**.
 
 # How will you select the interventions?
 
@@ -117,10 +117,26 @@ No, your contribution consists only of designing an intervention. We have secure
 
 # Are interactive interventions allowed? 
 
-We are considering interactive intervention proposals (e.g., chatbots) as well. If you plan to submit an interactive intervention, please email us at [{{< var email >}}](mailto:{{< var email >}})!
+Yes, we are open to interactive intervention proposals (e.g., chatbots, LLM-based interventions).
+
+If you plan to submit an interactive intervention, please describe the **feasibility** of integrating it into a Qualtrics online survey.
+
+If your intervention involves an LLM, please **theoretically motivate your prompt**, as the prompt will be a key feature distinguishing your submission from other LLM-based interventions.
+
+# What will the control group look like?
+
+To ensure a fair comparison across all interventions, each will be evaluated against the **same control group**.
+
+The specific design of the control group will be determined **after** we have received and reviewed all intervention proposals. Having a complete overview of the submitted interventions will help us design a more appropriate and informative control condition.
+
+In your proposal, you are welcome to describe what you consider an ideal control group. Your input will help us identify important design considerations when developing the final control condition. 
 
 # How can I participate
 
 Fill out this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg)
 
 During this survey, we will ask you to provide a detailed description (max 500 words) of your intervention. 
+
+# Other questions? 
+
+Please feel free to email us at [{{< var email >}}](mailto:{{< var email >}}).
