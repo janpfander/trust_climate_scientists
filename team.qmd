@@ -53,59 +53,65 @@ listing:
 
   - id: advisory
     contents:
+      - image: images/marlene.jpg
+        path: https://leibniz-psychology.org/profil-marlene-altenmueller
+        title: "[Marlene Altenmüller](https://leibniz-psychology.org/profil-marlene-altenmueller)"
+        subtitle: Jun. Prof. for Science Reception, Leibniz Institute for Psychology (ZPID), *Germany*
+        sortby: 10      
+      
       - image: images/sebastian.jpeg
         path: https://sites.google.com/view/sebastianberger/start
         title: "[Sebastian Berger](https://sites.google.com/view/sebastianberger/start)"
         subtitle: Lecturer, Bern University of Applied Sciences, *Switzerland*
-        sortby: "9"
+        sortby: 9
 
       - image: images/john.jpg
         path: https://comartsci.msu.edu/our-people/john-c-besley
         title: "[John C. Besley](https://comartsci.msu.edu/our-people/john-c-besley)"
         subtitle: Professor, Michigan State University, *United States*
-        sortby: "8"
+        sortby: 8
 
       - image: images/cameron.jpg
         path: https://www.cameronbrick.com/
         title: "[Cameron Brick](https://www.cameronbrick.com/)"
         subtitle: Assistant Professor, University of Amsterdam, *Netherlands*
-        sortby: "7"
+        sortby: 7
 
       - image: images/james.jpeg
         path: https://sites.google.com/view/jamie-druckman
         title: "[James Druckman](https://sites.google.com/view/jamie-druckman)"
         subtitle: Professor, University of Rochester, *United States*
-        sortby: "6"
+        sortby: 6
 
       - image: images/edward.png
         path: https://communication.gmu.edu/people/emaibach
         title: "[Edward Wile Maibach](https://communication.gmu.edu/people/emaibach)"
         subtitle: Professor, George Mason University, *United States*
-        sortby: "5"
+        sortby: 5
 
       - image: images/hugo.jpg
         path: https://sites.google.com/site/hugomercier/
         title: "[Hugo Mercier](https://sites.google.com/site/hugomercier/)"
         subtitle: Research Director at the CNRS, Institut Jean Nicod, *France*
-        sortby: "4"
+        sortby: 4
 
       - image: images/naomi.jpg
         path: https://histsci.fas.harvard.edu/people/naomi-oreskes
         title: "[Naomi Oreskes](https://histsci.fas.harvard.edu/people/naomi-oreskes)"
         subtitle: Professor, Harvard University, *United States*
-        sortby: "3"
+        sortby: 3
 
       - image: images/mario.jpg
         path: https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en
         title: "[Mario Scharfbillig](https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en)"
         subtitle: Science Policy Advisor, Joint Research Centre (JRC), *European Commission*
-        sortby: "2"
+        sortby: 2
 
       - image: images/mike.jpg
         path: https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html
         title: "[Mike S. Schäfer](https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html)"
         subtitle: Professor, University of Zurich, *Switzerland*
-        sortby: "1"
+        sortby: 1
         
 
     type: grid

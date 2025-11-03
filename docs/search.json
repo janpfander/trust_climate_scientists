@@ -81,7 +81,7 @@
     "href": "additional_outcome_variables.html",
     "title": "Other outcome variables",
     "section": "",
-    "text": "Code\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\nlibrary(kableExtra)\n\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows"
+    "text": "Code\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\nlibrary(kableExtra)\n\n\n\nAttaching package: 'kableExtra'\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n[Have trust as primary measure and then randomize the order of the other outcomes]"
   },
   {
     "objectID": "additional_outcome_variables.html#behavioral-measures",
@@ -109,7 +109,7 @@
     "href": "additional_outcome_variables.html#support-for-climate-policies",
     "title": "Other outcome variables",
     "section": "Support for climate policies",
-    "text": "Support for climate policies\nModified version from XX.\n[I think using a 3-point scale here is weird and unnecessary, make alternative suggestion].\n\n\nCode\n# Policy support items\npolicy_items &lt;- tribble(\n  ~Item, ~Response_Options,\n  \n  # Policy support\n  \"Please indicate your level of support for the following policies.\", \"\",\n  \"Raising carbon taxes on gas and fossil fuels or coal\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Expanding infrastructure for public transportation\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Increasing the use of sustainable energy such as wind and solar energy\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Protecting forested and land areas\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Increasing taxes on carbon intense foods (e.g., beef and dairy products)\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n) \n\n# Display the table\npolicy_items |&gt;\n  kable(col.names = c(\"Item\", \"Response Options\"), escape = TRUE, longtable = TRUE) |&gt;\n  kable_styling(full_width = FALSE, font_size = 11, position = \"center\") \n\n\n\n\n\nItem\nResponse Options\n\n\n\n\nPlease indicate your level of support for the following policies.\n\n\n\nRaising carbon taxes on gas and fossil fuels or coal\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nExpanding infrastructure for public transportation\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nIncreasing the use of sustainable energy such as wind and solar energy\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nProtecting forested and land areas\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nIncreasing taxes on carbon intense foods (e.g., beef and dairy products)\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable"
+    "text": "Support for climate policies\nModified version from madalina’s and kim’s manylabs studie.\n[I think using a 3-point scale here is weird and unnecessary, make alternative suggestion - use sliders instead].\n\n\nCode\n# Policy support items\npolicy_items &lt;- tribble(\n  ~Item, ~Response_Options,\n  \n  # Policy support\n  \"Please indicate your level of support for the following policies.\", \"\",\n  \"Raising carbon taxes on fossil fuels (e.g., gas, oil, coal)\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Expanding infrastructure for public transportation\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Increasing the use of sustainable energy such as wind and solar energy\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Protecting forested and land areas\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n  \"Increasing taxes on carbon intense foods (e.g., beef and dairy products)\",\n    \"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\",\n) \n\n# Display the table\npolicy_items |&gt;\n  kable(col.names = c(\"Item\", \"Response Options\"), escape = TRUE, longtable = TRUE) |&gt;\n  kable_styling(full_width = FALSE, font_size = 11, position = \"center\") \n\n\n\n\n\nItem\nResponse Options\n\n\n\n\nPlease indicate your level of support for the following policies.\n\n\n\nRaising carbon taxes on fossil fuels (e.g., gas, oil, coal)\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nExpanding infrastructure for public transportation\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nIncreasing the use of sustainable energy such as wind and solar energy\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nProtecting forested and land areas\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable\n\n\nIncreasing taxes on carbon intense foods (e.g., beef and dairy products)\n(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable"
   },
   {
     "objectID": "additional_outcome_variables.html#funding",
@@ -126,11 +126,95 @@
     "text": "Belief in climate change\nfrom vlasceanu et al 2024\n\nHow accurate do you think this statement is? [from 0 = not at all accurate to 100 = extremely accurate]: “Human activities are causing climate change.”"
   },
   {
+    "objectID": "additional_outcome_variables.html#belief-in-climate-crisis",
+    "href": "additional_outcome_variables.html#belief-in-climate-crisis",
+    "title": "Other outcome variables",
+    "section": "Belief in climate crisis",
+    "text": "Belief in climate crisis\ncheck from vlasceanu et al 2024\n\nSomething like do you think there is a climate crisis? or, do you think climate change is an urgent problem"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#trust-in-institutions",
+    "href": "additional_outcome_variables.html#trust-in-institutions",
+    "title": "Other outcome variables",
+    "section": "Trust in institutions",
+    "text": "Trust in institutions\n(before or after interventions?)"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#distrust",
+    "href": "additional_outcome_variables.html#distrust",
+    "title": "Other outcome variables",
+    "section": "Distrust",
+    "text": "Distrust\nsame single item as with trust; we could have research questions on how competence vs. benevolence dimensions relate to this (maybe highly competent but not benevolent people are more likely to be actively distrusted, compared to just low trust) - talk about this with John"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#trust-in-other-institutions-us-context",
+    "href": "additional_outcome_variables.html#trust-in-other-institutions-us-context",
+    "title": "Other outcome variables",
+    "section": "Trust in other institutions (US context)",
+    "text": "Trust in other institutions (US context)"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#social-dominance-orientationauthoritarianismsystem-justification",
+    "href": "additional_outcome_variables.html#social-dominance-orientationauthoritarianismsystem-justification",
+    "title": "Other outcome variables",
+    "section": "Social dominance orientation/authoritarianism/system justification",
+    "text": "Social dominance orientation/authoritarianism/system justification"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#religiosity-and-religious-affiliationdenomination",
+    "href": "additional_outcome_variables.html#religiosity-and-religious-affiliationdenomination",
+    "title": "Other outcome variables",
+    "section": "Religiosity and Religious affiliation/denomination",
+    "text": "Religiosity and Religious affiliation/denomination"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#income",
+    "href": "additional_outcome_variables.html#income",
+    "title": "Other outcome variables",
+    "section": "Income",
+    "text": "Income"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#urban-rural",
+    "href": "additional_outcome_variables.html#urban-rural",
+    "title": "Other outcome variables",
+    "section": "Urban rural",
+    "text": "Urban rural"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#race",
+    "href": "additional_outcome_variables.html#race",
+    "title": "Other outcome variables",
+    "section": "Race",
+    "text": "Race"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#political-ideology",
+    "href": "additional_outcome_variables.html#political-ideology",
+    "title": "Other outcome variables",
+    "section": "Political ideology",
+    "text": "Political ideology"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#perceived-social-status-andor-perceived-inequality",
+    "href": "additional_outcome_variables.html#perceived-social-status-andor-perceived-inequality",
+    "title": "Other outcome variables",
+    "section": "Perceived social status and/or perceived inequality",
+    "text": "Perceived social status and/or perceived inequality"
+  },
+  {
+    "objectID": "additional_outcome_variables.html#open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not.",
+    "href": "additional_outcome_variables.html#open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not.",
+    "title": "Other outcome variables",
+    "section": "Open-ended question: Do you think trust in climate scientists matters? Please share your thoughts and arguments on why or why not.",
+    "text": "Open-ended question: Do you think trust in climate scientists matters? Please share your thoughts and arguments on why or why not."
+  },
+  {
     "objectID": "team.html",
     "href": "team.html",
     "title": "Team",
     "section": "",
-    "text": "Research team\n\n\n\n\n\n\n\n\n\n\nJan Pfänder\n\n\nProject lead, Postdoc, Climate and Societal Change Group at Eawag, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\nMadalina Vlasceanu\n\n\nAssistant Professor, Climate Cognition Lab at Stanford University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nSara Constantino\n\n\nAssistant Professor, Stanford University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nViktoria Cologna\n\n\nGroup leader, Climate and Societal Change Group at Eawag, Switzerland\n\n\n\n\n\nNo matching items\n\n\n\nAdvisory board\n\n\n\n\n\n\n\n\n\n\nMike S. Schäfer\n\n\nProfessor, University of Zurich, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\nMario Scharfbillig\n\n\nScience Policy Advisor, Joint Research Centre (JRC), European Commission\n\n\n\n\n\n\n\n\n\n\n\n\nNaomi Oreskes\n\n\nProfessor, Harvard University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nHugo Mercier\n\n\nResearch Director at the CNRS, Institut Jean Nicod, France\n\n\n\n\n\n\n\n\n\n\n\n\nEdward Wile Maibach\n\n\nProfessor, George Mason University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nJames Druckman\n\n\nProfessor, University of Rochester, United States\n\n\n\n\n\n\n\n\n\n\n\n\nCameron Brick\n\n\nAssistant Professor, University of Amsterdam, Netherlands\n\n\n\n\n\n\n\n\n\n\n\n\nJohn C. Besley\n\n\nProfessor, Michigan State University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nSebastian Berger\n\n\nLecturer, Bern University of Applied Sciences, Switzerland\n\n\n\n\n\nNo matching items"
+    "text": "Research team\n\n\n\n\n\n\n\n\n\n\nJan Pfänder\n\n\nProject lead, Postdoc, Climate and Societal Change Group at Eawag, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\nMadalina Vlasceanu\n\n\nAssistant Professor, Climate Cognition Lab at Stanford University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nSara Constantino\n\n\nAssistant Professor, Stanford University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nViktoria Cologna\n\n\nGroup leader, Climate and Societal Change Group at Eawag, Switzerland\n\n\n\n\n\nNo matching items\n\n\n\nAdvisory board\n\n\n\n\n\n\n\n\n\n\nMike S. Schäfer\n\n\nProfessor, University of Zurich, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\nMario Scharfbillig\n\n\nScience Policy Advisor, Joint Research Centre (JRC), European Commission\n\n\n\n\n\n\n\n\n\n\n\n\nNaomi Oreskes\n\n\nProfessor, Harvard University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nHugo Mercier\n\n\nResearch Director at the CNRS, Institut Jean Nicod, France\n\n\n\n\n\n\n\n\n\n\n\n\nEdward Wile Maibach\n\n\nProfessor, George Mason University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nJames Druckman\n\n\nProfessor, University of Rochester, United States\n\n\n\n\n\n\n\n\n\n\n\n\nCameron Brick\n\n\nAssistant Professor, University of Amsterdam, Netherlands\n\n\n\n\n\n\n\n\n\n\n\n\nJohn C. Besley\n\n\nProfessor, Michigan State University, United States\n\n\n\n\n\n\n\n\n\n\n\n\nSebastian Berger\n\n\nLecturer, Bern University of Applied Sciences, Switzerland\n\n\n\n\n\n\n\n\n\n\n\n\nMarlene Altenmüller\n\n\nJun. Prof. for Science Reception, Leibniz Institute for Psychology (ZPID), Germany\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

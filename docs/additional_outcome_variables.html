@@ -180,6 +180,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#support-for-climate-policies" id="toc-support-for-climate-policies" class="nav-link" data-scroll-target="#support-for-climate-policies">Support for climate policies</a></li>
   <li><a href="#funding" id="toc-funding" class="nav-link" data-scroll-target="#funding">Funding</a></li>
   <li><a href="#belief-in-climate-change" id="toc-belief-in-climate-change" class="nav-link" data-scroll-target="#belief-in-climate-change">Belief in climate change</a></li>
+  <li><a href="#belief-in-climate-crisis" id="toc-belief-in-climate-crisis" class="nav-link" data-scroll-target="#belief-in-climate-crisis">Belief in climate <strong>crisis</strong></a></li>
+  <li><a href="#trust-in-institutions" id="toc-trust-in-institutions" class="nav-link" data-scroll-target="#trust-in-institutions">Trust in institutions</a></li>
+  <li><a href="#distrust" id="toc-distrust" class="nav-link" data-scroll-target="#distrust">Distrust</a></li>
+  <li><a href="#trust-in-other-institutions-us-context" id="toc-trust-in-other-institutions-us-context" class="nav-link" data-scroll-target="#trust-in-other-institutions-us-context">Trust in other institutions (US context)</a></li>
+  <li><a href="#social-dominance-orientationauthoritarianismsystem-justification" id="toc-social-dominance-orientationauthoritarianismsystem-justification" class="nav-link" data-scroll-target="#social-dominance-orientationauthoritarianismsystem-justification">Social dominance orientation/authoritarianism/system justification</a></li>
+  <li><a href="#religiosity-and-religious-affiliationdenomination" id="toc-religiosity-and-religious-affiliationdenomination" class="nav-link" data-scroll-target="#religiosity-and-religious-affiliationdenomination">Religiosity and Religious affiliation/denomination</a></li>
+  <li><a href="#income" id="toc-income" class="nav-link" data-scroll-target="#income">Income</a></li>
+  <li><a href="#urban-rural" id="toc-urban-rural" class="nav-link" data-scroll-target="#urban-rural">Urban rural</a></li>
+  <li><a href="#race" id="toc-race" class="nav-link" data-scroll-target="#race">Race</a></li>
+  <li><a href="#political-ideology" id="toc-political-ideology" class="nav-link" data-scroll-target="#political-ideology">Political ideology</a></li>
+  <li><a href="#perceived-social-status-andor-perceived-inequality" id="toc-perceived-social-status-andor-perceived-inequality" class="nav-link" data-scroll-target="#perceived-social-status-andor-perceived-inequality">Perceived social status and/or perceived inequality</a></li>
+  <li><a href="#open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not." id="toc-open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not." class="nav-link" data-scroll-target="#open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not.">Open-ended question: Do you think trust in climate scientists matters? Please share your thoughts and arguments on why or why not.</a></li>
+  <li><a href="#attention-checks-think-about-attention-checks-llm-detection" id="toc-attention-checks-think-about-attention-checks-llm-detection" class="nav-link" data-scroll-target="#attention-checks-think-about-attention-checks-llm-detection">Attention checks? Think about attention checks/ LLM detection</a></li>
   </ul>
 </nav>
     </div>
@@ -235,6 +248,7 @@ The following object is masked from 'package:dplyr':
     group_rows</code></pre>
 </div>
 </div>
+<p>[Have trust as primary measure and then randomize the order of the other outcomes]</p>
 <section id="behavioral-measures" class="level2">
 <h2 class="anchored" data-anchor-id="behavioral-measures">Behavioral measures</h2>
 <section id="donation" class="level3">
@@ -360,8 +374,8 @@ The following object is masked from 'package:dplyr':
 </section>
 <section id="support-for-climate-policies" class="level2">
 <h2 class="anchored" data-anchor-id="support-for-climate-policies">Support for climate policies</h2>
-<p>Modified version from XX.</p>
-<p>[I think using a 3-point scale here is weird and unnecessary, make alternative suggestion].</p>
+<p>Modified version from madalina’s and kim’s manylabs studie.</p>
+<p>[I think using a 3-point scale here is weird and unnecessary, make alternative suggestion - use sliders instead].</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -371,7 +385,7 @@ The following object is masked from 'package:dplyr':
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Policy support</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Please indicate your level of support for the following policies."</span>, <span class="st">""</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Raising carbon taxes on gas and fossil fuels or coal"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Raising carbon taxes on fossil fuels (e.g., gas, oil, coal)"</span>,</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable"</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Expanding infrastructure for public transportation"</span>,</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable"</span>,</span>
@@ -402,7 +416,7 @@ The following object is masked from 'package:dplyr':
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Raising carbon taxes on gas and fossil fuels or coal</td>
+<td style="text-align: left;">Raising carbon taxes on fossil fuels (e.g., gas, oil, coal)</td>
 <td style="text-align: left;">(1) Not at all – (2) Moderately – (3) Very much – (NA) Not applicable</td>
 </tr>
 <tr class="odd">
@@ -440,6 +454,51 @@ The following object is masked from 'package:dplyr':
 <blockquote class="blockquote">
 <p>How accurate do you think this statement is? [from 0 = not at all accurate to 100 = extremely accurate]: “Human activities are causing climate change.”</p>
 </blockquote>
+</section>
+<section id="belief-in-climate-crisis" class="level2">
+<h2 class="anchored" data-anchor-id="belief-in-climate-crisis">Belief in climate <strong>crisis</strong></h2>
+<p>check from vlasceanu et al 2024</p>
+<blockquote class="blockquote">
+<p>Something like do you think there is a climate crisis? or, do you think climate change is an urgent problem</p>
+</blockquote>
+</section>
+<section id="trust-in-institutions" class="level2">
+<h2 class="anchored" data-anchor-id="trust-in-institutions">Trust in institutions</h2>
+<p>(before or after interventions?)</p>
+</section>
+<section id="distrust" class="level2">
+<h2 class="anchored" data-anchor-id="distrust">Distrust</h2>
+<p>same single item as with trust; we could have research questions on how competence vs.&nbsp;benevolence dimensions relate to this (maybe highly competent but not benevolent people are more likely to be actively distrusted, compared to just low trust) - talk about this with John</p>
+</section>
+<section id="trust-in-other-institutions-us-context" class="level2">
+<h2 class="anchored" data-anchor-id="trust-in-other-institutions-us-context">Trust in other institutions (US context)</h2>
+</section>
+<section id="social-dominance-orientationauthoritarianismsystem-justification" class="level2">
+<h2 class="anchored" data-anchor-id="social-dominance-orientationauthoritarianismsystem-justification">Social dominance orientation/authoritarianism/system justification</h2>
+</section>
+<section id="religiosity-and-religious-affiliationdenomination" class="level2">
+<h2 class="anchored" data-anchor-id="religiosity-and-religious-affiliationdenomination">Religiosity and Religious affiliation/denomination</h2>
+</section>
+<section id="income" class="level2">
+<h2 class="anchored" data-anchor-id="income">Income</h2>
+</section>
+<section id="urban-rural" class="level2">
+<h2 class="anchored" data-anchor-id="urban-rural">Urban rural</h2>
+</section>
+<section id="race" class="level2">
+<h2 class="anchored" data-anchor-id="race">Race</h2>
+</section>
+<section id="political-ideology" class="level2">
+<h2 class="anchored" data-anchor-id="political-ideology">Political ideology</h2>
+</section>
+<section id="perceived-social-status-andor-perceived-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="perceived-social-status-andor-perceived-inequality">Perceived social status and/or perceived inequality</h2>
+</section>
+<section id="open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not." class="level2">
+<h2 class="anchored" data-anchor-id="open-ended-question-do-you-think-trust-in-climate-scientists-matters-please-share-your-thoughts-and-arguments-on-why-or-why-not.">Open-ended question: Do you think trust in climate scientists matters? Please share your thoughts and arguments on why or why not.</h2>
+</section>
+<section id="attention-checks-think-about-attention-checks-llm-detection" class="level1">
+<h1>Attention checks? Think about attention checks/ LLM detection</h1>
 
 
 </section>
