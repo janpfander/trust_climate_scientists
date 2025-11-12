@@ -1,0 +1,133 @@
+---
+title: "⌛ Time's up! Thank you all for your great submissions! 🎉"
+date: 2025-11-12
+categories:
+  - interventions
+  - submissions
+draft: false
+image: "../../images/sunrise.jpg"
+title-block-banner-color: white
+---
+
+```{r}
+# libraries
+library(tidyverse)
+library(kableExtra)
+library(tinytable)
+library(wesanderson)
+```
+
+```{r}
+# load functions
+source("../../R/functions.R")
+```
+
+
+```{r}
+submissions <- read_csv("../../data/call_for_collaboration/cleaned.csv")
+
+n_interventions_per_team <- submissions |> 
+  group_by(responseid) |> 
+  summarize(n_interventions_per_team = sum(!is.na(description))) |> 
+  mutate(n_interventions_per_team =  ifelse(n_interventions_per_team == 1, "one", "two")) |> 
+  group_by(n_interventions_per_team) |> 
+  summarise(n_research_teams = n_distinct(responseid)) %>%
+  split(.$n_interventions_per_team)
+
+n_researchers_per_team <- submissions |> 
+  group_by(num_researchers) |> 
+  summarize(n_submissions = n()) %>%
+  split(.$num_researchers)
+```
+
+
+🌍🔬 Thank you all for submitting your fantastic intervention proposals to our Strengthening Trust in Climate Scientists Megastudy!
+
+💪 You’ve exceeded even our most optimistic expectations --- we received `r n_distinct(submissions$code_name)` intervention proposals from `r n_distinct(submissions$responseid)` different research teams^[some "teams" are actually individual researchers---`r n_researchers_per_team$Alone$n_submissions` of the `r n_distinct(submissions$code_name)` submissions are single-authored] (`r n_interventions_per_team$two$n_research_teams` teams submitted two interventions), from `r n_distinct(submissions$institution)` different institutions. 
+
+```{r}
+# there are four researchers who are part of two teams
+# submissions |> 
+#   group_by(full_name) |> 
+#   summarize(n = n_distinct(responseid)) |> 
+#   filter(n>1)
+```
+
+
+💚 We’re especially proud that so many submissions came from early-career researchers who want to strengthen trust in science.
+
+```{r}
+#| label: tbl-career-stage
+#| tbl-cap: Number of submissions by career stage of contributors. 
+
+submissions |>
+  group_by(position) |> 
+  summarise(n_submissions = n_distinct(code_name)) |> 
+  arrange(desc(n_submissions)) |> 
+  tt()
+```
+
+
+🕵 Our advisory board will now begin reviewing all interventions. The process is fully anonymized --- only the research lead (Jan) can link submissions to their authors, and cannot participate in the voting.
+
+For full transparency, once the review process is complete, we’ll share all advisory board ratings and comments publicly (anonymizing both authors and reviewers).️
+
+🗓 We expect the review and selection process to be completed by mid-December. Stay tuned for updates!️
+
+To end with a little fun fact: Since we received a couple of apologies for late submissions --- don't feel bad, you're not alone, it really happens to (almost) all of us (@fig-submissions-by-day) 😅:  
+
+```{r}
+#| label: fig-submissions-by-day
+#| fig-cap: Submissions by days until deadline. 
+
+# define key dates
+deadline <- as.Date("2025-11-11") 
+opening  <- as.Date(deadline - weeks(4))         
+
+
+# compute days until deadline
+submissions <- submissions |> 
+  mutate(days_until_deadline = as.numeric(difftime(deadline, day, units = "days")))
+
+# define palette
+wes_cols <- wes_palette("Zissou1", 5, type = "discrete")
+blue   <- wes_cols[1]  # distribution
+yellow <- wes_cols[3]  # opening
+red    <- wes_cols[5]  # deadline
+
+# Create plot
+submissions |> 
+  count(days_until_deadline) |> 
+  mutate(prop = n / sum(n)) |> 
+  ggplot(aes(x = days_until_deadline, y = n)) +
+  geom_col(fill = blue) +
+  geom_vline(xintercept = 0, color = red, linetype = "dashed", linewidth = 1) +
+  geom_vline(xintercept = as.numeric(difftime(deadline, opening, units = "days")), 
+             color = yellow, linetype = "dashed", linewidth = 1) +
+  annotate("text", x = 0, y = 60, label = "Deadline", color = red, hjust = 1.4, size = 3.5) +
+  annotate("text", 
+           x = as.numeric(difftime(deadline, opening, units = "days")), 
+           y = 40, label = "Opening", color = yellow, hjust = -0.2, size = 3.5) +
+  scale_x_reverse(breaks = seq(0, 28, by = 2)) +
+  labs(
+    x = "Days until deadline",
+    y = "Number of submissions"
+  ) +
+  plot_theme
+```
+
+Once again, a huge thank you to everyone who contributed to this collaborative effort. Your expertise, creativity, and collaborative spirit make this project possible. 💫
+
+---
+
+🔗 **More information**
+
+For more information about the project and the team, visit  [our website](../../index.qmd).
+
+💌 Questions? Email us anytime at  
+[{{< var email >}}](mailto:{{< var email >}})
+
+
+
+
+

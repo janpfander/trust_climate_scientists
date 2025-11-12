@@ -93,18 +93,15 @@ listing:
   filter-ui: false
 ---
 
-  
 <div class="home-text">
 
-# 🤝 **Collaborate with us!**
+🤝 The *Strengthening Trust in Climate Scientists* megastudy is a collaborative research project to test short, text-based online interventions intended to strengthen people's trust in climate scientists in the United States. 
 
-*Strengthening Trust in Climate Scientists* is a collaborative research project to test short, online interventions that strengthen people's trust in climate scientists in the United States.  
 
-We invite you—whether you are an academic at any career stage or a practitioner—to join this effort by submitting an intervention proposal. We will select the most promising interventions and test them in a *megastudy*—a large, online experiment. **Successful contributors will receive co-authorship in the primary publication arising from this project.**
+📝 Many researchers have participated in our [**call for collaboration**](call_for_collaborations.qmd). The call is **now closed**, and our advisory board is reviewing the submissions. 
 
-👉 Learn about submission rules on our [**Collaborate page**](call_for_collaborations.qmd).  
+Stay tuned for an update on the selection process mid-December.
 
-📝 Submit your intervention proposal via our [**designated submission survey**](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg).
 
 </div>
 

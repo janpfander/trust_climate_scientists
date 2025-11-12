@@ -28,9 +28,9 @@ toc-location: left
 
 # Default knitr options
 execute:
-  echo: true
-  message: true
-  warning: true
+  echo: false
+  message: false
+  warning: false
 
 # Default author
 author:

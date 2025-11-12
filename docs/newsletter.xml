@@ -10,7 +10,156 @@
 <atom:link href="https://janpfander.github.io/trust_climate_scientists/newsletter.xml" rel="self" type="application/rss+xml"/>
 <description>The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States.</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Sun, 12 Oct 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 11 Nov 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>⌛ Time’s up! Thank you all for your great submissions! 🎉</title>
+  <dc:creator>Jan Pfänder</dc:creator>
+  <link>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-11-12/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>🌍🔬 Thank you all for submitting your fantastic intervention proposals to our Strengthening Trust in Climate Scientists Megastudy!</p>
+<p>💪 You’ve exceeded even our most optimistic expectations — we received 107 intervention proposals from 81 different research teams<sup>1</sup> (26 teams submitted two interventions), from 66 different institutions.</p>
+<p>💚 We’re especially proud that so many submissions came from early-career researchers who want to strengthen trust in science.</p>
+<div class="cell">
+<div id="tbl-career-stage" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-career-stage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Number of submissions by career stage of contributors.
+</figcaption>
+<div aria-describedby="tbl-career-stage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_0wbzjls68ucplhb9blsf = TinyTable.createTableFunctions("tinytable_0wbzjls68ucplhb9blsf");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_vxxmcs6ezwel8aj4shq8',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_r33jmrc5535fi3np6x23',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_0wbzjls68ucplhb9blsf.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_0wbzjls68ucplhb9blsf td.tinytable_css_vxxmcs6ezwel8aj4shq8, #tinytable_0wbzjls68ucplhb9blsf th.tinytable_css_vxxmcs6ezwel8aj4shq8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_0wbzjls68ucplhb9blsf td.tinytable_css_r33jmrc5535fi3np6x23, #tinytable_0wbzjls68ucplhb9blsf th.tinytable_css_r33jmrc5535fi3np6x23 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_0wbzjls68ucplhb9blsf" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">position</th>
+                <th scope="col" data-row="0" data-col="2">n_submissions</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Postdoc</td>
+                  <td data-row="1" data-col="2">36</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Graduate Student/PhD Student</td>
+                  <td data-row="2" data-col="2">35</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Principle investigator/Professor</td>
+                  <td data-row="3" data-col="2">27</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">Research Assistant</td>
+                  <td data-row="4" data-col="2">2</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">Researcher</td>
+                  <td data-row="5" data-col="2">2</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">lecturer</td>
+                  <td data-row="6" data-col="2">2</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">Adjunct Research Fellow</td>
+                  <td data-row="7" data-col="2">1</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">Associate Professor</td>
+                  <td data-row="8" data-col="2">1</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">Guest Researcher (postdoc)</td>
+                  <td data-row="9" data-col="2">1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>🕵 Our advisory board will now begin reviewing all interventions. The process is fully anonymized — only the research lead (Jan) can link submissions to their authors, and cannot participate in the voting.</p>
+<p>For full transparency, once the review process is complete, we’ll share all advisory board ratings and comments publicly (anonymizing both authors and reviewers).️</p>
+<p>🗓 We expect the review and selection process to be completed by mid-December. Stay tuned for updates!️</p>
+<p>To end with a little fun fact: Since we received a couple of apologies for late submissions — don’t feel bad, you’re not alone, it really happens to (almost) all of us (Figure&nbsp;1) 😅:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-submissions-by-day" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-submissions-by-day-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://janpfander.github.io/trust_climate_scientists/newsletter/2025-11-12/index_files/figure-html/fig-submissions-by-day-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-submissions-by-day-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Submissions by days until deadline.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Once again, a huge thank you to everyone who contributed to this collaborative effort. Your expertise, creativity, and collaborative spirit make this project possible. 💫</p>
+<hr>
+<p>🔗 <strong>More information</strong></p>
+<p>For more information about the project and the team, visit <a href="../../index.html">our website</a>.</p>
+<p>💌 Questions? Email us anytime at<br>
+<a href="mailto:trustclimsci.megastudy@gmail.com">trustclimsci.megastudy@gmail.com</a></p>
+
+
+<!-- -->
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>some “teams” are actually individual researchers—25 of the 107 submissions are single-authored↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>interventions</category>
+  <category>submissions</category>
+  <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-11-12/</guid>
+  <pubDate>Tue, 11 Nov 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://janpfander.github.io/trust_climate_scientists/images/sunrise.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Now launched: Call for Collaboration</title>
   <dc:creator>Jan Pfänder</dc:creator>

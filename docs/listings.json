@@ -1,17 +1,19 @@
 [
   {
-    "listing": "/newsletter.html",
-    "items": [
-      "/newsletter/2025-10-13/index.html"
-    ]
-  },
-  {
     "listing": "/team.html",
     "items": []
   },
   {
+    "listing": "/newsletter.html",
+    "items": [
+      "/newsletter/2025-11-12/index.html",
+      "/newsletter/2025-10-13/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/newsletter/2025-11-12/index.html",
       "/newsletter/2025-10-13/index.html"
     ]
   }

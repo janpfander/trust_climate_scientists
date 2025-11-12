@@ -1,5 +1,5 @@
 ---
-title: "Collaborate"
+title: "Call for collaboration"
 title-block-banner: images/alternative_2.jpg
 title-block-banner-color: white
 include-in-header:
@@ -15,11 +15,11 @@ bibliography: references.bib
 ---
 
 ::: callout-note
-## Submission are open!
+## Submissions are **closed**.
 
-We will accept submissions **until Tuesday, November 11, 2025 at 23:59 Central European Time (CET)**.
+We have accepted submissions *until Tuesday, November 11, 2025 at 23:59 Central European Time (CET)*.
 
-Submit your short intervention proposal via this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg).
+Thank you so much everyone who participated!
 :::
 
 # Why should I participate in the project?[^1]
@@ -133,9 +133,7 @@ In your proposal, you are welcome to describe what you consider an ideal control
 
 # How can I participate
 
-Fill out this survey: [https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg](https://stanforduniversity.qualtrics.com/jfe/form/SV_afM7nQCU4wucFTg)
-
-During this survey, we will ask you to provide a detailed description (max 500 words) of your intervention. 
+The call is now **closed**.
 
 # Other questions? 
 
