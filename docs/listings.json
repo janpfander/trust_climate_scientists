@@ -16,5 +16,15 @@
       "/newsletter/2025-11-12/index.html",
       "/newsletter/2025-10-13/index.html"
     ]
+  },
+  {
+    "listing": "/presentations/presentations.html",
+    "items": [
+      "/presentations/10_25_ess-meeting.html"
+    ]
+  },
+  {
+    "listing": "/presentations/10_25_ess-meeting.html",
+    "items": []
   }
 ]

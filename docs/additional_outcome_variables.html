@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -270,7 +290,7 @@ The following object is masked from 'package:dplyr':
 <section id="normative-perceptions-willingness-to-be-vulnerable" class="level2">
 <h2 class="anchored" data-anchor-id="normative-perceptions-willingness-to-be-vulnerable">Normative perceptions &amp; Willingness to be vulnerable</h2>
 <p>[General consideration: normative perceptions, here, really are for the most part about scientists influence on public policy. It would make sense to have a more meaningful, less abstract name.]</p>
-<p>Scales were adapted from XX, but slightly modified. For example, for the normative perception measure, we removed one item (“Climate scientists should be more involved in the policy-making process”) as it was extremely close to the first item of the scale.</p>
+<p>Scales were adapted from <span class="citation" data-cites="colognaTrustScientistsTheir2025">Cologna et al. (<a href="#ref-colognaTrustScientistsTheir2025" role="doc-biblioref">2025</a>)</span>, but slightly modified. For example, for the normative perception measure, we removed one item (“Climate scientists should be more involved in the policy-making process”) as it was extremely close to the first item of the scale.</p>
 <p>For the willingness to be vulnerable measure, we retained only one item, as the other two (“How much or little should governments rely on climate scientists’ guidance when making decisions related to climate science?” and “How much or little control do you want climate scientists to have on government decisions related to science?”) were very close conceptually to the normative perception measures.</p>
 <div class="cell">
 <details class="code-fold">
@@ -362,22 +382,18 @@ The following object is masked from 'package:dplyr':
 <h2 class="anchored" data-anchor-id="single-item-trust-in-climate-scientists-measures">Single item trust in climate scientists measures</h2>
 <section id="u.s.-general-social-survey" class="level3">
 <h3 class="anchored" data-anchor-id="u.s.-general-social-survey">U.S. General Social Survey</h3>
-<blockquote class="blockquote">
 <p>Would you say you have a great deal of confidence, only some confidence, or hardly any confidence at all in the scientific community of climate scientists? [3 - A great deal; 2 - Only some; 1 - Hardly any]</p>
-</blockquote>
 </section>
 <section id="tisp-manylabs-study" class="level3">
 <h3 class="anchored" data-anchor-id="tisp-manylabs-study">TISP Manylabs study</h3>
-<p>Modified version form XX.</p>
-<blockquote class="blockquote">
+<p>From <span class="citation" data-cites="colognaRoleTrustClimate2020">Cologna and Siegrist (<a href="#ref-colognaRoleTrustClimate2020" role="doc-biblioref">2020</a>)</span>.</p>
 <p>To what extent do you trust scientists in your country who work on climate change? [1-Not at all to 5-Very strongly]</p>
-</blockquote>
 </section>
 </section>
 <section id="support-for-climate-policies" class="level2">
 <h2 class="anchored" data-anchor-id="support-for-climate-policies">Support for climate policies</h2>
-<p>Modified version from madalina’s and kim’s manylabs studie.</p>
-<p>[I think using a 3-point scale here is weird and unnecessary, make alternative suggestion - use sliders instead].</p>
+<p>From <span class="citation" data-cites="colognaRoleTrustClimate2020">Cologna and Siegrist (<a href="#ref-colognaRoleTrustClimate2020" role="doc-biblioref">2020</a>)</span>, modified version from <span class="citation" data-cites="vlasceanuAddressingClimateChange2024">Vlasceanu et al. (<a href="#ref-vlasceanuAddressingClimateChange2024" role="doc-biblioref">2024</a>)</span>.</p>
+<p>[We should use sliders instead of 3-point scale].</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -444,25 +460,23 @@ The following object is masked from 'package:dplyr':
 </section>
 <section id="funding" class="level2">
 <h2 class="anchored" data-anchor-id="funding">Funding</h2>
-<p>[<em>to be discussed</em>]</p>
-<p>Adapted from the National <a href="https://ncses.nsf.gov/pubs/nsb20227/public-perceptions-of-science-and-technology#general-perceptions-of-s-t">Science Foundation (NSF) – Science &amp; Engineering Indicators</a>, also used, also used in <span class="citation" data-cites="ophirFactorsAssessingSciences2023">@ophirFactorsAssessingSciences2023</span></p>
-<blockquote class="blockquote">
+<p>Adapted from the National <a href="https://ncses.nsf.gov/pubs/nsb20227/public-perceptions-of-science-and-technology#general-perceptions-of-s-t">Science Foundation (NSF) – Science &amp; Engineering Indicators</a>, also used in <span class="citation" data-cites="ophirFactorsAssessingSciences2023">Ophir et al. (<a href="#ref-ophirFactorsAssessingSciences2023" role="doc-biblioref">2023</a>)</span>.</p>
 <p>Climate change research that advances the frontiers of knowledge is necessary and should be supported by funding from the federal government. [Strongly disagree - Strongly agree]</p>
-</blockquote>
 </section>
 <section id="belief-in-climate-change" class="level2">
 <h2 class="anchored" data-anchor-id="belief-in-climate-change">Belief in climate change</h2>
-<p>from vlasceanu et al 2024</p>
-<blockquote class="blockquote">
+<p>From <span class="citation" data-cites="vlasceanuAddressingClimateChange2024">Vlasceanu et al. (<a href="#ref-vlasceanuAddressingClimateChange2024" role="doc-biblioref">2024</a>)</span>.</p>
 <p>How accurate do you think this statement is? [from 0 = not at all accurate to 100 = extremely accurate]: “Human activities are causing climate change.”</p>
-</blockquote>
 </section>
 <section id="belief-in-climate-crisis" class="level2">
 <h2 class="anchored" data-anchor-id="belief-in-climate-crisis">Belief in climate <strong>crisis</strong></h2>
-<p>check from vlasceanu et al 2024</p>
-<blockquote class="blockquote">
-<p>Something like do you think there is a climate crisis? or, do you think climate change is an urgent problem</p>
-</blockquote>
+<p>From <span class="citation" data-cites="vlasceanuAddressingClimateChange2024">Vlasceanu et al. (<a href="#ref-vlasceanuAddressingClimateChange2024" role="doc-biblioref">2024</a>)</span>.</p>
+<p>“How accurate do you think these statements are?” from 0 = Not at all accurate to 100 = Extremely accurate.</p>
+<ul>
+<li>“Taking action to fight climate change is necessary to avoid a global catastrophe,”</li>
+<li>“Climate change poses a serious threat to humanity,”</li>
+<li>“Climate change is a global emergency.”</li>
+</ul>
 </section>
 <section id="trust-in-institutions" class="level2">
 <h2 class="anchored" data-anchor-id="trust-in-institutions">Trust in institutions</h2>
@@ -516,9 +530,23 @@ The following object is masked from 'package:dplyr':
 </ul>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-colognaTrustScientistsTheir2025" class="csl-entry" role="listitem">
+Cologna, Viktoria, Niels G. Mede, Sebastian Berger, John Besley, Cameron Brick, Marina Joubert, Edward W. Maibach, et al. 2025. <span>“Trust in Scientists and Their Role in Society Across 68 Countries.”</span> <em>Nature Human Behaviour</em>, January, 1–18. <a href="https://doi.org/10.1038/s41562-024-02090-5">https://doi.org/10.1038/s41562-024-02090-5</a>.
+</div>
+<div id="ref-colognaRoleTrustClimate2020" class="csl-entry" role="listitem">
+Cologna, Viktoria, and Michael Siegrist. 2020. <span>“The Role of Trust for Climate Change Mitigation and Adaptation Behaviour: A Meta-Analysis.”</span> <em>Journal of Environmental Psychology</em> 69 (June): 101428. <a href="https://doi.org/10.1016/j.jenvp.2020.101428">https://doi.org/10.1016/j.jenvp.2020.101428</a>.
+</div>
+<div id="ref-ophirFactorsAssessingSciences2023" class="csl-entry" role="listitem">
+Ophir, Yotam, Dror Walter, Patrick E. Jamieson, and Kathleen Hall Jamieson. 2023. <span>“Factors Assessing Science<span>’</span>s Self-Presentation Model and Their Effect on Conservatives<span>’</span> and Liberals<span>’</span> Support for Funding Science.”</span> <em>Proceedings of the National Academy of Sciences</em> 120 (38): e2213838120. <a href="https://doi.org/10.1073/pnas.2213838120">https://doi.org/10.1073/pnas.2213838120</a>.
+</div>
+<div id="ref-vlasceanuAddressingClimateChange2024" class="csl-entry" role="listitem">
+Vlasceanu, Madalina, Kimberly C. Doell, Joseph B. Bak-Coleman, Boryana Todorova, Michael M. Berkebile-Weinberg, Samantha J. Grayson, Yash Patel, et al. 2024. <span>“Addressing Climate Change with Behavioral Science: A Global Intervention Tournament in 63 Countries.”</span> <em>Science Advances</em> 10 (6): eadj5778. <a href="https://doi.org/10.1126/sciadv.adj5778">https://doi.org/10.1126/sciadv.adj5778</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

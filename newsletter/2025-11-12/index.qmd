@@ -24,7 +24,7 @@ source("../../R/functions.R")
 
 
 ```{r}
-submissions <- read_csv("../../data/call_for_collaboration/cleaned.csv")
+submissions <- read_csv("data/cleaned.csv")
 
 n_interventions_per_team <- submissions |> 
   group_by(responseid) |> 

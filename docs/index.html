@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input85a3818c71d8bba2 – Home</title>
+<title>quarto-input8e05a4977791e0ba – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,6 +74,62 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-research-team .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-image","listing-title","listing-subtitle","listing-sortby"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-research-team'] = new List('listing-research-team', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-advisory .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-image","listing-title","listing-subtitle","listing-sortby"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-advisory'] = new List('listing-advisory', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-newsletter .list');
@@ -290,7 +346,7 @@ window.Quarto = {
 <h1>News</h1>
 <div id="listing-newsletter" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="aW50ZXJ2ZW50aW9ucyUyQ3N1Ym1pc3Npb25z" data-listing-date-sort="1762902000000" data-listing-file-modified-sort="1762970968820" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="596">
+<div class="quarto-post image-right" data-index="0" data-categories="aW50ZXJ2ZW50aW9ucyUyQ3N1Ym1pc3Npb25z" data-listing-date-sort="1762902000000" data-listing-file-modified-sort="1763027083438" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="596">
 <div class="thumbnail"><a href="./newsletter/2025-11-12/index.html" class="no-external">
 
 <img loading="lazy" src="./images/sunrise.jpg" class="thumbnail-image" style="height: 200px;">
@@ -348,7 +404,239 @@ Jan Pfänder
 
 </section>
 
-</main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-grid" id="listing-research-team">
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0">
+<a href="https://janpfander.github.io/" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://janpfander.github.io/" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/jan.jpeg" class="thumbnail-image card-img" style="height: 325px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://janpfander.github.io/" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://janpfander.github.io/" class="quarto-grid-link">
+</a><a href="https://janpfander.github.io/">Jan Pfänder</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Project lead, Postdoc, <a href="https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/">Climate and Societal Change Group</a> at Eawag, <em>Switzerland</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="1">
+<a href="https://profiles.stanford.edu/madalina-vlasceanu" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://profiles.stanford.edu/madalina-vlasceanu" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/madalina.jpg" class="thumbnail-image card-img" style="height: 325px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://profiles.stanford.edu/madalina-vlasceanu" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://profiles.stanford.edu/madalina-vlasceanu" class="quarto-grid-link">
+</a><a href="https://profiles.stanford.edu/madalina-vlasceanu">Madalina Vlasceanu</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Assistant Professor, <a href="https://climatecognition.stanford.edu/">Climate Cognition Lab</a> at Stanford University, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="2">
+<a href="https://sustainability.stanford.edu/people/sara-constantino" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://sustainability.stanford.edu/people/sara-constantino" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/sara.png" class="thumbnail-image card-img" style="height: 325px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://sustainability.stanford.edu/people/sara-constantino" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://sustainability.stanford.edu/people/sara-constantino" class="quarto-grid-link">
+</a><a href="https://sustainability.stanford.edu/people/sara-constantino">Sara Constantino</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Assistant Professor, Stanford University, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="3">
+<a href="https://www.viktoriacologna.com/" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://www.viktoriacologna.com/" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/viktoria.jpg" class="thumbnail-image card-img" style="height: 325px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://www.viktoriacologna.com/" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://www.viktoriacologna.com/" class="quarto-grid-link">
+</a><a href="https://www.viktoriacologna.com/">Viktoria Cologna</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Group leader, <a href="https://www.eawag.ch/en/abteilung/ess/schwerpunkte/climate-and-societal-change-casc/">Climate and Societal Change Group</a> at Eawag, <em>Switzerland</em>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div><div class="quarto-listing quarto-listing-container-grid" id="listing-advisory">
+<div class="list grid quarto-listing-cols-5">
+<div class="g-col-1" data-index="0">
+<a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/mike.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html" class="quarto-grid-link">
+</a><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/team/mike-s-schaefer.html">Mike S. Schäfer</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Professor, University of Zurich, <em>Switzerland</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="1">
+<a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/mario.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en" class="quarto-grid-link">
+</a><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en">Mario Scharfbillig</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Science Policy Advisor, Joint Research Centre (JRC), <em>European Commission</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="2">
+<a href="https://histsci.fas.harvard.edu/people/naomi-oreskes" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/naomi.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes" class="quarto-grid-link">
+</a><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes">Naomi Oreskes</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Professor, Harvard University, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="3">
+<a href="https://sites.google.com/site/hugomercier/" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://sites.google.com/site/hugomercier/" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/hugo.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://sites.google.com/site/hugomercier/" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://sites.google.com/site/hugomercier/" class="quarto-grid-link">
+</a><a href="https://sites.google.com/site/hugomercier/">Hugo Mercier</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Research Director at the CNRS, Institut Jean Nicod, <em>France</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="4">
+<a href="https://communication.gmu.edu/people/emaibach" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://communication.gmu.edu/people/emaibach" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/edward.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://communication.gmu.edu/people/emaibach" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://communication.gmu.edu/people/emaibach" class="quarto-grid-link">
+</a><a href="https://communication.gmu.edu/people/emaibach">Edward Wile Maibach</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Professor, George Mason University, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="5">
+<a href="https://sites.google.com/view/jamie-druckman" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://sites.google.com/view/jamie-druckman" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/james.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://sites.google.com/view/jamie-druckman" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://sites.google.com/view/jamie-druckman" class="quarto-grid-link">
+</a><a href="https://sites.google.com/view/jamie-druckman">James Druckman</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Professor, University of Rochester, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="6">
+<a href="https://www.cameronbrick.com/" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://www.cameronbrick.com/" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/cameron.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://www.cameronbrick.com/" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://www.cameronbrick.com/" class="quarto-grid-link">
+</a><a href="https://www.cameronbrick.com/">Cameron Brick</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Assistant Professor, University of Amsterdam, <em>Netherlands</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="7">
+<a href="https://comartsci.msu.edu/our-people/john-c-besley" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://comartsci.msu.edu/our-people/john-c-besley" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/john.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://comartsci.msu.edu/our-people/john-c-besley" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://comartsci.msu.edu/our-people/john-c-besley" class="quarto-grid-link">
+</a><a href="https://comartsci.msu.edu/our-people/john-c-besley">John C. Besley</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Professor, Michigan State University, <em>United States</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="8">
+<a href="https://sites.google.com/view/sebastianberger/start" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://sites.google.com/view/sebastianberger/start" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/sebastian.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://sites.google.com/view/sebastianberger/start" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://sites.google.com/view/sebastianberger/start" class="quarto-grid-link">
+</a><a href="https://sites.google.com/view/sebastianberger/start">Sebastian Berger</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Lecturer, Bern University of Applied Sciences, <em>Switzerland</em>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1" data-index="9">
+<a href="https://leibniz-psychology.org/profil-marlene-altenmueller" class="quarto-grid-link">
+</a><div class="quarto-grid-item card h-100 card-center borderless"><a href="https://leibniz-psychology.org/profil-marlene-altenmueller" class="quarto-grid-link">
+<p class="card-img-top">
+<img loading="lazy" src="team/images/marlene.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</a><div class="card-body post-contents"><a href="https://leibniz-psychology.org/profil-marlene-altenmueller" class="quarto-grid-link">
+</a><h5 class="no-anchor card-title listing-title"><a href="https://leibniz-psychology.org/profil-marlene-altenmueller" class="quarto-grid-link">
+</a><a href="https://leibniz-psychology.org/profil-marlene-altenmueller">Marlene Altenmüller</a>
+</h5>
+<div class="card-subtitle listing-subtitle">
+Jun.&nbsp;Prof.&nbsp;for Science Reception, Leibniz Institute for Psychology (ZPID), <em>Germany</em>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
