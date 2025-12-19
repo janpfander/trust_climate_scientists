@@ -4,14 +4,14 @@
     "items": []
   },
   {
-    "listing": "/newsletter.html",
+    "listing": "/index.html",
     "items": [
       "/newsletter/2025-11-12/index.html",
       "/newsletter/2025-10-13/index.html"
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/newsletter.html",
     "items": [
       "/newsletter/2025-11-12/index.html",
       "/newsletter/2025-10-13/index.html"
@@ -22,9 +22,5 @@
     "items": [
       "/presentations/10_25_ess-meeting.html"
     ]
-  },
-  {
-    "listing": "/presentations/10_25_ess-meeting.html",
-    "items": []
   }
 ]
