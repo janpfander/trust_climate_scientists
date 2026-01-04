@@ -4,10 +4,9 @@
     "items": []
   },
   {
-    "listing": "/index.html",
+    "listing": "/presentations/presentations.html",
     "items": [
-      "/newsletter/2025-11-12/index.html",
-      "/newsletter/2025-10-13/index.html"
+      "/presentations/10_25_ess-meeting.html"
     ]
   },
   {
@@ -18,9 +17,10 @@
     ]
   },
   {
-    "listing": "/presentations/presentations.html",
+    "listing": "/index.html",
     "items": [
-      "/presentations/10_25_ess-meeting.html"
+      "/newsletter/2025-11-12/index.html",
+      "/newsletter/2025-10-13/index.html"
     ]
   }
 ]

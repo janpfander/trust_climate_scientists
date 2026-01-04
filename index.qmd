@@ -98,9 +98,9 @@ listing:
 🤝 The *Strengthening Trust in Climate Scientists* megastudy is a collaborative research project to test short, text-based online interventions intended to strengthen people's trust in climate scientists in the United States. 
 
 
-📝 Many researchers have participated in our [**call for collaboration**](call_for_collaborations.qmd). The call is **now closed**, and our advisory board is reviewing the submissions. 
+📝 Many researchers have participated in our [**call for collaboration**](call_for_collaborations.qmd). The call is **now closed**, and our advisory board has made a selection for the interventions to be tested. 
 
-Stay tuned for an update on the selection process mid-December.
+You will receive an update on whether your intervention has been selected or not shortly.
 
 
 </div>
