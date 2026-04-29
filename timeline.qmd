@@ -1,0 +1,86 @@
+---
+title: "Timeline"
+title-block-banner: images/alternative_2.jpg
+title-block-banner-color: white
+include-in-header:
+  - text: |
+      <style>
+        /* Use bottom part of the banner image */
+        .quarto-title-block .quarto-title-banner {
+          background-position: center;
+          background-size: cover;
+        }
+      </style>
+      
+execute:
+  echo: false   # Don't show code
+  warning: false
+  message: false
+
+bibliography: references.bib
+---
+
+```{r setup}
+library(tidyverse)
+library(kableExtra)
+library(lubridate)
+library(ganttrify)
+library(tinytable)
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+
+# this visualization uses the ganttrify package (https://github.com/giocomai/ganttrify/)
+
+# Months for mapping
+# May 2025	1
+# June	2
+# July	3
+# August	4
+# September	5
+# October	6
+# November	7
+# December	8
+# January	9
+# February	10
+# March	11
+# April	12
+# May	13
+# June 14
+
+gantt_data <- tribble(
+  ~wp                               , ~activity                      , ~start_date , ~end_date ,
+
+  # 1: Project setup
+  "1: Project setup"                , "Set-up advisory board"        ,           1 ,         1 ,
+  "1: Project setup"                , "Create website"               ,           1 ,         1 ,
+  "1: Project setup"                , "Select outcomes"              ,           2 ,         3 ,
+  "1: Project setup"                , "Define submission guidelines" ,           2 ,         3 ,
+  "1: Project setup"                , "Select outcomes"              ,           5 ,         5 ,
+  "1: Project setup"                , "Define submission guidelines" ,           5 ,         5 ,
+
+  # 2: Interventions & Registration
+  "2: Interventions & Registration" , "Call for interventions"       ,           6 ,         7 ,
+  "2: Interventions & Registration" , "Select interventions"         ,           7 ,         8 ,
+  "2: Interventions & Registration" , "Preregistration"              ,           9 ,         12 ,
+  "2: Interventions & Registration" , "Program survey"               ,           9 ,         12 ,
+  "2: Interventions & Registration" , "IRB approval"                 ,           10 ,         12 ,
+
+  # 3: Data, Analysis & Write-up
+  "3: Data, Analysis & Write-up"    , "Collect data"                 ,          13 ,        13 ,
+  "3: Data, Analysis & Write-up"    , "Analyse data"                 ,          13 ,        14 ,
+  "3: Data, Analysis & Write-up"    , "Write manuscript"             ,          13 ,        14 ,
+  "3: Data, Analysis & Write-up"    , "Feedback on manuscript"       ,          14 ,        14 ,
+  "3: Data, Analysis & Write-up"    , "Submit manuscript"            ,          14 ,        14
+)
+
+ganttrify(
+  project = gantt_data,
+  project_start = "2025-05-01",
+  font_family = "sans",
+  colour_palette = MetBrewer::met.brewer("Lakota")
+)
+```

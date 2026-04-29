@@ -24,7 +24,7 @@ source("../../R/functions.R")
 
 
 ```{r}
-submissions <- read_csv("data/cleaned.csv")
+submissions <- read_csv("../../call_for_collaboration/submissions/cleaned.csv")
 
 n_interventions_per_team <- submissions |> 
   group_by(responseid) |> 
@@ -43,7 +43,7 @@ n_researchers_per_team <- submissions |>
 
 🌍🔬 Thank you all for submitting your fantastic intervention proposals to our Strengthening Trust in Climate Scientists Megastudy!
 
-💪 You’ve exceeded even our most optimistic expectations --- we received `r n_distinct(submissions$code_name)` intervention proposals from `r n_distinct(submissions$responseid)` different research teams^[some "teams" are actually individual researchers---`r n_researchers_per_team$Alone$n_submissions` of the `r n_distinct(submissions$code_name)` submissions are single-authored] (`r n_interventions_per_team$two$n_research_teams` teams submitted two interventions), from `r n_distinct(submissions$institution)` different institutions. 
+💪 You’ve exceeded even our most optimistic expectations --- we received `r n_distinct(submissions$code_name)`^[Initially, we've received 107 proposals, but two got retracted from the respective authors shortly after the submission deadline.] intervention proposals from `r n_distinct(submissions$responseid)` different research teams^[some "teams" are actually individual researchers---`r n_researchers_per_team$Alone$n_submissions` of the `r n_distinct(submissions$code_name)` submissions are single-authored] (`r n_interventions_per_team$two$n_research_teams` teams submitted two interventions), from `r n_distinct(submissions$institution)` different institutions. 
 
 ```{r}
 # there are four researchers who are part of two teams
@@ -69,8 +69,6 @@ submissions |>
 
 
 🕵 Our advisory board will now begin reviewing all interventions. The process is fully anonymized --- only the research lead (Jan) can link submissions to their authors, and cannot participate in the voting.
-
-For full transparency, once the review process is complete, we’ll share all advisory board ratings and comments publicly (anonymizing both authors and reviewers).️
 
 🗓 We expect the review and selection process to be completed by mid-December. Stay tuned for updates!️
 

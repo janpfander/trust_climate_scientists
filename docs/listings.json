@@ -1,12 +1,8 @@
 [
   {
-    "listing": "/team.html",
-    "items": []
-  },
-  {
-    "listing": "/presentations/presentations.html",
+    "listing": "/slides/talks.html",
     "items": [
-      "/presentations/10_25_ess-meeting.html"
+      "/slides/10_25_ess-meeting.html"
     ]
   },
   {
@@ -22,5 +18,9 @@
       "/newsletter/2025-11-12/index.html",
       "/newsletter/2025-10-13/index.html"
     ]
+  },
+  {
+    "listing": "/team.html",
+    "items": []
   }
 ]

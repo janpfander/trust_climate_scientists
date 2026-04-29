@@ -22,7 +22,7 @@
 
 
 <p>🌍🔬 Thank you all for submitting your fantastic intervention proposals to our Strengthening Trust in Climate Scientists Megastudy!</p>
-<p>💪 You’ve exceeded even our most optimistic expectations — we received 107 intervention proposals from 81 different research teams<sup>1</sup> (26 teams submitted two interventions), from 66 different institutions.</p>
+<p>💪 You’ve exceeded even our most optimistic expectations — we received 105<sup>1</sup> intervention proposals from 80 different research teams<sup>2</sup> (25 teams submitted two interventions), from 65 different institutions.</p>
 <p>💚 We’re especially proud that so many submissions came from early-career researchers who want to strengthen trust in science.</p>
 <div class="cell">
 <div id="tbl-career-stage" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -38,19 +38,19 @@ Table&nbsp;1: Number of submissions by career stage of contributors.
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_pdtkl53vhvh2tbg9iev9 = TinyTable.createTableFunctions("tinytable_pdtkl53vhvh2tbg9iev9");
+      const tableFns_p80ci33n2ts6jdvj8saj = TinyTable.createTableFunctions("tinytable_p80ci33n2ts6jdvj8saj");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_9yw8qz8qvrz7tv1u0c2n',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_y8vnbpxu4gxn2kmcsbrh',}, 
+          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_n33hjhchh5cx2h9jybkc',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_f3u34maezbymue2bizft',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_pdtkl53vhvh2tbg9iev9.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_p80ci33n2ts6jdvj8saj.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -59,11 +59,11 @@ Table&nbsp;1: Number of submissions by career stage of contributors.
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_pdtkl53vhvh2tbg9iev9 td.tinytable_css_9yw8qz8qvrz7tv1u0c2n, #tinytable_pdtkl53vhvh2tbg9iev9 th.tinytable_css_9yw8qz8qvrz7tv1u0c2n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_pdtkl53vhvh2tbg9iev9 td.tinytable_css_y8vnbpxu4gxn2kmcsbrh, #tinytable_pdtkl53vhvh2tbg9iev9 th.tinytable_css_y8vnbpxu4gxn2kmcsbrh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_p80ci33n2ts6jdvj8saj td.tinytable_css_n33hjhchh5cx2h9jybkc, #tinytable_p80ci33n2ts6jdvj8saj th.tinytable_css_n33hjhchh5cx2h9jybkc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_p80ci33n2ts6jdvj8saj td.tinytable_css_f3u34maezbymue2bizft, #tinytable_p80ci33n2ts6jdvj8saj th.tinytable_css_f3u34maezbymue2bizft {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_pdtkl53vhvh2tbg9iev9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_p80ci33n2ts6jdvj8saj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -75,11 +75,11 @@ Table&nbsp;1: Number of submissions by career stage of contributors.
         <tbody>
                 <tr>
                   <td data-row="1" data-col="1">Postdoc</td>
-                  <td data-row="1" data-col="2">36</td>
+                  <td data-row="1" data-col="2">35</td>
                 </tr>
                 <tr>
                   <td data-row="2" data-col="1">Graduate Student/PhD Student</td>
-                  <td data-row="2" data-col="2">35</td>
+                  <td data-row="2" data-col="2">34</td>
                 </tr>
                 <tr>
                   <td data-row="3" data-col="1">Principle investigator/Professor</td>
@@ -119,7 +119,6 @@ Table&nbsp;1: Number of submissions by career stage of contributors.
 </div>
 </div>
 <p>🕵 Our advisory board will now begin reviewing all interventions. The process is fully anonymized — only the research lead (Jan) can link submissions to their authors, and cannot participate in the voting.</p>
-<p>For full transparency, once the review process is complete, we’ll share all advisory board ratings and comments publicly (anonymizing both authors and reviewers).️</p>
 <p>🗓 We expect the review and selection process to be completed by mid-December. Stay tuned for updates!️</p>
 <p>To end with a little fun fact: Since we received a couple of apologies for late submissions — don’t feel bad, you’re not alone, it really happens to (almost) all of us (Figure&nbsp;1) 😅:</p>
 <div class="cell">
@@ -151,7 +150,8 @@ Figure&nbsp;1: Submissions by days until deadline.
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>some “teams” are actually individual researchers—25 of the 107 submissions are single-authored↩︎</p></li>
+<li id="fn1"><p>Initially, we’ve received 107 proposals, but two got retracted from the respective authors shortly after the submission deadline.↩︎</p></li>
+<li id="fn2"><p>some “teams” are actually individual researchers—24 of the 105 submissions are single-authored↩︎</p></li>
 </ol>
 </section></div> ]]></description>
   <category>interventions</category>

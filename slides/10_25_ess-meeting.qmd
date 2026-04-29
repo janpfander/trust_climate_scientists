@@ -1,0 +1,152 @@
+---
+title: |
+  Slides for internal Department meeting
+description: "Introducing the project to the Departement"
+date: 2025-11-27
+author: Jan Pfänder
+format: 
+  revealjs:
+    theme: simple
+    smaller: true
+    slide-number: true
+    chalkboard: true
+    history: false
+    # incremental: true
+    # code-link: true
+image: images/eawag_building.jpg
+type: presentation
+toc: false
+
+include-in-header:
+  - text: |
+      <style>
+      .five-col {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* left-align all items */
+        gap: 10px; /* spacing between columns */
+      }
+      .five-col .person {
+        width: 18%;     /* roughly 5 items per row */
+        text-align: left; /* left-align text inside each person block */
+        margin-bottom: 10px;
+        font-size: 0.6em; /* reduce text size */
+      }
+      .five-col img {
+        border-radius: 6px;
+      }
+      </style>
+
+
+
+
+---
+
+```{r}
+# libraries
+library(tidyverse)
+library(kableExtra)
+library(tinytable)
+library(wesanderson)
+```
+
+
+
+##### Research team
+
+<div class="five-col">
+
+<div class="person">
+<img src="../images/jan.jpeg" height="100">
+<br>
+<b><a href="https://janpfander.github.io/">Jan Pfänder</a></b>
+</div>
+
+<div class="person">
+<img src="../images/madalina.jpg" height="100">
+<br>
+<b><a href="https://profiles.stanford.edu/madalina-vlasceanu">Madalina Vlasceanu</a></b>
+</div>
+
+<div class="person">
+<img src="../images/sara.png" height="100">
+<br>
+<b><a href="https://sustainability.stanford.edu/people/sara-constantino">Sara Constantino</a></b>
+</div>
+
+<div class="person">
+<img src="../images/viktoria.jpg" height="100">
+<br>
+<b><a href="https://www.viktoriacologna.com/">Viktoria Cologna</a></b>
+</div>
+
+</div>
+
+##### Advisory board
+
+<div class="five-col">
+
+<div class="person">
+<img src="../images/mike.jpg" height="100">
+<br>
+<b><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/mike-s-schaefer.html">Mike S. Schäfer</a></b>
+</div>
+
+<div class="person">
+<img src="../images/mario.jpg" height="100">
+<br>
+<b><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en">Mario Scharfbillig</a></b>
+</div>
+
+<div class="person">
+<img src="../images/naomi.jpg" height="100">
+<br>
+<b><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes">Naomi Oreskes</a></b>
+</div>
+
+<div class="person">
+<img src="../images/hugo.jpg" height="100">
+<br>
+<b><a href="https://sites.google.com/site/hugomercier/">Hugo Mercier</a></b>
+</div>
+
+<div class="person">
+<img src="../images/edward.png" height="100">
+<br>
+<b><a href="https://communication.gmu.edu/people/emaibach">Edward Wile Maibach</a></b>
+</div>
+
+<div class="person">
+<img src="../images/james.jpeg" height="100">
+<br>
+<b><a href="https://sites.google.com/view/jamie-druckman">James Druckman</a></b>
+</div>
+
+<div class="person">
+<img src="../images/cameron.jpg" height="100">
+<br>
+<b><a href="https://www.cameronbrick.com/">Cameron Brick</a></b>
+</div>
+
+<div class="person">
+<img src="../images/john.jpg" height="100">
+<br>
+<b><a href="https://comartsci.msu.edu/our-people/john-c-besley">John C. Besley</a></b>
+</div>
+
+<div class="person">
+<img src="../images/sebastian.jpeg" height="100">
+<br>
+<b><a href="https://sites.google.com/view/sebastianberger/start">Sebastian Berger</a></b>
+</div>
+
+<div class="person">
+<img src="../images/marlene.jpg" height="100">
+<br>
+<b><a href="https://leibniz-psychology.org/profil-marlene-altenmueller">Marlene Altenmüller</a></b>
+</div>
+
+</div>
+
+
+

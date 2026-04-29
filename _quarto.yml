@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!cleaning*.qmd"
+    - "!not_in_questionnaire.qmd"
   
 freeze: auto 
 
@@ -13,9 +14,16 @@ website:
   description: "The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States."
   navbar:
     left:
-      - research_design.qmd
-      - call_for_collaborations.qmd
-      - team.qmd
+      - href: preregistration/preregistration.qmd
+        text: "Registration"
+      - href: questionnaire.qmd
+        text: "Survey"
+      - href: timeline.qmd
+        text: "Timeline"
+      - href: call_for_collaborations.qmd
+        text: "Collaborate"
+      - href: team.qmd
+        text: "Team"
       
     # Contact
     right:
@@ -39,6 +47,7 @@ format:
       - brand
     css: styles.css
     toc: true
+    toc-depth: 5
     code-fold: true
     link-external-newwindow: true
 
@@ -47,6 +56,9 @@ editor: source
 title-block:
   banner: images/alternative_2.jpg
   banner-color: black
+  
+  
+bibliography: references.bib
   
 
   
