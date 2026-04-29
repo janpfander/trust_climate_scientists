@@ -1,0 +1,17 @@
+{
+  "hash": "a3105e702991f7ebf7ba11353ef0056b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Preregistration: Megastudy testing 20 messaging interventions to strengthen trust in climate scientists in the US\"\nrunning-head: \"Preregistration Megastudy Trust Climate Scientists\"\n\nauthor:\n  - name: Matti Vuorre\n    email: mjvuorre@uvt.nl\n    orcid: 0000-0001-5052-066X\n    url: https://www.tilburguniversity.edu/staff/m-j-vuorre\n    corresponding: true\n    equal-contributor: true\n\n\nabstract: |\n  Recently, a large-scale study across 55 countries found that trust in climate scientists is the strongest predictor of belief in climate change and support for climate policies. Strengthening trust in climate scientists may therefore be an important lever for accelerating climate action. However, there is currently little evidence on how to strengthen trust in climate scientists. We aim to address this gap by systematically identifying, testing, and comparing communication strategies designed to strengthen trust in climate scientists. To this end, we are conducting a megastudy—a large-scale field experiment in which many different interventions are tested simultaneously within a single, large sample using a common, objectively measured outcome. The study will be conducted in the United States, where climate research is particularly threatened by funding cuts and public beliefs about climate change are highly polarized. Through an open call, we invited researchers and practitioners to collaborate and received 107 intervention proposals. From these, we selected 20 interventions, ranging from reading about climate science to discussing the topic with LLMs.\ncategories: [bla]\nciteproc: true\nbibliography: ../references.bib\ncsl: https://www.zotero.org/styles/apa\ndate: \"2026-02-09\"\nknitr:\n  opts_chunk:\n    echo: true\nformat:\n  preprint-typst:\n    wordcount: true\n---\n\nhey",
+    "supporting": [
+      "preregistration_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
