@@ -15,7 +15,7 @@ website:
   navbar:
     left:
       - href: preregistration/preregistration.qmd
-        text: "Registration"
+        text: "Preregistration"
       - href: questionnaire.qmd
         text: "Survey"
       - href: timeline.qmd

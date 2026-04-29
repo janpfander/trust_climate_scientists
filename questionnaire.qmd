@@ -3,7 +3,16 @@ title: "Questionnaire: Megastudy testing 20 information interventions to strengt
 #bibliography: references.bib
 
 format:
-  html: default
+  html:
+    include-in-header:
+      - text: |
+          <style>
+            /* Use bottom part of the banner image */
+            .quarto-title-block .quarto-title-banner {
+              background-position: center;
+              background-size: cover;
+            }
+          </style>
   pdf:
     #keep-md: true
     toc: true
