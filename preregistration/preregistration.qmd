@@ -11,6 +11,8 @@ date: "2026-04-15" # "`r Sys.Date()`"
 format:
   html:
     code-fold: false
+    title-block-banner: ../images/alternative_2.jpg
+    title-block-banner-color: white
     include-in-header:
       - text: |
           <style>
@@ -2498,6 +2500,7 @@ In addition, we report inter-item correlation matrices for each scale---for trus
 #| label: tbl-reliability
 #| tbl-cap: "Internal consistency of multi-item scales computed on the control group only (N ≈ 2,000). Cronbach's α and mean inter-item correlation (mean r) are reported. Data are simulated at random, thus values are not meaningful."
 #| warning: false 
+#| message: false
 
 scales_list <- list(
   "Trust: All dimensions"   = c("trust_competence_1", "trust_competence_2", "trust_competence_3",
@@ -2521,7 +2524,9 @@ control_data <- data |> filter(condition == levels(condition)[1])
 
 reliability_table <- map_df(names(scales_list), function(s) {
   items <- scales_list[[s]]
-  a     <- psych::alpha(control_data |> select(all_of(items)), check.keys = FALSE)
+  a     <- psych::alpha(control_data |> select(all_of(items)), 
+                        check.keys = FALSE, 
+                        warnings = FALSE)
   tibble(
     Scale          = s,
     `N items`      = length(items),

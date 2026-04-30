@@ -9,13 +9,11 @@
 
 .Rprofile
 
-additional_outcome_variables.qmd
-
 **/*.quarto_ipynb
 
-no_git
-
 submissions/
+
+no_git
 
 **/data/
 **/reviews/
