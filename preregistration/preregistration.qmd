@@ -373,7 +373,7 @@ tertiary_outcomes <- c(
 
 demographics <- c(
   "age", "gender", "race", "education",
-  "income", "household_size", "social_class", "urban_rural"
+  "income", "social_class", "urban_rural"
 )
 
 covariates <- c("age", "gender", "race")
@@ -505,9 +505,9 @@ quota_table_crossed |>
 
 Data collection will be stopped as soon as we have collected complete responses from 22,000 participants (1,000 participants for each of the 20 treatment conditions, 2,000 participants for the control condition). Before treatment assignment, we will deploy a series of attention and bot detection checks. Participants will be informed right after the tests on whether they passed or not. Only those participants who have passed will be able to continue and complete the study.
 
-According to Monte Carlo power simulations, a sample size of N = 22,000 would allow us to detect our smallest effect of interest, Cohen's d = 0.15, with statistical power of `r power |> filter(effect_size == 0.15, n_per_arm == 1000) |> pull(power_adjusted) |> round(digits = 2) |> scales::percent()` (@fig-power).
+According to Monte Carlo power simulations, a sample size of N = 22,000 would allow us to detect our smallest effect of interest, Cohen's d = 0.15, with statistical power of `r power |> filter(effect_size == 0.15, n_per_arm == 1000) |> pull(power_adjusted) |> round(digits = 2) |> scales::percent()` (@fig-power). An effect size of Cohen's d = 0.15 is typically considered small in behavioral sciences. In a pilot sample (N = `r n_distinct(pilot_data$responseid)`), this minimal effect size of interest would translate to a `r effect_df |> filter(effect_size == 0.15) |> pull(delta_points) |> round(digits=2)` points change of the sample mean on a scale from 0, very low trust, to 100, very high trust (see @fig-pilot). This effect size falls into the range of effects found by other megastudies: For example, @voelkelRegisteredReportMegastudy2026 report successful interventions on climate related attitudes to range between 1 and 4 points on 100 point outcome scales. In the simulations, we adjusted p-values for multiple testing via the Benjamini–Hochberg false discovery rate procedure---the same procedure we rely on for our analyses---and used $\alpha$ = .05 as the cutoff point for statistical significance. More information on the power simulations can be found in the supplemental material.
 
-An effect size of Cohen's d = 0.15 is typically considered small in behavioral sciences. In a pilot sample (N = `r n_distinct(pilot_data$responseid)`), this minimal effect size of interest would translate to a `r effect_df |> filter(effect_size == 0.15) |> pull(delta_points) |> round(digits=2)` points change of the sample mean on a scale from 0, very low trust, to 100, very high trust (see @fig-pilot). For the follow-up survey, if we assume a relatively low retention rate of 60%, we would still be able to detect Cohen's d = 0.15 with a power of `r power |> filter(effect_size == 0.15, n_per_arm == 600) |> pull(power_adjusted) |> round(digits = 2) |> scales::percent()`. In the simulations, we adjusted p-values for multiple testing via the Benjamini–Hochberg false discovery rate procedure---the same procedure we rely on for our analyses---and used $\alpha$ = .05 as the cutoff point for statistical significance. More information on the power simulations can be found in the supplemental material.
+This power analysis also provides a rough idea for the power of the follow-up survey: Assuming that the effect persists fully (i.e. the effect is the same as in the experiment), even with a relatively low retention rate of 60% (i.e. 600 participants per treatment arm) we would still be able to detect Cohen's d = 0.15 with a power of `r power |> filter(effect_size == 0.15, n_per_arm == 600) |> pull(power_adjusted) |> round(digits = 2) |> scales::percent()`. 
 
 ```{r}
 #| label: fig-pilot
@@ -625,7 +625,7 @@ $$Y_i = \beta_0 + \sum_{k=1}^{K} \beta_k \, D_{ik} + \mathbf{X}_i \boldsymbol{\g
 
 where $Y_i$ is a continuous outcome, $D_{ik}$ is a binary variable equal to 1 if participant $i$ was assigned to intervention $k$, and 0 otherwise. The main control condition serves as the omitted reference category. $\mathbf{X}_i$ denotes the vector of covariates (gender, age, race), and $\varepsilon_i$ is an error term. All models are estimated using ordinary least squares with heteroskedasticity-robust standard errors. All statistical tests are two-sided.
 
-For each outcome, we test the null hypothesis $H_0: \beta_k = 0$ for each intervention $k$, corresponding to no difference relative to the control condition. To account for multiple comparisons, we adjust p-values using the Benjamini–Hochberg (or false discovery rate, FDR) procedure across the 20 intervention-vs-control comparisons within each outcome separately. Although not all megastudies do this [e.g., @voelkelMegastudyTesting252024; @voelkelRegisteredReportMegastudy2026], researchers have stressed the importance of accounting for multiple comparison between the different treatment arms in megastudies [@milkmanMegastudiesImproveImpact2021; @milkman680000personMegastudyNudges2022]. In line with other megastudies, we will not apply additional corrections for multiple comparison across the different outcomes, as we consider each outcome as an independent test.
+For each outcome, we test the null hypothesis $H_0: \beta_k = 0$ for each intervention $k$, corresponding to no difference relative to the control condition. To account for multiple comparisons, we adjust p-values using the Benjamini–Hochberg (or false discovery rate, FDR) procedure across the 20 intervention-vs-control comparisons within each outcome separately. Although not all megastudies do this [e.g., @voelkelMegastudyTesting252024; @voelkelRegisteredReportMegastudy2026], researchers have stressed the importance of accounting for multiple comparison between the different treatment arms in megastudies [@milkmanMegastudiesImproveImpact2021; @milkman680000personMegastudyNudges2022]. Unlike some other megastudies [e.g., @goldwertMegastudyBehavioralInterventions2026] we will not apply additional corrections for multiple comparison across different outcomes, as we consider each outcome as an independent test.
 
 ```{r, results='asis'}
 #| label: main-model-function
@@ -1581,20 +1581,22 @@ merged_data <- data_reduced |>
   )
 ```
 
-We can run both tests from the a single interaction model, combining the data from the experiment and the follow-up survey. We will stack the main and follow-up survey data into a long-format panel dataset and estimate linear regression models including a treatment × wave interaction term. Standard errors will be clustered at the participant level to account for repeated observations across waves.
+We can run both tests from the a single interaction model, combining the data from the experiment and the follow-up survey. We will stack the main and follow-up survey data into a long-format panel dataset and estimate linear regression models including a treatment × wave interaction term. Standard errors will be clustered at the participant level to account for repeated observations across waves. We will use the same covariates (age, race, gender) and the same adjustment for multiple comparison as for the main treatment effect model.
 
 Formally, our model for testing persistence is:
 
-$$Y_{it} = \beta_0 + \sum_{k=1}^{K} \beta_k \, D_{ik} + \beta_T \, Time_t + \sum_{k=1}^{K} \beta_{kT} (D_{ik} \times Time_t) + \varepsilon_{it}$$
+$$Y_{it} = \beta_0 + \sum_{k=1}^{K} \beta_k \, D_{ik} + \beta_T \, Time_t + \sum_{k=1}^{K} \beta_{kT} (D_{ik} \times Time_t) + \boldsymbol{\gamma}' \mathbf{X}_i + \varepsilon_{it}$$
 
 where
 
-- $Y_{it}$ is the outcome for participant $i$ at time $t$ (experiment = 0, follow-up = 1).\
-- $D_{ik}$ are dummies for intervention $k$, with the main control condition as reference.\
-- $Time_t$ indicates experiment (0) vs. follow-up (1).\
-- $\beta_k$ = treatment effect in the experiment sample, for the reduced sample of participants who also completed the follow-up.\
+- $Y_{it}$ is the outcome for participant $i$ at time $t$ (experiment = 0, follow-up = 1).
+- $D_{ik}$ are dummies for intervention $k$, with the main control condition as reference.
+- $Time_t$ indicates experiment (0) vs. follow-up (1).
+- $\mathbf{X}_i$ = vector of pre-treatment covariates (gender, age, race), with corresponding coefficient vector $\boldsymbol{\gamma}$.
+- $\beta_k$ = treatment effect in the experiment sample, for the reduced sample of participants who also completed the follow-up.
 - $\beta_{kT}$ = change in effect; statistical test of persistence.
-- $\beta_k + \beta_{kT}$ = treatment effect in the follow-up sample.\
+- $\beta_k + \beta_{kT}$ = treatment effect in the follow-up sample.
+- $\varepsilon_{it}$ = error term, with standard errors clustered at the participant level to account for repeated observations across waves.
 
 As in the experiment, we will test for attrition, and for differential attrition, in the follow-up survey.
 
