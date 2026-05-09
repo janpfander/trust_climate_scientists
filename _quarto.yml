@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!cleaning*.qmd"
+    - "!analysis.qmd"
     - "!not_in_questionnaire.qmd"
   
 freeze: auto 

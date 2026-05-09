@@ -192,6 +192,7 @@ An expert reviewer team selected 20 promising treatments for experimental testin
 #| label: build-tbl-interventions
 
 # build table data with category headers manually
+
 intervention_table_data <- interventions |>
   select(title, summary, tag) |>
   mutate(
@@ -262,7 +263,7 @@ After being exposed to the content of their respective conditions, participants 
 
 ## Follow-up survey
 
-Approximately one week after the main experiment, a follow-up survey will be conducted to assess the persistence of the most effective interventions. Participants from the five intervention conditions that show the strongest effects, as well as participants from the control group, will be invited to complete the outcome measures again.
+Approximately one week after the main experiment, a follow-up survey will be conducted to assess the persistence of the most effective interventions. Participants from the five intervention conditions that show the strongest effects, as well as participants from the control group, will be invited to complete the outcome measures again. Note that the follow-up survey will not include the newsletter signup outcome again. The reason is that people have either signed up or not previously, and we won't measure whether they have signed out again after a week. 
 
 # Measures
 
@@ -1598,7 +1599,7 @@ where
 - $\beta_k + \beta_{kT}$ = treatment effect in the follow-up sample.
 - $\varepsilon_{it}$ = error term, with standard errors clustered at the participant level to account for repeated observations across waves.
 
-As in the experiment, we will test for attrition, and for differential attrition, in the follow-up survey.
+As in the experiment, we will test for attrition, and for differential attrition, in the follow-up survey. Note that we will not run persistence analyses for newsletter signup, as this variable is not included in the follow-up survey.
 
 ```{r}
 #| label: attrition-f-test-run-followup
@@ -1718,37 +1719,6 @@ plot_persistence(
   followup_results_predicted  = followup_results_predicted,
   followup_results_interaction = followup_results_interaction
 )
-```
-
-### Binary outcome: newsletter signup
-
-The persistence analysis for newsletter signup follows the same structure as for the continuous outcomes described above, with a treatment × wave interaction term added to the baseline logistic regression described in the treatment effect section. We stack the experiment and follow-up data into a long-format panel and estimate a logistic regression model with a condition × time interaction term, clustering standard errors at the participant level. The interaction term tests whether the log-odds of signing up for the newsletter changed between the experiment and the follow-up wave. We report interaction effects as odds ratios — values above 1 indicate that the intervention became more effective at follow-up relative to the experiment. Predicted treatment effects within each wave are reported on the probability scale as average marginal effects, for easier interpretation. BH adjustment follows the same logic as for the continuous persistence models: applied within each outcome separately across all 20 intervention-vs-control comparisons, separately for the interaction terms and the predicted effects within each wave.
-
-```{r}
-#| label: persistence-model-run-binary
-#| echo: true
-
-# run persistence model on binary newsletter outcome
-
-followup_results_predicted_binary <- run_persistence_model_binary(
-  data      = merged_data,
-  outcome   = "newsletter_signup",
-  covariates = covariates
-)$predicted_effects |>
-  filter(condition %in% followup_conditions)
-
-followup_results_interaction_binary <- run_persistence_model_binary(
-  data      = merged_data,
-  outcome   = "newsletter_signup",
-  covariates = covariates
-)$interaction_effects |>
-  filter(condition %in% followup_conditions)
-```
-
-```{r, results='asis'}
-#| label: persistence-model-function-binary
-
-print_a_function_from_file("run_persistence_model_binary")
 ```
 
 # Data and code availability
@@ -2276,13 +2246,11 @@ plot_persistence(
 #| tbl-cap: "Persistence of treatment effects on secondary outcomes. Each cell reports the condition × time interaction estimate (BH-adjusted significance stars), unadjusted p-value, and BH-adjusted p-value. The interaction term tests whether the treatment effect changed between the experiment and the follow-up survey approximately one week later. A negative estimate indicates the effect diminished at follow-up. BH adjustment is applied within each outcome separately across all 20 intervention-vs-control comparisons. Data are simulated at random, thus we should not expect to see any significant effects."
 
 table_persistence <- make_persistence_table(
-  outcomes_group               = c(secondary_outcomes, "newsletter_signup"),
-  followup_results_interaction = followup_results_interaction |> 
-    bind_rows(followup_results_interaction_binary),
-  followup_results_predicted   = followup_results_predicted |>
-    bind_rows(followup_results_predicted_binary),
+  outcomes_group               = c(secondary_outcomes),
+  followup_results_interaction = followup_results_interaction,
+  followup_results_predicted   = followup_results_predicted,
   title                        = "Persistence of treatment effects — secondary outcomes",
-  outcome_labels               = outcome_label_map[c(secondary_outcomes, "newsletter_signup")],
+  outcome_labels               = outcome_label_map[secondary_outcomes],
   binary_outcomes              = "newsletter_signup"
 )
 
