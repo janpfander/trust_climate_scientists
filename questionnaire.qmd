@@ -145,7 +145,7 @@ Have you, personally, ever learned about climate science at...
 The income brackets are designed to provide an income-based measure of social class, following the [Pew Research Center's income tier thresholds](https://www.pewresearch.org/short-reads/2024/09/16/are-you-in-the-american-middle-class/). Using the [most recent U.S. Census Bureau median household income estimate](https://www.census.gov/library/publications/2025/demo/p60-286.html) (\$83,730 in 2024), Pew defines lower income as below two-thirds of the national median (~\$56,000) and upper income as above twice the national median (~\$168,000). We include two bracket within each of the lower and middle income tiers to capture additional within-class variation. The upper income tier is captured by a single bracket.
 :::
 
-What is your total yearly family/household income?
+What is your total yearly family/household income before taxes?
 
 - Less than \$30,000
 - \$30,000 to \$55,999
@@ -544,7 +544,9 @@ You may allocate the $10 in any way you like:
 - donate all $10 to AMS
 - or choose any split in between.
 
-\[Two text boxes, one for the AMS, one for oneself. The requirement is that the values in both boxes sum up to 10. Participants can only proceed when that requirement is met.\]
+Of the $10, how much would you like to donate to the AMS?
+
+\[From 0\$ to 10\$\]
 
 ### Subscription climate science newsletter
 

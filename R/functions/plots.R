@@ -326,7 +326,7 @@ plot_items_model <- function(predicted_effects,
   
   p_predicted <- predicted_effects |>
     mutate(
-      condition = factor(condition, levels = paste0("intervention_", 1:20)),
+      #condition = factor(condition, levels = paste0("intervention_", 1:20)),
       star_pos  = conf.high * 1.05,
       item      = factor(item, levels = names(item_labels))
     ) |>

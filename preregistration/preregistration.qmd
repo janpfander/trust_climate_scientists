@@ -2,7 +2,7 @@
 title: "Preregistration: Megastudy testing 20 information interventions to strengthen trust in climate scientists in the US"
 
 abstract: |
-    Trust in climate is strongly associated with belief in climate change and support for policies to mitigate climate change. Strengthening trust in climate scientists may therefore be an important lever for accelerating climate action. However, there is currently little evidence on how to strengthen trust in climate scientists. We aim to address this gap by systematically identifying, testing, and comparing information based interventions. To this end, we are conducting a megastudy---a large experiment in which many different interventions are tested simultaneously within a large sample, compared to the same control group, and using the same outcome measures. The study will be conducted in the United States, where public beliefs about climate change are highly polarized, and where climate research is particularly threatened by funding cuts. We will test 20 interventions, ranging from reading about climate science to discussing the topic with LLMs. The interventions were selected from 107 intervention proposals submitted by researchers in response to an open call to collaborate.
+    Trust in climate is strongly associated with belief in climate change and support for policies to mitigate climate change. Strengthening trust in climate scientists may therefore be an important lever for accelerating climate action. However, there is currently little evidence on how to strengthen trust in climate scientists. We aim to address this gap by systematically identifying, testing, and comparing information based interventions. To this end, we are conducting a megastudy---a large experiment in which many different interventions are tested simultaneously within a large sample, compared to the same control group, and using the same outcome measures. The study will be conducted in the United States, where public beliefs about climate change are highly polarized, and where climate research is particularly threatened by funding cuts. We will test 20 interventions, ranging from reading about climate science to discussing the topic with LLMs. The interventions were selected from 107 intervention proposals submitted by researchers in response to an open call to collaborate. No data has been collected at the moment of registration.
   
 # bibliography: ../references.bib
 #csl: https://www.zotero.org/styles/apa
@@ -134,17 +134,14 @@ data <- readRDS("../data/simulation/main_sample_preregistration.rds")
 data_followup <- read_csv("../data/simulation/followup_sample_preregistration.csv")
 ```
 
-```{r}
-# ::: callout-note
-# This preregistration has been [registered on the OSF on XX](the_link).
-# If you are reading this as a pdf, a more reader-friendly html version is available on the [project website](link)
-
-# :::
-```
 
 ::: callout-note
-This preregistration is not yet registered on the OSF and may change still within the next days.
+
+If you are reading this as a pdf, a more reader-friendly html version is available on the [project website](https://janpfander.github.io/trust_climate_scientists/)
+
+No data has been collected at the moment of registration.
 :::
+
 
 \clearpage
 
@@ -267,6 +264,10 @@ Approximately one week after the main experiment, a follow-up survey will be con
 
 # Measures
 
+::: callout-note
+Throughout this manuscript, to reduce computation time, we only run analyses on a couple of outcomes for illustration. This is why some outcomes do not appear in the tables or plots. 
+:::
+
 We measure trust in climate scientists using a multidimensional scale as our primary outcome. To ensure that all interventions would focus on this target, we did not communicate secondary or tertiary outcomes to research teams during the call for intervention submissions (see below). Secondary and tertiary outcomes capture downstream attitudinal and behavioral consequences of trust, as well as related constructs. The distinction between secondary and tertiary outcomes reflects theoretical proximity to the primary outcome — secondary outcomes such as institutional trust and funding perceptions are more directly related to trust in climate scientists, while tertiary outcomes such as behavioral intentions and policy support are more distal. Practical relevance also plays a role: behavioral measures and funding support are designated secondary due to their direct policy implications. We distinguish between outcome groups primarily to contextualize findings in light of multiple comparison concerns. Although we statistically correct for multiple comparisons within each outcome separately, the sheer number of outcomes increases the risk of false positives across the study. Being transparent about our ordering of theoretical interest is intended to help readers interpret findings appropriately: effects on tertiary outcomes should be treated with greater caution than effects on primary or secondary outcomes. Details on all measures are provided in the questionnaire, included as a separate document.
 
 #### Primary outcome
@@ -275,7 +276,7 @@ The primary outcome is a multidimensional measure of trust in climate scientists
 
 #### Secondary outcomes
 
-Secondary outcomes capture a single-item measure for trust and distrust in climate scientists, perceptions of climate science funding, views on the appropriate policy role of scientists, and trust in scientific and governmental institutions. Trust and distrust are measured with single post-treatment items. Institutional trust is measured across five institutions (EPA, NASA, NOAA, universities, and federal government) and averaged into a composite, but we will report item-level analyses, too (see below).
+Secondary outcomes capture a single-item measure for trust and distrust in climate scientists, perceptions of climate science funding^[Note that the variable science funding will need to be reverse-coded. In the questionnaire, higher values correspond to perceptions of currently "too much" funding. Reverse-coding will result in higher values indicating currently perceptions of currently "too little" funding, or, in other words, support for more funding.], views on the appropriate policy role of scientists, and trust in scientific and governmental institutions. Trust and distrust are measured with single post-treatment items. Institutional trust is measured across five institutions (EPA, NASA, NOAA, universities, and federal government) and averaged into a composite, but we will report item-level analyses, too (see below). 
 
 The secondary outcomes also include two behavioral measures. Donation to the American Meteorological Society is a real monetary allocation on a 0–10 scale and is analyzed using OLS. Newsletter signup is a binary outcome (whether the participant signed up for a climate science newsletter) and is analyzed separately.
 
@@ -505,6 +506,8 @@ quota_table_crossed |>
 ```
 
 Data collection will be stopped as soon as we have collected complete responses from 22,000 participants (1,000 participants for each of the 20 treatment conditions, 2,000 participants for the control condition). Before treatment assignment, we will deploy a series of attention and bot detection checks. Participants will be informed right after the tests on whether they passed or not. Only those participants who have passed will be able to continue and complete the study.
+
+**No data has been collected at the moment of registration.**
 
 According to Monte Carlo power simulations, a sample size of N = 22,000 would allow us to detect our smallest effect of interest, Cohen's d = 0.15, with statistical power of `r power |> filter(effect_size == 0.15, n_per_arm == 1000) |> pull(power_adjusted) |> round(digits = 2) |> scales::percent()` (@fig-power). An effect size of Cohen's d = 0.15 is typically considered small in behavioral sciences. In a pilot sample (N = `r n_distinct(pilot_data$responseid)`), this minimal effect size of interest would translate to a `r effect_df |> filter(effect_size == 0.15) |> pull(delta_points) |> round(digits=2)` points change of the sample mean on a scale from 0, very low trust, to 100, very high trust (see @fig-pilot). This effect size falls into the range of effects found by other megastudies: For example, @voelkelRegisteredReportMegastudy2026 report successful interventions on climate related attitudes to range between 1 and 4 points on 100 point outcome scales. In the simulations, we adjusted p-values for multiple testing via the Benjamini–Hochberg false discovery rate procedure---the same procedure we rely on for our analyses---and used $\alpha$ = .05 as the cutoff point for statistical significance. More information on the power simulations can be found in the supplemental material.
 
