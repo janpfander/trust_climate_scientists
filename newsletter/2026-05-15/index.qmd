@@ -14,7 +14,7 @@ title-block-banner-color: white
 
 📌 The preregistration locks in our study design, hypotheses, sampling plan, and analysis strategy *before* we see any results --- a key step for transparent, credible science.
 
-🔗 You can read the full preregistration on our [website](preregistration/preregistration.qmd). It is registered on Zenodo: [https://doi.org/10.5281/zenodo.20160211](https://doi.org/10.5281/zenodo.20160211)
+🔗 You can read the full preregistration on our [website](../../preregistration/preregistration.qmd). It is registered on Zenodo: [https://doi.org/10.5281/zenodo.20160211](https://doi.org/10.5281/zenodo.20160211)
 
 🧪 We're testing **20 short, text-based interventions** (plus a control) designed to strengthen trust in US climate scientists, with a target sample of **22,000 participants** recruited via CloudResearch.
 
