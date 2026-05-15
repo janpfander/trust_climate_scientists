@@ -1,5 +1,7 @@
 # Custom plot functions
 
+library(MetBrewer)
+
 # set general theme for plots
 plot_theme <- theme_minimal(base_size = 12) +
   theme(

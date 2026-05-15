@@ -19,12 +19,13 @@ library(wesanderson)
 
 ```{r}
 # load functions
-source("../../R/functions.R")
+list.files(here::here("R/functions"), pattern = "\\.R$", full.names = TRUE) |>
+  walk(source)
 ```
 
 
 ```{r}
-submissions <- read_csv("../../call_for_collaboration/submissions/cleaned.csv")
+submissions <- read_csv(here::here("call_for_collaboration/submissions/cleaned.csv"))
 
 n_interventions_per_team <- submissions |> 
   group_by(responseid) |> 

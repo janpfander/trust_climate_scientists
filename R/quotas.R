@@ -189,4 +189,4 @@ quota_table_crossed <- bind_rows(
     distinct()
 )
 
-write_csv(quota_table_crossed, "data/quotas.csv")
+write_csv(quota_table_crossed, here::here("data/quotas.csv"))

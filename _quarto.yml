@@ -6,6 +6,10 @@ project:
     - "!cleaning*.qmd"
     - "!analysis.qmd"
     - "!not_in_questionnaire.qmd"
+    - "!quality_checks.qmd"
+    - "!selection_decision.qmd"
+    - "!reviews.qmd"
+    - "!contact_list.qmd"
   
 freeze: auto 
 

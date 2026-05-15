@@ -26,7 +26,7 @@ r_slider <- function(n) pmin(pmax(rnorm(n, 50, 30), 0), 100)
 # Step 1: Load main dataset & identify eligible participants
 ############################################################
 
-main <- read_csv("data/simulation/main_sample_preregistration.csv",
+main <- read_csv(here::here("data/simulation/main_sample_preregistration.csv"),
                  show_col_types = FALSE)
 
 # In the real study, the 5 strongest conditions will be
@@ -174,7 +174,7 @@ mutate(
 ############################################################
 
 write_csv(followup_outcomes,
-          "data/simulation/followup_sample_preregistration.csv")
+          here::here("data/simulation/followup_sample_preregistration.csv"))
 
 cat("\nFollow-up dataset saved.\n")
 cat("Rows:", nrow(followup_outcomes), "\n")

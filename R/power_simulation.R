@@ -6,7 +6,7 @@ library(broom)
 
 
 # read pilot data
-pilot_data <- read_csv("data/pilot/cleaned.csv") |> 
+pilot_data <- read_csv(here::here("data/pilot/cleaned.csv")) |>
   filter(condition == "control")
 
 # pilot_data must contain a variable called `trust`
@@ -142,7 +142,7 @@ simulate <- function(file_name, sample_sizes, effect_sizes, ...) {
 
 system.time({
   simulate(
-    file_name    = "data/simulation/power_simulation.csv",
+    file_name    = here::here("data/simulation/power_simulation.csv"),
     sample_sizes = c(400, 600, 800, 1000),
     effect_sizes = c(0, 0.10, 0.15, 0.2),
     n_sims       = 1000,

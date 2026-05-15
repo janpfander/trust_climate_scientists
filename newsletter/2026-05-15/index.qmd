@@ -1,0 +1,30 @@
+---
+title: "📌 Preregistered & launching data collection!"
+date: 2026-05-15
+description: "Our analysis plan is locked in and we're heading into the field."
+categories:
+  - preregistration
+  - data collection
+draft: false
+image: "../../images/windmills.jpg"
+title-block-banner-color: white
+---
+
+🎯 A big milestone for the **Strengthening Trust in Climate Scientists Megastudy**: our preregistration is now public, and data collection is officially underway!
+
+📌 The preregistration locks in our study design, hypotheses, sampling plan, and analysis strategy *before* we see any results --- a key step for transparent, credible science.
+
+🔗 You can read the full preregistration on our [website](preregistration/preregistration.qmd). It is registered on Zenodo: [https://doi.org/10.5281/zenodo.20160211](https://doi.org/10.5281/zenodo.20160211)
+
+🧪 We're testing **20 short, text-based interventions** (plus a control) designed to strengthen trust in US climate scientists, with a target sample of **22,000 participants** recruited via CloudResearch.
+
+A huge thank you again to all our collaborators whose interventions made it into the final set --- it's exciting to finally see this go live. Stay tuned for further updates! ✨
+
+---
+
+🔗 **More information**
+
+For more information about the project and the team, visit [our website](../../index.qmd).
+
+💌 Questions? Email us anytime at
+[{{< var email >}}](mailto:{{< var email >}})

@@ -612,5 +612,5 @@ dat <- dat |>
 # Final dataset
 ############################################################
 
-write_csv(dat, "data/simulation/main_sample_preregistration.csv")
-saveRDS(dat, "data/simulation/main_sample_preregistration.rds")
+write_csv(dat, here::here("data/simulation/main_sample_preregistration.csv"))
+saveRDS(dat, here::here("data/simulation/main_sample_preregistration.rds"))
