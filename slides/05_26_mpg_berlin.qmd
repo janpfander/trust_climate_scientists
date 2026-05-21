@@ -1,0 +1,1828 @@
+---
+title: |
+  Strengthening Trust in Climate Scientists in the US: A Megastudy Approach
+description: "Trust in climate scientists is a key predictor of belief in climate change and support for mitigation policies, yet we know surprisingly little about how to strengthen it. Existing evidence is scarce and fragmented across studies with different samples, designs, and outcome measures. To address this gap, I am currently leading a megastudy—a large-scale experiment in which many interventions are tested simultaneously against a common control group, using identical outcome measures. Our megastudy tests 20 interventions designed to increase trust in climate scientists. The interventions were selected from 105 proposals submitted by researchers in response to an open call for collaboration. They include, for example, reading about the history of climate science, learning about peer-review, or discussing reasons for distrust with AI chatbots. The study is fielded in the United States, where public beliefs about climate change are highly polarized and climate research faces growing funding pressures. In this talk, I will present preliminary results of the megastudy. Beyond the substantive question of what strengthens trust in climate scientists, I will walk through the process of running a large-scale collaborative experiment of this kind, from the open call through expert review and selection to data collection and analysis. I will reflect on megastudies as a methodological approach for generating comparable, policy-relevant evidence in behavioral sciences."
+date: 2026-05-21
+author: Jan Pfänder
+format:
+  revealjs:
+    theme: [dark, custom.scss]
+    smaller: true
+    slide-number: true
+    progress: true
+    chalkboard: true
+    history: false
+    include-after-body: section-label.html
+    template-partials:
+      - title-slide.html
+    # incremental: true
+    # code-link: true
+image: ../images/mpg_logo.png
+type: presentation
+toc: false
+
+include-in-header:
+  - text: |
+      <style>
+      .five-col {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* left-align all items */
+        gap: 10px; /* spacing between columns */
+      }
+      .five-col .person {
+        width: 18%;     /* roughly 5 items per row */
+        text-align: left; /* left-align text inside each person block */
+        margin-bottom: 10px;
+        font-size: 0.6em; /* reduce text size */
+      }
+      .five-col img {
+        border-radius: 6px;
+      }
+      </style>
+---
+
+```{r}
+# libraries
+library(tidyverse)
+library(kableExtra)
+library(tinytable)
+library(wesanderson)
+library(patchwork)
+library(MetBrewer)
+library(gghalves)
+library(here)
+
+# shared plotting helpers + theme (plot_treatment_effects, plot_theme,
+# moderator_level_colors, partisan_colors). No models are fit in the deck.
+list.files(here::here("R/functions"), pattern = "\\.R$", full.names = TRUE) |>
+  walk(source)
+```
+
+```{r}
+# cleaned data (exclusions already applied in data/cleaning.qmd)
+data <- readRDS(here::here("data/experiment/cleaned.rds"))
+
+raw <- read_csv(here("data/experiment/raw.csv"), show_col_types = FALSE) |>
+  slice(-(1:2)) # drop Qualtrics' two header rows
+```
+
+```{r}
+# Data prep for the "methodological challenges" section. Mirrors the build
+# in cloudresearch/report_cloudresearch.qmd (compute-interv-time, compute-flow,
+# diff-attrition), trimmed to what these two slides need.
+
+blank_to_na <- function(x) na_if(trimws(x), "")
+
+# --- Intervention timing -----------------------------------------------------
+# Sum every page-submit timer between transition2 (pre-treatment) and
+# Transition3 (post-treatment); each participant only sees their condition's
+# pages, so the sum is total time on that intervention.
+rawnames <- names(raw)
+.i_start <- which(rawnames == "transition2_time_Page Submit")
+.i_end <- which(rawnames == "Transition3_Time_Page Submit")
+interv_cols <- rawnames[(.i_start + 1):(.i_end - 1)]
+interv_cols <- interv_cols[str_detect(interv_cols, "_Page Submit$")]
+
+interv_time <- raw |>
+  select(response_id = ResponseId, all_of(interv_cols)) |>
+  pivot_longer(-response_id, names_to = "page", values_to = "sec") |>
+  mutate(sec = suppressWarnings(as.numeric(na_if(trimws(sec), "")))) |>
+  filter(!is.na(sec)) |>
+  group_by(response_id) |>
+  summarise(interv_sec = sum(sec), .groups = "drop")
+
+it <- data |>
+  select(response_id, condition) |>
+  inner_join(interv_time, by = "response_id")
+
+# --- After-treatment dropouts by condition -----------------------------------
+# Treatment is delivered between page "transition2" (order 15) and "Transition3"
+# (order 16). A respondent is an "after-treatment dropout" if their last page
+# submit reached order >= 16 but they did not complete the study.
+shared_pages <- tribble(
+  ~order , ~col                               ,
+       1 , "consent_time_Page Submit"         ,
+       2 , "filter_time_Page Submit"          ,
+       3 , "demographics_time_Page Submit"    ,
+       4 , "party_time_Page Submit"           ,
+       5 , "partimport_time_Page Submit"      ,
+       6 , "religion_time_Page Submit"        ,
+       7 , "bornagain_time_Page Submit"       ,
+       8 , "religiosity_time_Page Submit"     ,
+       9 , "epist_auton_time_Page Submit"     ,
+      10 , "attention2_time_Page Submit"      ,
+      11 , "transition1_time_Page Submit"     ,
+      12 , "belief_pre_time_Page Submit"      ,
+      13 , "trust_pre_time_Page Submit"       ,
+      14 , "alien_time_Page Submit"           ,
+      15 , "transition2_time_Page Submit"     ,
+      16 , "Transition3_Time_Page Submit"     ,
+      17 , "trust_time_Page Submit"           ,
+      18 , "trust_post_time_Page Submit"      ,
+      19 , "donation_time_Page Submit"        ,
+      20 , "distrust_time_Page Submit"        ,
+      21 , "policy_time_Page Submit"          ,
+      22 , "funding_time_Page Submit"         ,
+      23 , "inst_trust_time_Page Submit"      ,
+      24 , "newsletter_time_Page Submit"      ,
+      25 , "belief_post_time_Page Submit"     ,
+      26 , "concern_time_Page Submit"         ,
+      27 , "individual_time_Page Submit"      ,
+      28 , "policy_general_time_Page Submit"  ,
+      29 , "policy_specific_time_Page Submit" ,
+      30 , "end_time_Page Submit"
+)
+.treatment_boundary_order <- 16
+
+last_order_tbl <- raw[, c("ResponseId", shared_pages$col)] |>
+  pivot_longer(-ResponseId, names_to = "col", values_to = "ts") |>
+  mutate(ts = blank_to_na(ts)) |>
+  filter(!is.na(ts)) |>
+  left_join(shared_pages, by = "col") |>
+  group_by(ResponseId) |>
+  summarise(last_order = max(order), .groups = "drop")
+
+condition_titles <- read_csv(
+  here("data/interventions.csv"),
+  show_col_types = FALSE
+) |>
+  separate_longer_delim(code_name, "; ") |>
+  select(code_name, title) |>
+  add_row(code_name = "control", title = "control")
+
+after_dropouts <- raw |>
+  transmute(
+    ResponseId,
+    excluded,
+    condition_code = blank_to_na(condition),
+    completed = completed_study == "1" & !is.na(completed_study)
+  ) |>
+  left_join(last_order_tbl, by = "ResponseId") |>
+  filter(
+    is.na(excluded),
+    !completed,
+    !is.na(last_order) & last_order >= .treatment_boundary_order
+  ) |>
+  left_join(condition_titles, by = c("condition_code" = "code_name")) |>
+  mutate(condition = coalesce(title, condition_code))
+```
+
+## Overview
+
+::: {.fragment fragment-index=1}
+1. Trust in science matters for mitigating climate change
+:::
+
+::: {.fragment fragment-index=2}
+2. What is a megastudy and why do one?
+:::
+
+::: {.fragment fragment-index=3}
+3. Outcomes
+:::
+
+::: {.fragment fragment-index=4}
+4. Interventions
+:::
+
+::: {.fragment fragment-index=5}
+5. Results (preliminary, N = `r format(n_distinct(data$response_id), big.mark = ",")`)
+:::
+
+::: {.fragment fragment-index=6}
+6. Methodological challenges
+:::
+
+::: {.fragment fragment-index=7}
+7. Should we only be doing megastudies?
+:::
+
+::: {.fragment fragment-index=8}
+8. Outlook/conclusion
+:::
+
+::: {.notes}
+- **1.** …but we don't know much about how to actually strengthen trust in scientists
+- **3.** Call for interventions; review and selection process
+- **4.** Average treatment effects (trust in scientists; secondary outcomes, e.g. donations to scientific association; tertiary outcomes, e.g. concern about climate change); subgroup effects
+- **5.** Multiple comparison; differential attrition
+:::
+
+# 1. Trust in science matters for mitigating climate change 
+
+---
+
+## 
+
+Mitigating climate change is urgent [@rogeljCredibilityGapNetzero2023; @calvinIPCC2023Climate2023]
+
+. . .
+
+People who trust scientists (in general) more, also tend to...
+
+. . .
+
+  ... be more likely to accept the scientific consensus on global warming [@bogertEffectTrustScience2024]
+
+. . .
+
+  ... have more accurate beliefs about climate change [@ejazWhoAvoidsClimate2025]
+
+. . .
+
+  ... support climate policies [@colognaRoleTrustClimate2020; @hornseyMetaanalysesDeterminantsOutcomes2016]
+
+
+---
+
+## 
+
+A large study across 55 countries found that trust in climate scientists more specifically was the strongest predictor of belief in climate change and support for climate policies [@todorovaMachineLearningIdentifies2025]
+
+::: {.notes}
+Add a footnote here among how many variables, what kind of variables, and two examples
+:::
+
+---
+
+## 
+
+But...
+
+. . .
+
+all of this evidence is *correlational*. 
+
+--- 
+
+## How to strenghten trust in scientists?  
+
+. . .
+
+- using open-science practices [@rosmanOpenSciencePublic2022; @songTrustingShouldersOpen2022]
+
+. . .
+
+- highlighting successful replications [@hendriksReplicationCrisisTrust2020]
+
+. . .
+
+- communicating uncertainty [@schneiderEffectsCommunicatingScientific2022]
+
+. . .
+
+- presenting participants with an infographic about the scientific process [@agleyInterveningTrustScience2021a]
+
+. . .
+
+- have scientists use two-sided rather than one-sided arguments [@hendriksBalanceCredibilityHow2023]
+
+. . .
+
+- presenting participanats with short biographies of scientists [@hauteaCommunicatingTrustTrustworthiness2024]
+
+. . .
+
+
+Few studies on climate scientists more specifically, but see [@palmDontTellMe2020; @orchinikLearningScientistsConsensus2024; @koetkeEffectSeeingScientists2024]
+
+
+::: {.notes}
+- after receiving a message about the need for changes in individual behavior or in public policy to address climate change, people tend to trust climate scientists less [@palmDontTellMe2020]. 
+
+- participants perceived climate scientists as more skilled---a dimension of trustworthiness---after reading a text about the longstanding history and foundations of climate science [@orchinikLearningScientistsConsensus2024]. 
+
+- Exercising intellectual humility---acknowledging the limits of one's knowledge---increased trust in a fictive climate scientists [@koetkeEffectSeeingScientists2024].
+:::
+
+---
+
+##
+
+But...
+
+. . .
+
+<br>
+
+There are also null results 
+
+. . .
+
+  *e.g., in the US, messages tailored to conservatives did not change their trust in scientists [@gligoricPoliticalIdeologyTrust2025]*
+
+. . .
+
+<br>
+
+And mixed findings
+
+. . .
+
+  *e.g., effects of communicating scientific uncertainties are highly context-dependent, and some studies find negative effects [@schusterHowCommunicationScientific2026a; @vanderblesEffectsCommunicatingUncertainty2020a]*
+
+
+---
+
+##
+
+In summary...
+
+- relatively few studies 
+
+- even fewer on climate scientists specifically
+
+- results are hard to compare due to different research designs
+
+# What is a megastudy and why do one?
+
+---
+
+## A megastudy is...
+
+. . .
+
+"a massive field experiment in which many different treatments are tested synchronously in one large sample using a common, objectively measured outcome" [@milkmanMegastudiesImproveImpact2021]
+
+. . .
+
+<br>
+
+Often takes the form of an "intervention turnament"
+
+::: {.incremental}
+  - a public call for intervention submissions
+  - most promising submissions get tested
+  - the best intervention wins
+:::
+
+::: {.notes}
+It's like the perfect meta-analysis.
+
+A risk with meta-analyses is always to compare apples and oranges. 
+:::
+
+--- 
+
+## 
+
+Existing behavioral megastudies have targeted, e.g., 
+
+::: {.incremental}
+
+- physical exercise [@milkmanMegastudiesImproveImpact2021]
+- vaccination [@milkmanMegastudyShowsThat2024; @milkman680000personMegastudyNudges2022]
+- partisan animosity [@voelkelMegastudyTesting252024]
+- tax report honesty [@zickfeldEffectivenessExAnte2024]
+- depression [@kaveladzeCrowdsourcedMegastudy122026]
+- climate advocacy [@goldwertMegastudyBehavioralInterventions2026]
+- climate action [@sinclairBehavioralInterventionsMotivate2025; @voelkelRegisteredReportMegastudy2026]
+- support for carbon pricing [@huberCollectiveEvidenceBehavioral2026]
+
+:::
+
+::: {.notes}
+The not always explicity claim to be a megastudy, but have some recurrent characteristics.
+
+- big sample
+- many intervention arms 
+- often the result of a crowdsourced collaboration tournament
+:::
+
+---
+
+##
+
+There are even several guides to megastudies [@duckworthGuideMegastudies2022a; @doellMegastudiesTestEfficacy2023; @voelkelHowDesignConduct2024]
+
+---
+
+```{=html}
+<div class="dtree">
+
+  <div class="dt-root">A research question that is important to you</div>
+
+  <!-- Click 1: Q1 + No-leaf exit + Yes-continuation arrow -->
+  <div class="fragment" data-fragment-index="1">
+    <div class="dt-down">↓</div>
+    <div class="dt-exit">
+      <div class="dt-q">Does this question also matter to a lot of other people?</div>
+      <div class="dt-exit-side">
+        <div class="dt-exit-edge"><span class="no">No</span> &nbsp;→</div>
+        <div class="dt-bad">Collaborative megastudy might be hard…</div>
+      </div>
+    </div>
+    <div class="dt-down"><span class="label yes">Yes</span>↓</div>
+  </div>
+
+  <!-- Click 2: Q2 + No-leaf exit + Yes-continuation arrow -->
+  <div class="fragment" data-fragment-index="2">
+    <div class="dt-exit">
+      <div class="dt-q">Do you care more about whether something works than why?</div>
+      <div class="dt-exit-side">
+        <div class="dt-exit-edge"><span class="no">No</span> &nbsp;→</div>
+        <div class="dt-bad">Don't do a megastudy</div>
+      </div>
+    </div>
+    <div class="dt-down"><span class="label yes">Yes</span>↓</div>
+  </div>
+
+  <!-- Click 3: Q3 (no side-exit; both branches continue downward) -->
+  <div class="fragment" data-fragment-index="3">
+    <div class="dt-q">Are there many existing studies on your question?</div>
+  </div>
+
+  <!-- The two-column split below Q3. Walks the Yes path first: Q4 + Yes
+       leaf at click 4, then the No leaf at click 5. The No branch is a
+       terminal leaf. -->
+  <div class="dt-split">
+
+    <div class="dt-branch">
+      <div class="fragment" data-fragment-index="5">
+        <div class="dt-down"><span class="label yes">Yes</span>↓</div>
+        <div class="dt-good">Consider a meta-analysis first</div>
+      </div>
+      <div class="fragment" data-fragment-index="6">
+        <div class="dt-down">↓</div>
+        <div class="dt-q">Are the studies high quality and comparable?</div>
+        <div class="dt-mini">
+          <div><span class="yes">Yes</span> → Definitely do a meta-analysis first</div>
+        </div>
+      </div>
+      <div class="fragment" data-fragment-index="7">
+        <div class="dt-mini">
+          <div><span class="no">No</span>&nbsp; → Consider a megastudy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dt-branch">
+      <div class="fragment" data-fragment-index="3">
+        <div class="dt-down"><span class="label no">No</span>↓</div>
+        <div class="dt-good">Probably search a bit more</div>
+      </div>
+      <div class="fragment" data-fragment-index="4">
+        <div class="dt-down">↓</div>
+        <div class="dt-q">Still no studies?</div>
+        <div class="dt-mini">
+          <div><span class="yes">Yes</span> → Consider a megastudy</div>
+        </div>
+      </div>
+    </div>      
+
+  </div>
+
+</div>
+```
+
+---
+
+## Steps in a megastudy^[from personal experience]: 
+
+. . .
+
+1. Pick an outcome that matters to you
+
+. . .
+
+2. Set up an advisory board
+
+. . .
+
+3. Launch a call for collaboration
+
+. . .
+
+4. Review, select and edit the interventions
+
+. . .
+
+5. Build the study and write the preregistration
+
+. . .
+
+6. Launch A BIG data collection
+
+. . .
+
+7. See what works
+
+::: {.notes}
+1. ... or 13 outcomes 
+2. ... a good excuse to randomly message your favorite researchers
+6. ... not scary at all
+:::
+
+# Outcomes
+
+## Primary outcome: Trust in climate scientists
+
+. . .
+
+A multidimensional 12-item measure [based on @colognaTrustScientistsTheir2025]
+
+*(scale from 0 (low trust) to 100 (high trust))*
+
+. . .
+
+- competence (e.g., "How unqualified or qualified are most climate scientists?")
+
+. . .
+
+- benevolence (e.g., "How uneager or eager are most climate scientists to improve others’ lives?")
+
+. . .
+
+- integrity (e.g., "How dishonest or honest are most climate scientists?")
+
+. . .
+
+- openness (e.g., "How unwilling or willing are most climate scientists to be transparent?")
+
+
+::: {.notes}
+To ensure that all interventions would focus on this target, we did not communicate secondary or tertiary outcomes to research teams during the call for intervention submissions (see below).
+:::
+
+---
+
+## Secondary outcomes
+
+. . .
+
+Including, e.g., 
+
+
+- role of scientists in policy making (e.g., "Climate scientists should actively advocate for specific policies." - disagree/agree)
+
+. . .
+
+- donation to the American Meteorological Society (AMS) (lottery, between $0 and $10)
+
+. . .
+
+- signup to climate scientists Katherine Hayhoe's newsletter (Yes/No self-report + click tracking)
+
+
+::: {.notes}
+Secondary and tertiary outcomes capture downstream attitudinal and behavioral consequences of trust, as well as related constructs. 
+:::
+
+---
+
+## Tertiary outcomes
+
+. . .
+
+Including, e.g., 
+
+
+- belief in climate change (e.g., "Human activities are causing climate change" - not accurate/accurate)
+
+. . .
+
+
+- individual behaviors (e.g., "Go on less personal air travel" - not likely/likely)
+
+. . .
+
+
+- policy preferences (e.g., "Raising taxes on fossil fuels" - oppose/support)
+
+
+::: {.notes}
+The distinction between secondary and tertiary outcomes reflects theoretical proximity to the primary outcome — secondary outcomes such as institutional trust and funding perceptions are more directly related to trust in climate scientists, while tertiary outcomes such as behavioral intentions and policy support are more distal. Practical relevance also plays a role: behavioral measures and funding support are designated secondary due to their direct policy implications. We distinguish between outcome groups primarily to contextualize findings in light of multiple comparison concerns. 
+:::
+
+# Call for collaboration
+
+---
+
+```{r submissions}
+#| label: tbl-submissions
+#| tbl-cap: Submissions by career stage
+submissions <- read_csv(here::here(
+  "call_for_collaboration/submissions/cleaned.csv"
+))
+
+submissions |>
+  group_by(position) |>
+  summarise(n_submissions = n_distinct(code_name)) |>
+  arrange(desc(n_submissions)) |>
+  tt()
+```
+
+---
+
+```{r}
+#| label: fig-submissions-by-day
+#| fig-cap: Submissions by days until deadline. 
+# define key dates
+deadline <- as.Date("2025-11-11")
+opening <- as.Date(deadline - weeks(4))
+
+
+# compute days until deadline
+submissions <- submissions |>
+  mutate(
+    days_until_deadline = as.numeric(difftime(deadline, day, units = "days"))
+  )
+
+# define palette
+wes_cols <- wes_palette("Zissou1", 5, type = "discrete")
+blue <- wes_cols[1] # distribution
+yellow <- wes_cols[3] # opening
+red <- wes_cols[5] # deadline
+
+# Create plot
+submissions |>
+  count(days_until_deadline) |>
+  mutate(prop = n / sum(n)) |>
+  ggplot(aes(x = days_until_deadline, y = n)) +
+  geom_col(fill = blue) +
+  geom_vline(xintercept = 0, color = red, linetype = "dashed", linewidth = 1) +
+  geom_vline(
+    xintercept = as.numeric(difftime(deadline, opening, units = "days")),
+    color = yellow,
+    linetype = "dashed",
+    linewidth = 1
+  ) +
+  annotate(
+    "text",
+    x = 0,
+    y = 60,
+    label = "Deadline",
+    color = red,
+    hjust = 1.4,
+    size = 3.5
+  ) +
+  annotate(
+    "text",
+    x = as.numeric(difftime(deadline, opening, units = "days")),
+    y = 40,
+    label = "Opening",
+    color = yellow,
+    hjust = -0.2,
+    size = 3.5
+  ) +
+  scale_x_reverse(breaks = seq(0, 28, by = 2)) +
+  labs(
+    x = "Days until deadline",
+    y = "Number of submissions"
+  ) +
+  plot_theme
+```
+
+# Selection
+
+```{r}
+#| label: read-data-reviews
+# read reviews
+reviews_long <- read_csv(here::here(
+  "call_for_collaboration/reviews/reviews_long.csv"
+))
+reviews_wide <- read_csv(here::here(
+  "call_for_collaboration/reviews/reviews_wide.csv"
+))
+```
+
+---
+
+## 
+
+- Each of the 105 submission was independently reviewed by three randomly assigned reviewers from the advisory board 
+
+::: {.incremental}
+
+- The reviewers had fixed evaluation criteria, but they could subjectively weight them
+
+- Because reviewers rated very differently, we standardized scores within reviewers
+
+- **`Final score`:** the average of the weighted standardized scores
+
+- We picked the 20 highest scoring interventions
+
+:::
+
+---
+
+```{r}
+# get weights from the review data
+weights <- reviews_long |>
+  group_by(reviewer_id) |>
+  summarise(across(ends_with("weight"), ~ unique(.x)))
+
+# check
+# weights
+
+# make long format version
+weights_long <- weights |>
+  pivot_longer(
+    cols = ends_with("weight"),
+    names_to = "category",
+    values_to = "weight"
+  ) |>
+  mutate(
+    category = str_replace(category, "_weight", ""),
+    category = str_replace_all(category, "_", " ") |> str_to_title()
+  )
+```
+
+```{r}
+#| label: fig-weights
+#| fig-cap: Distribtions of weights assigned by reviewers. Each dot corresponds to one reviewer's weight for the respective rating dimension.
+# Plot
+p <- ggplot() +
+
+  # Boxplot
+  geom_boxplot(
+    data = weights_long,
+    aes(x = category, y = weight),
+    width = 0.3,
+    outlier.shape = NA,
+    alpha = 0.7
+  ) +
+
+  # Points with tooltips
+  geom_point(
+    data = weights_long,
+    aes(
+      x = category,
+      y = weight,
+      text = paste0(
+        "Reviewer: ",
+        reviewer_id,
+        "<br>Weight: ",
+        round(weight, 3)
+      )
+    ),
+    position = position_jitter(width = 0.1),
+    size = 2,
+    alpha = 0.8
+  ) +
+
+  labs(
+    x = NULL,
+    y = "Weight assigned by reviewers",
+  ) +
+  coord_flip() +
+  plot_theme
+
+# Convert to plotly
+p
+```
+
+::: {.notes}
+Reviewers provided ratings on four dimensions:
+
+**1. Theoretical grounding** Is the intervention based on sound and convincing theory?
+
+**2. Theoretical insight** Would testing this intervention advance theoretical understanding? (Interventions with clear, single mechanisms may offer stronger insight than those combining many mechanisms.)
+
+**3. Odds of success** How plausible is it that the intervention will work in our study? Helpful questions include: - Has it been tested before? - Was the context comparable (U.S. sample, setting, outcomes)? - How large were the effect sizes?
+
+**4. Practical relevance** How relevant and scalable is the intervention in the real world? (E.g., can it be implemented easily? Is it feasible at scale?)
+:::
+
+---
+
+```{r}
+#| label: fig-scores-by-reviewers
+#| fig-cap: Distribtions of reviewer scores (weighted averages of the different rating categories). Each dot corresponds to a review. Lines with dot in the middle (above the boxplots) represent the reviewer specific means and their 95% CIs.
+# Compute summary stats per reviewer
+summaries <- reviews_long %>%
+  rounded_numbers() |>
+  group_by(reviewer_id) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    n = n(),
+    se = sd_score / sqrt(n),
+    ci_low = mean_score - 1.96 * se, # 95% CI
+    ci_high = mean_score + 1.96 * se
+  ) %>%
+  arrange(mean_score) %>% # ORDER reviewers
+  rounded_numbers() |>
+  mutate(reviewer_id = factor(reviewer_id, levels = reviewer_id))
+
+reviews_plot <- reviews_long %>%
+  mutate(reviewer_id = factor(reviewer_id, levels = summaries$reviewer_id)) |>
+  rounded_numbers()
+
+p <- ggplot(reviews_plot, aes(x = reviewer_id, y = score)) +
+
+  # Boxplot
+  geom_boxplot(
+    width = 0.3,
+    outlier.shape = NA,
+    alpha = 0.7
+  ) +
+
+  # Means and confidence interval (95% CI)
+  geom_pointrange(
+    data = summaries,
+    aes(
+      x = reviewer_id,
+      y = mean_score,
+      ymin = ci_low,
+      ymax = ci_high,
+      text = paste0(
+        "Mean score: ",
+        mean_score
+      )
+    ),
+    width = 0.15,
+    linewidth = 0.7,
+    inherit.aes = FALSE,
+    position = position_nudge(x = 0.3)
+  ) +
+
+  # Points with tooltips
+  geom_point(
+    data = reviews_plot,
+    aes(
+      text = paste0(
+        "Intervention: ",
+        code_name,
+        "<br>Reviewer score: ",
+        score,
+        "<br>Overall score: ",
+        overall_score
+      )
+    ),
+    position = position_jitter(width = 0.1),
+    size = 2,
+    alpha = 0.8
+  ) +
+
+  labs(
+    x = "Reviewer",
+    y = "Score"
+  ) +
+  coord_flip() +
+  plot_theme
+
+
+# Convert to plotly
+p
+```
+
+# Interventions
+
+```{r}
+#| label: load-interventions
+# One slide per tag (## header) with a title | summary table.
+# Tag order is curated (broad themes first, "Other" last); any tag not
+# listed still appears, after the curated ones.
+tag_order <- c(
+  "Collaboration and peer-review",
+  "Scientific methods and results",
+  "Applications and impact",
+  "Others' endorsement",
+  "Values",
+  "LLM-chatbot",
+  "Other"
+)
+
+interventions <- read_csv(here::here("data/interventions.csv")) |>
+  mutate(
+    # `title`/`summary`/`tag` carry stray whitespace that renders badly
+    across(c(title, summary, tag), str_trim),
+    tag = fct_relevel(factor(tag), intersect(tag_order, tag))
+  ) |>
+  arrange(tag, title)
+```
+
+---
+
+```{r}
+#| label: intervention-slides
+#| results: asis
+for (t in levels(interventions$tag)) {
+  cat("\n\n## ", t, "\n\n", sep = "")
+
+  tbl <- interventions |>
+    filter(tag == t) |>
+    select(Intervention = title, Summary = summary)
+
+  print(
+    kbl(tbl, format = "html", escape = TRUE) |>
+      kable_styling(font_size = 20, full_width = TRUE) |>
+      column_spec(1, width = "22%", bold = TRUE) |>
+      column_spec(2, width = "78%")
+  )
+
+  cat("\n\n")
+}
+```
+
+# Results
+
+```{r}
+#| label: results-setup
+# Precomputed preregistration analyses (analysis/run_preregistration_analyses.R).
+# The deck only READS these — no models are fit at render time.
+.res <- here::here("analysis", "results")
+.get <- function(name) readRDS(file.path(.res, paste0(name, ".rds")))
+
+meta <- .get("_meta")
+data <- .get("data_snapshot") # exact data analysed
+main_model_results <- .get("main_model_results")
+main_model_newsletter_signup <- .get("main_model_newsletter_signup")
+demographic_main_results <- .get("demographic_main_results")
+moderator_results_predicted <- .get("moderator_results_predicted")
+moderator_results_partisan_importance <- .get(
+  "moderator_results_partisan_importance"
+)
+# Attrition / IPW / non-partisan moderators are computed by the precompute
+# script but not shown: with near-zero attrition and few responses they are
+# not yet informative (see analysis/results/_meta.rds$analysis_skips).
+
+# plot_treatment_effects() reads this from the global env
+outcome_label_map <- meta$outcome_label_map
+secondary_outcomes <- meta$secondary_outcomes
+tertiary_outcomes <- meta$tertiary_outcomes
+
+# preliminary-data disclaimer, shown on every result slide
+prelim <- sprintf(
+  "Preliminary — N = %s",
+  format(meta$n_rows, big.mark = ",")
+)
+
+# interventions ordered by their effect on the primary outcome (reused by
+# the secondary/tertiary heatmaps)
+intervention_order <- main_model_results |>
+  filter(outcome == "trust_multidimensional") |>
+  arrange(desc(estimate)) |>
+  pull(condition)
+
+# --- heatmap helper (secondary / tertiary), real condition labels ----------
+okeeffe <- met.brewer("OKeeffe1")
+heatmap_slide <- function(outs, title) {
+  main_model_results |>
+    filter(outcome %in% outs) |>
+    mutate(
+      outcome_label = recode(outcome, !!!outcome_label_map),
+      outcome_label = factor(outcome_label, levels = outcome_label_map[outs]),
+      condition = factor(condition, levels = rev(intervention_order))
+    ) |>
+    ggplot(aes(outcome_label, condition, fill = estimate)) +
+    geom_tile(alpha = 0.7) +
+    geom_text(
+      aes(
+        label = paste0(
+          round(estimate, 1),
+          ifelse(is.na(significant_adjusted), "", significant_adjusted)
+        )
+      ),
+      size = 2.5,
+      fontface = "bold",
+      color = "grey20"
+    ) +
+    scale_fill_gradient2(
+      low = okeeffe[1],
+      mid = "white",
+      high = okeeffe[length(okeeffe)],
+      midpoint = 0,
+      name = "Estimate"
+    ) +
+    guides(
+      fill = guide_colourbar(
+        title.position = "left",
+        title.vjust = 0.9,
+        barwidth = grid::unit(9, "lines"),
+        barheight = grid::unit(0.5, "lines")
+      )
+    ) +
+    labs(x = NULL, y = NULL, title = title) +
+    plot_theme +
+    theme(
+      legend.position = "bottom",
+      legend.title = element_text(size = 9),
+      legend.text = element_text(size = 8),
+      axis.text.x = element_text(angle = 25, hjust = 1, size = 9),
+      axis.text.y = element_text(size = 9),
+      panel.grid = element_blank()
+    )
+}
+
+# --- moderator helpers (trust_multidimensional), real condition labels -----
+mod_cat_slide <- function(m, pal = moderator_level_colors, keep_levels = NULL) {
+  df <- moderator_results_predicted |>
+    filter(moderator == m, outcome == "trust_multidimensional")
+  if (!is.null(keep_levels)) {
+    df <- df |> filter(moderator_level %in% keep_levels)
+  }
+  df |>
+    mutate(
+      condition = fct_reorder(condition, estimate),
+      star_pos = conf.high * 1.05
+    ) |>
+    ggplot(aes(condition, estimate, color = moderator_level)) +
+    geom_hline(
+      yintercept = 0,
+      linetype = "dashed",
+      color = "grey40",
+      linewidth = 0.4
+    ) +
+    geom_errorbar(
+      aes(ymin = conf.low, ymax = conf.high),
+      width = 0,
+      linewidth = 0.5,
+      alpha = 0.7,
+      position = position_dodge(width = 0.6)
+    ) +
+    geom_point(size = 2, alpha = 0.7, position = position_dodge(width = 0.6)) +
+    geom_text(
+      aes(y = star_pos, label = significant_adjusted, group = moderator_level),
+      hjust = 0,
+      vjust = 0.8,
+      size = 3,
+      fontface = "bold",
+      color = "grey20",
+      show.legend = FALSE,
+      position = position_dodge(width = 0.6)
+    ) +
+    scale_color_manual(values = pal, name = NULL) +
+    coord_flip() +
+    labs(
+      title = NULL,
+      y = "Predicted treatment effect (vs. control)",
+      x = NULL
+    ) +
+    plot_theme
+}
+
+# Horizontal mean line + printed mean label — reused on every density plot.
+# Nudged to the right so the line sits under the right-side half-violin;
+# text shares the same nudge so it stays centered over the shorter line.
+mean_layers <- list(
+  stat_summary(
+    fun = mean,
+    fun.min = mean,
+    fun.max = mean,
+    geom = "crossbar",
+    width = 0.275,
+    fatten = 0,
+    linewidth = 0.5,
+    color = "grey20",
+    position = position_nudge(x = 0.1375)
+  ),
+  stat_summary(
+    fun = mean,
+    geom = "text",
+    aes(label = sprintf("Mean: %.1f", after_stat(y))),
+    vjust = -0.5,
+    size = 3,
+    fontface = "bold",
+    color = "grey20",
+    position = position_nudge(x = 0.1375)
+  )
+)
+
+# --- descriptive: overall + by-party (gghalves: half-violin + half-box) ---
+# No distribution helper exists in R/functions/plots.R, so build inline but
+# reuse plot_theme + partisan_colors + mean_layers.
+half_layers <- function(fill_aes = FALSE) {
+  list(
+    if (fill_aes) {
+      gghalves::geom_half_violin(
+        aes(fill = party),
+        side = "r",
+        trim = FALSE,
+        color = "grey50",
+        alpha = 0.5
+      )
+    } else {
+      gghalves::geom_half_violin(
+        side = "r",
+        trim = FALSE,
+        fill = "grey80",
+        color = "grey50"
+      )
+    },
+    gghalves::geom_half_boxplot(
+      side = "l",
+      width = 0.3,
+      nudge = 0.02,
+      outlier.shape = NA,
+      fill = "grey90",
+      color = "grey40",
+      errorbar.draw = FALSE
+    ),
+    mean_layers
+  )
+}
+
+desc_dual <- function(var, lab) {
+  d_party <- data |>
+    filter(party %in% c("Democrat", "Republican")) |>
+    mutate(party = factor(party, levels = c("Democrat", "Republican")))
+
+  p_overall <- ggplot(data, aes(x = "All", y = .data[[var]])) +
+    half_layers(fill_aes = FALSE) +
+    coord_cartesian(ylim = c(0, 100)) +
+    labs(title = "Overall", x = NULL, y = lab) +
+    plot_theme +
+    theme(legend.position = "none")
+
+  p_party <- ggplot(d_party, aes(x = party, y = .data[[var]])) +
+    half_layers(fill_aes = TRUE) +
+    scale_fill_manual(values = partisan_colors, name = NULL) +
+    coord_cartesian(ylim = c(0, 100)) +
+    labs(title = "By party", x = NULL, y = lab) +
+    plot_theme +
+    theme(legend.position = "none")
+
+  p_overall + p_party + plot_layout(widths = c(1, 1.4))
+}
+```
+
+---
+
+::: {.callout-warning}
+`r prelim`
+:::
+
+---
+
+## Descriptives: Trust in climate scientists (single item)
+
+```{r}
+#| label: fig-res-desc-trust
+#| fig-cap: "Pre-treatment single-item trust in climate scientists (0–100). Left: overall distribution (dashed line = mean). Right: density by party (Democrats vs Republicans)."
+#| out-width: "100%"
+desc_dual("trust_pre", "Pre-treatment trust (0–100)")
+```
+
+---
+
+## Descriptives: Belief in climate change
+
+```{r}
+#| label: fig-res-desc-belief
+#| fig-cap: "Pre-treatment single-item belief in climate change (0–100). Left: overall distribution (dashed line = mean). Right: density by party (Democrats vs Republicans)."
+#| out-width: "100%"
+desc_dual("belief_pre", "Pre-treatment belief in climate change (0–100)")
+```
+
+---
+
+## Descriptives: Trust dimensions
+
+```{r}
+#| label: fig-res-desc-dimensions
+#| fig-cap: !expr 'paste0("Distribution of the four trust sub-dimensions (0–100), control group only (N = ", sum(data$condition == levels(data$condition)[1]), ").")'
+#| out-width: "100%"
+data |>
+  filter(condition == levels(condition)[1]) |>
+  select(
+    trust_competence,
+    trust_integrity,
+    trust_benevolence,
+    trust_openness
+  ) |>
+  pivot_longer(
+    everything(),
+    names_to = "dimension",
+    values_to = "score"
+  ) |>
+  mutate(
+    dimension = factor(
+      recode(dimension, !!!outcome_label_map),
+      levels = c("Competence", "Integrity", "Benevolence", "Openness")
+    )
+  ) |>
+  ggplot(aes(x = "", y = score)) +
+  gghalves::geom_half_violin(
+    side = "r",
+    trim = FALSE,
+    fill = "grey80",
+    color = "grey50"
+  ) +
+  gghalves::geom_half_boxplot(
+    side = "l",
+    width = 0.3,
+    nudge = 0.02,
+    outlier.shape = NA,
+    fill = "grey90",
+    color = "grey40",
+    errorbar.draw = FALSE
+  ) +
+  mean_layers +
+  facet_wrap(~dimension, ncol = 2) +
+  coord_cartesian(ylim = c(0, 100)) +
+  labs(
+    x = NULL,
+    y = "Score (0–100)",
+    title = "Trust sub-dimensions — control group"
+  ) +
+  plot_theme +
+  theme(axis.text.x = element_blank())
+```
+
+# Average Treatment Effects
+
+---
+
+```{r}
+#| label: fig-res-primary
+#| fig-cap: "Points: Treatment effect estimates. Whiskers: 95% CIs (uncorrected). Stars: BH-adjusted across the 20 intervention-vs-control comparisons."
+#| out-width: "100%"
+plot_treatment_effects("trust_multidimensional", main_model_results, data)
+```
+
+---
+
+```{r}
+#| label: fig-res-secondary
+#| fig-cap: "Interventions ordered by their effect on the primary outcome. Cell = estimate; stars = BH-adjusted."
+#| out-width: "100%"
+heatmap_slide(secondary_outcomes, "Secondary outcomes")
+```
+
+---
+
+```{r}
+#| label: fig-res-tertiary
+#| fig-cap: "Interventions ordered by their effect on the primary outcome. Cell = estimate; stars = BH-adjusted."
+#| out-width: "100%"
+heatmap_slide(tertiary_outcomes, "Tertiary outcomes")
+```
+
+---
+
+```{r}
+#| label: fig-res-donation
+#| fig-cap: "Real-money allocation, 0–10 scale (OLS). Whiskers: 95% CIs (uncorrected). Stars: BH-adjusted across the 20 intervention-vs-control comparisons."
+#| out-width: "100%"
+plot_treatment_effects("donation_ams", main_model_results, data)
+```
+
+---
+
+```{r}
+#| label: fig-res-newsletter
+#| fig-cap: "Logistic regression; marginal effects on the probability scale. Stars: BH-adjusted."
+#| out-width: "100%"
+baseline_prob <- data |>
+  filter(condition == levels(condition)[1]) |>
+  summarise(p = mean(newsletter_signup, na.rm = TRUE)) |>
+  pull(p)
+
+main_model_newsletter_signup$marginal_effects |>
+  mutate(condition = fct_reorder(condition, estimate)) |>
+  ggplot(aes(estimate, condition)) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    color = "grey40",
+    linewidth = 0.4
+  ) +
+  geom_errorbarh(
+    aes(xmin = conf.low, xmax = conf.high),
+    height = 0,
+    linewidth = 0.5,
+    color = "grey30"
+  ) +
+  geom_point(size = 1, color = "grey20") +
+
+  geom_text(
+    aes(x = conf.high, label = significant_adjusted),
+    nudge_x = 0.002,
+    hjust = 0,
+    vjust = 0.5,
+    size = 3,
+    fontface = "bold"
+  ) +
+
+  geom_text(
+    aes(x = estimate, label = scales::percent(estimate, accuracy = 0.1)),
+    vjust = -0.4,
+    size = 3,
+    check_overlap = TRUE
+  ) +
+  annotate(
+    "text",
+    x = Inf,
+    y = -Inf,
+    label = paste0(
+      "Baseline (control): ",
+      scales::percent(baseline_prob, accuracy = 0.1)
+    ),
+    hjust = 1,
+    vjust = -0.5,
+    size = 2.5,
+    color = "grey40",
+    fontface = "italic"
+  ) +
+  scale_x_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    expand = expansion(mult = c(0.05, 0.15))
+  ) +
+  labs(
+    x = "Avg. probability difference (pp)",
+    y = NULL,
+    title = "Newsletter signup (logistic, marginal effects)"
+  ) +
+  plot_theme
+```
+
+---
+
+## Newsletter click-through
+
+```{r}
+#| label: tbl-newsletter-clicks
+#| tbl-cap: "Click-through on the Talking Climate newsletter link. The link was shown to all completers regardless of signup answer. Time values are seconds spent on the external page among those who clicked."
+data |>
+  filter(!is.na(newsletter_signup)) |>
+  mutate(signup = if_else(newsletter_signup, "Yes", "No")) |>
+  group_by(signup) |>
+  summarise(
+    n = n(),
+    n_clicked = sum(newsletter_click),
+    pct_clicked = scales::percent(mean(newsletter_click), accuracy = 0.1),
+    median_seconds = round(
+      median(newsletter_click_time[newsletter_click], na.rm = TRUE),
+      1
+    ),
+    mean_seconds = round(
+      mean(newsletter_click_time[newsletter_click], na.rm = TRUE),
+      1
+    ),
+    .groups = "drop"
+  ) |>
+  arrange(desc(signup)) |>
+  tinytable::tt()
+```
+
+# Subgroup Treatment Effects
+
+---
+
+## Partisan identity
+
+```{r}
+#| label: fig-res-mod-party
+#| fig-cap: "Moderator: partisan identity. Points are group-specific model predictions — the predicted treatment effect on trust within Democrats and within Republicans. Stars = BH-adjusted within outcome (per preregistration)."
+#| out-width: "100%"
+mod_cat_slide(
+  "party",
+  pal = partisan_colors,
+  keep_levels = c("Democrat", "Republican")
+)
+```
+
+---
+
+## Partisan importance
+
+```{r}
+#| label: fig-res-mod-partisan-importance
+#| fig-cap: "Moderator: partisan importance. Points are interaction estimates from separate models fit per party — one model for Republicans, one for Democrats. BH adjusted jointly across both (40 comparisons per outcome, per preregistration)."
+#| out-width: "100%"
+moderator_results_partisan_importance |>
+  filter(
+    outcome == "trust_multidimensional",
+    party %in% c("Democrat", "Republican")
+  ) |>
+  mutate(
+    condition = fct_reorder(condition, estimate),
+    star_pos = conf.high * 1.05
+  ) |>
+  ggplot(aes(condition, estimate, color = party)) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed",
+    color = "grey40",
+    linewidth = 0.4
+  ) +
+  geom_errorbar(
+    aes(ymin = conf.low, ymax = conf.high),
+    width = 0,
+    linewidth = 0.5,
+    alpha = 0.7,
+    position = position_dodge(width = 0.6)
+  ) +
+  geom_point(size = 2, alpha = 0.7, position = position_dodge(width = 0.6)) +
+  geom_text(
+    aes(y = star_pos, label = significant_adjusted, group = party),
+    hjust = 0,
+    vjust = 0.8,
+    size = 3,
+    fontface = "bold",
+    color = "grey20",
+    show.legend = FALSE,
+    position = position_dodge(width = 0.6)
+  ) +
+  scale_color_manual(values = partisan_colors, name = NULL) +
+  coord_flip() +
+  labs(
+    title = NULL,
+    y = "Treatment-effect × partisan-importance interaction (per unit)",
+    x = NULL
+  ) +
+  plot_theme
+```
+
+# Methodological challenges
+
+---
+
+## Multiple comparison
+
+. . .
+
+- Some studies account for it [@milkman680000personMegastudyNudges2022], some don't [e.g., @voelkelMegastudyTesting252024]
+
+. . . 
+
+- You can argue it depends on what you consider a "family of tests"
+
+. . .
+
+- In any case:  
+  - if you do null hypothesis significance testing, testing many effects makes it more likely to obtain statistically significant results by chance alone
+
+. . .
+
+  - so, you need some kind of strategy, or you end up doing data dredging
+
+---
+
+## Multiple comparison
+
+Statistical accounting for multiple comparison can allevate this issue. 
+
+. . .
+
+However, even if you do it, there are many ways to do this...
+
+  - adjust across only interventions 
+  - adjust between interventions + outcomes
+  - adjust between moderator levels
+
+. . .
+
+Many degrees of freedom -> specific preregistering is crucial. 
+
+::: {.notes}
+We haven't simulated how different adjustment measures would affect statistical power.
+
+Besides statistical corrections, we tried to account for this issue with the primary, secondary, tertiary outcome hierarchy in addition.
+:::
+
+---
+
+## Differential attrition
+
+. . .
+
+- Happens when, after treatment assignment, attrition differs systematically between experimental conditions
+
+. . .
+
+- The more experimental conditions, and the more different they are, the more likely  
+
+. . .
+
+- Clearly, megastudies are very vulnerable to differential attriton
+
+---
+
+## Differential attrition
+
+Example: 
+
+. . .
+
+- Some people are pissed off by interventions trying to convince them of climate scientists' trustworthiness
+
+. . .
+
+- These people are likely to have relatively low baseline trust
+
+. . .
+
+- Some interventions may try harder to convince than others (e.g., by being longer)
+
+---
+
+```{r}
+#| label: fig-interv-duration
+#| fig-cap: "Sum of all intervention page-submit timers per participant. Conditions ordered by median time on intervention."
+#| out-width: "100%"
+#| fig-height: 7
+ggplot(
+  it,
+  aes(x = interv_sec, y = fct_reorder(condition, interv_sec, .fun = median))
+) +
+  geom_boxplot(
+    outlier.shape = NA,
+    fill = "steelblue",
+    alpha = 0.35,
+    color = "grey40"
+  ) +
+  geom_jitter(
+    height = 0.18,
+    width = 0,
+    alpha = 0.4,
+    size = 1,
+    color = "steelblue"
+  ) +
+  scale_x_continuous(
+    labels = scales::label_number(),
+    breaks = scales::pretty_breaks(8)
+  ) +
+  labs(
+    x = "Seconds on intervention page(s)",
+    y = NULL,
+    title = "Time spent on the interventions, by condition"
+  ) +
+  plot_theme
+```
+
+---
+
+## Differential attrition
+
+If low-trust people drop out after longer treatments more than after shorter ones, then...
+
+. . .
+
+... long treatment conditions loose a bunch of low trust people (compared to all other conditions)
+
+. . .
+
+... their treatment effects get **overestimated**
+
+---
+
+## Evidence for differential attrition in the data?
+
+```{r}
+#| label: tbl-diff-attrition
+#| tbl-cap: "Post-treatment dropouts by condition."
+after_dropouts |>
+  count(
+    condition = fct_na_value_to_level(factor(condition), "(unassigned)"),
+    name = "n_dropouts"
+  ) |>
+  arrange(desc(n_dropouts)) |>
+  tinytable::tt()
+```
+
+# Should we be doing only megastudies?
+
+---
+
+## `+` 
+
+. . .
+
+- high powered, high quality, directly comparable test of many interventions 
+
+. . .
+
+- collaborative science and inclusion of early career researchers
+
+. . .
+
+- practical relevance
+
+::: {.notes}
+Megastudies can be the best version of a meta-analysis
+:::
+
+---
+
+## `-`
+
+. . .
+
+- megastudies provide litte insight into how exactly interventions work
+
+. . .
+
+- while they are somewhat inclusive, they also create inequalities
+
+. . .
+
+  - require massive budgets, so effectively, only researchers in rich institutions can lead them
+
+. . .
+
+    - not so clear how much being a collaborator will contribute to early researchers' career
+
+. . .
+
+- hot take: megastudies might not always be as practically relevant as they are sold
+
+::: {.notes}
+Psychological experiments usually have several conditions that allow to make sepcific claims about how and under which circumstances a manipulation works
+:::
+
+---
+
+## Megastudies focus on individuals
+
+. . .
+
+- in an i-frame vs. s-frame debaste [@chaterIframeSframeHow2023], megastudies are clearly **i-frame**
+
+. . .
+
+- yet, for trust in scientists specifically, we know that structural factors like representation matter a lot [@druckmanRepresentationScienceTrust2025a]
+
+---
+
+## Effect sizes vs. Demographics 
+
+```{r}
+#| label: fig-res-primary-vs-demographics
+#| fig-cap: "Treatment effects (left) vs. univariate demographic effects (right) on the same outcome scale. Demographic rows are level-vs-reference contrasts from `outcome ~ demographic + condition` OLS with HC2 SEs (condition included as a fixed effect so demographic effects are on the same residual-variance scale as the treatment effects); `age` is rescaled to per-10-years. Shared x-axis."
+#| out-width: "100%"
+#| fig-width: 12
+#| fig-height: 7
+plot_treatment_vs_demographic(
+  "trust_multidimensional",
+  main_model_results,
+  demographic_main_results,
+  data
+)
+```
+
+---
+
+## Effect sizes vs. Demographics 
+
+```{r}
+#| label: fig-res-donation-vs-demographics
+#| fig-cap: "Treatment effects (left) vs. univariate demographic effects (right) on donation (0–10). Demographic rows are level-vs-reference contrasts from `outcome ~ demographic + condition` OLS with HC2 SEs (condition included as a fixed effect so demographic effects are on the same residual-variance scale as the treatment effects); `age` is rescaled to per-10-years. Shared x-axis."
+#| out-width: "100%"
+#| fig-width: 12
+#| fig-height: 7
+plot_treatment_vs_demographic(
+  "donation_ams",
+  main_model_results,
+  demographic_main_results,
+  data
+)
+```
+
+# Outlook and conclusion
+
+--- 
+
+##
+
+- Data collection to be completed within the next ~5 weeks
+  - including a follow-up survey to test persistence after ~1 week
+
+. . .
+
+- What we expect: 
+  - small effects
+  - which might not persist
+
+. . .
+
+- What we do not expect: 
+  - solve deep-seeted structural issues that may foster distrust/lack of trust in science among some groups
+
+---
+
+## So why this study then? 
+
+. . .
+
+- small effects may scale
+
+. . .
+
+- scientists, policy makers, NGOs, journalists need to communicate about climate science --- we might as well help them use effective strategies
+
+. . .
+
+- our research group plans to translate interventions into real-life with stakeholders
+
+# Thank you
+
+---
+
+##### Research team
+
+<div class="five-col">
+
+<!-- <div class="person">
+<img src="../images/jan.jpeg" height="100">
+<br>
+<b><a href="https://janpfander.github.io/">Jan Pfänder</a></b>
+</div> -->
+
+<div class="person">
+<img src="../images/madalina.jpg" height="100">
+<br>
+<b><a href="https://profiles.stanford.edu/madalina-vlasceanu">Madalina Vlasceanu</a></b>
+</div>
+
+<div class="person">
+<img src="../images/sara.png" height="100">
+<br>
+<b><a href="https://sustainability.stanford.edu/people/sara-constantino">Sara Constantino</a></b>
+</div>
+
+<div class="person">
+<img src="../images/viktoria.jpg" height="100">
+<br>
+<b><a href="https://www.viktoriacologna.com/">Viktoria Cologna</a></b>
+</div>
+
+</div>
+
+##### Advisory board
+
+<div class="five-col">
+
+<div class="person">
+<img src="../images/mike.jpg" height="100">
+<br>
+<b><a href="https://www.ikmz.uzh.ch/en/research/divisions/science-crisis-and-risk-communication/mike-s-schaefer.html">Mike S. Schäfer</a></b>
+</div>
+
+<div class="person">
+<img src="../images/mario.jpg" height="100">
+<br>
+<b><a href="https://knowledge4policy.ec.europa.eu/profile/mario-scharfbillig-1798_en">Mario Scharfbillig</a></b>
+</div>
+
+<div class="person">
+<img src="../images/naomi.jpg" height="100">
+<br>
+<b><a href="https://histsci.fas.harvard.edu/people/naomi-oreskes">Naomi Oreskes</a></b>
+</div>
+
+<div class="person">
+<img src="../images/hugo.jpg" height="100">
+<br>
+<b><a href="https://sites.google.com/site/hugomercier/">Hugo Mercier</a></b>
+</div>
+
+<div class="person">
+<img src="../images/edward.png" height="100">
+<br>
+<b><a href="https://communication.gmu.edu/people/emaibach">Edward Wile Maibach</a></b>
+</div>
+
+<div class="person">
+<img src="../images/james.jpeg" height="100">
+<br>
+<b><a href="https://sites.google.com/view/jamie-druckman">James Druckman</a></b>
+</div>
+
+<div class="person">
+<img src="../images/cameron.jpg" height="100">
+<br>
+<b><a href="https://www.cameronbrick.com/">Cameron Brick</a></b>
+</div>
+
+<div class="person">
+<img src="../images/john.jpg" height="100">
+<br>
+<b><a href="https://comartsci.msu.edu/our-people/john-c-besley">John C. Besley</a></b>
+</div>
+
+<div class="person">
+<img src="../images/sebastian.jpeg" height="100">
+<br>
+<b><a href="https://sites.google.com/view/sebastianberger/start">Sebastian Berger</a></b>
+</div>
+
+<div class="person">
+<img src="../images/marlene.jpg" height="100">
+<br>
+<b><a href="https://leibniz-psychology.org/profil-marlene-altenmueller">Marlene Altenmüller</a></b>
+</div>
+
+</div>
+
+![[Website](https://janpfander.github.io/trust_climate_scientists/)](../images/qr-code.png){width=200px style="position: absolute; top: 0; right: -0;"}
+
+---
+
+## References
+
+::: {#refs}
+:::
+
+
+
+
+
+
+
+
+
+

@@ -3,13 +3,15 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
-    - "!cleaning*.qmd"
-    - "!analysis.qmd"
-    - "!not_in_questionnaire.qmd"
-    - "!quality_checks.qmd"
-    - "!selection_decision.qmd"
-    - "!reviews.qmd"
-    - "!contact_list.qmd"
+    - "!call_for_collaboration/**"
+    - "!**/cleaning*.qmd"
+    - "!**/not_in_questionnaire.qmd"
+    - "!**/quality_checks.qmd"
+    - "!**/selection_decision.qmd"
+    - "!**/reviews.qmd"
+    - "!**/contact_list.qmd"
+    - "!**/report_cloudresearch.qmd"
+    - "!**/generate_followup_invitations.qmd"
   
 freeze: auto 
 
@@ -29,7 +31,8 @@ website:
         text: "Collaborate"
       - href: team.qmd
         text: "Team"
-      
+      - href: slides/talks.qmd
+        text: "Talks"      
     # Contact
     right:
       - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}} Write us an email"

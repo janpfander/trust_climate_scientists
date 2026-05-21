@@ -387,20 +387,25 @@ escape_md <- function(x) {
 }
 
 # read interventions
-interventions <- read_csv(here::here("data/interventions.csv")) |> 
-  mutate(content = escape_md(content))
-
-
+interventions <- read_csv(here::here("data/interventions.csv")) |>
+  mutate(
+    content = escape_md(content),
+    # `title` is the analysis label (cleaning.qmd maps code_name -> title);
+    # some titles carry a trailing newline that renders badly in headings
+    title = str_trim(title)
+  )
 ```
 
 ```{r}
 #| output: asis
-for(i in 1:nrow(interventions)) {
-
-cat(glue("
-### {i}: {interventions$code_name[i]}
+for (i in 1:nrow(interventions)) {
+  cat(glue(
+    "
+### {i}: {interventions$title[i]}
 
 #### Authors: {interventions$names[i]}
+
+**Code name**: {interventions$code_name[i]}
 
 **Tag**: {interventions$tag[i]}
 
@@ -411,8 +416,8 @@ cat(glue("
 {interventions$content[i]}
 
 
-")
-)
+"
+  ))
 }
 ```
 
@@ -437,42 +442,41 @@ Inspired by the measure used in @colognaTrustScientistsTheir2025 for scientists 
 ```{r}
 #| label: tbl-trust
 #| tbl-cap: "Multi-dimensional measure of trust in climate scientists."
-
 # Full table with dimension titles as row headers
 trustworthiness_items <- tribble(
-  ~`Item`, ~`Response Options`,
+  ~`Item`                                                                               , ~`Response Options`                                           ,
 
   # Introduction
-  "Please answer the following questions on how you perceive climate scientists.", "",
+  "Please answer the following questions on how you perceive climate scientists."       , ""                                                            ,
 
   # Competence
-  "Competence", "",
-  "How incompetent or competent are most climate scientists?", "0 = Very incompetent … 100 = Very competent",
-  "How unintelligent or intelligent are most climate scientists?", "0 = Very unintelligent … 100 = Very intelligent",
-  "How unqualified or qualified are most climate scientists?", "0 = Very unqualified … 100 = Very qualified",
+  "Competence"                                                                          , ""                                                            ,
+  "How incompetent or competent are most climate scientists?"                           , "0 = Very incompetent … 100 = Very competent"                 ,
+  "How unintelligent or intelligent are most climate scientists?"                       , "0 = Very unintelligent … 100 = Very intelligent"             ,
+  "How unqualified or qualified are most climate scientists?"                           , "0 = Very unqualified … 100 = Very qualified"                 ,
 
   # Integrity
-  "Integrity", "",
-  "How dishonest or honest are most climate scientists?", "0 = Very dishonest … 100 = Very honest",
-  "How unethical or ethical are most climate scientists?", "0 = Very unethical … 100 = Very ethical",
-  "How insincere or sincere are most climate scientists?", "0 = Very insincere … 100 = Very sincere",
+  "Integrity"                                                                           , ""                                                            ,
+  "How dishonest or honest are most climate scientists?"                                , "0 = Very dishonest … 100 = Very honest"                      ,
+  "How unethical or ethical are most climate scientists?"                               , "0 = Very unethical … 100 = Very ethical"                     ,
+  "How insincere or sincere are most climate scientists?"                               , "0 = Very insincere … 100 = Very sincere"                     ,
 
   # Benevolence
-  "Benevolence", "",
-  "How unconcerned or concerned are most climate scientists about people’s wellbeing?", "0 = Very unconcerned … 100 = Very concerned",
-  "How uneager or eager are most climate scientists to improve others’ lives?", "0 = Very uneager … 100 = Very eager",
-  "How inconsiderate or considerate are most climate scientists of others’ interests?", "0 = Very inconsiderate … 100 = Very considerate",
+  "Benevolence"                                                                         , ""                                                            ,
+  "How unconcerned or concerned are most climate scientists about people’s wellbeing?"  , "0 = Very unconcerned … 100 = Very concerned"                 ,
+  "How uneager or eager are most climate scientists to improve others’ lives?"          , "0 = Very uneager … 100 = Very eager"                         ,
+  "How inconsiderate or considerate are most climate scientists of others’ interests?"  , "0 = Very inconsiderate … 100 = Very considerate"             ,
 
   # Openness
-  "Openness", "",
-  "How open, if at all, are most climate scientists to feedback?", "0 = Not open at all … 100 = Very open",
-  "How unwilling or willing are most climate scientists to be transparent?", "0 = Very unwilling … 100 = Very willing",
-  "How much or how little attention do climate scientists pay to other people's views?", "0 = Very little attention … 100 = A great deal of attention"
+  "Openness"                                                                            , ""                                                            ,
+  "How open, if at all, are most climate scientists to feedback?"                       , "0 = Not open at all … 100 = Very open"                       ,
+  "How unwilling or willing are most climate scientists to be transparent?"             , "0 = Very unwilling … 100 = Very willing"                     ,
+  "How much or how little attention do climate scientists pay to other people's views?" , "0 = Very little attention … 100 = A great deal of attention"
 )
 
 trustworthiness_items |>
   tt(width = 1) |>
-  style_tt(i = c(2,6,10,14), bold = TRUE)
+  style_tt(i = c(2, 6, 10, 14), bold = TRUE)
 ```
 
 ## Secondary outcomes
@@ -595,24 +599,22 @@ We might want to look at the last item separately in our analyses, as it points 
 ```{r}
 #| label: tbl-climate-concern
 #| tbl-cap: "Climate change concern and perceived importance."
-
 climate_concern_items <- tribble(
-  ~Item,                                                                 ~Response_Options,
+  ~Item                                                                        , ~Response_Options                  ,
 
   # Header
-  "Please indicate your views on the following questions.",              "",
+  "Please indicate your views on the following questions."                     , ""                                 ,
 
   # Items
-  "How concerned are you about climate change?",                          "0 = Not at all … 100 = Extremely",
-  "How serious a problem is climate change?",                             "0 = Not at all … 100 = Extremely",
-  "Relative to other issues facing the U.S., how important is climate change?",
-                                                                          "0 = The least important issue … 100 = The most important issue"
+  "How concerned are you about climate change?"                                , "0 = Not at all … 100 = Extremely" ,
+  "How serious a problem is climate change?"                                   , "0 = Not at all … 100 = Extremely" ,
+  "Relative to other issues facing the U.S., how important is climate change?" ,
+  "0 = The least important issue … 100 = The most important issue"
 )
 
 climate_concern_items |>
-  tt(width = 1) |> 
+  tt(width = 1) |>
   format_tt(escape = TRUE)
-
 ```
 
 ### Individual-level climate mitigation behavior
@@ -624,27 +626,25 @@ Adapted some items from @voelkelRegisteredReportMegastudy2026
 ```{r}
 #| label: tbl-individual-behavior
 #| tbl-cap: "Individual-level climate mitigation behavior."
-
 behavior_items <- tribble(
-  ~Item,                                                                 ~Response_Options,
+  ~Item                                                                                                       , ~Response_Options                                                                              ,
 
   # Header
-  "How likely are you to engage in the following activities in the next twelve months?" , "",
+  "How likely are you to engage in the following activities in the next twelve months?"                       , ""                                                                                             ,
 
   # Items
-  "Eat less meat",                                                       "0 = Not likely at all … 100 = Extremely likely; I am a vegetarian",
-  "Walk, bicycle, carpool, or take public transportation more often instead of driving a vehicle by yourself",
-                                                                          "0 = Not likely at all … 100 = Extremely likely; I never drive by myself",
-  "Install a solar panel",        "0 = Not likely at all … 100 = Extremely likely; I already have enough solar panels installed",
-  "Go on less personal (non-business) air travel",                        "0 = Not likely at all … 100 = Extremely likely; I never fly",
-  "Talk to friends and family about the importance of climate change",                     "0 = Not likely at all … 100 = Extremely likely",
-  "Donate to an environmental NGO",      "0 = Not likely at all … 100 = Extremely likely"
+  "Eat less meat"                                                                                             , "0 = Not likely at all … 100 = Extremely likely; I am a vegetarian"                            ,
+  "Walk, bicycle, carpool, or take public transportation more often instead of driving a vehicle by yourself" ,
+  "0 = Not likely at all … 100 = Extremely likely; I never drive by myself"                                   ,
+  "Install a solar panel"                                                                                     , "0 = Not likely at all … 100 = Extremely likely; I already have enough solar panels installed" ,
+  "Go on less personal (non-business) air travel"                                                             , "0 = Not likely at all … 100 = Extremely likely; I never fly"                                  ,
+  "Talk to friends and family about the importance of climate change"                                         , "0 = Not likely at all … 100 = Extremely likely"                                               ,
+  "Donate to an environmental NGO"                                                                            , "0 = Not likely at all … 100 = Extremely likely"
 )
 
 behavior_items |>
-  tt(width = 1) |> 
+  tt(width = 1) |>
   format_tt(escape = TRUE)
-
 ```
 
 ### Support for climate policies

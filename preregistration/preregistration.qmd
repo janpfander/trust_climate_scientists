@@ -22,18 +22,18 @@ format:
               background-size: cover;
             }
           </style>
-  pdf:
-    toc: true
-    toc-depth: 5
-    include-before-body:
-      text: |
-        \clearpage
-    colorlinks: true
-    tbl-colwidths: true
-    header-includes:
-      - \usepackage{float}
-      - \floatplacement{figure}{H}
-      - \floatplacement{table}{H}
+  # pdf:
+  #   toc: true
+  #   toc-depth: 5
+  #   include-before-body:
+  #     text: |
+  #       \clearpage
+  #   colorlinks: true
+  #   tbl-colwidths: true
+  #   header-includes:
+  #     - \usepackage{float}
+  #     - \floatplacement{figure}{H}
+  #     - \floatplacement{table}{H}
 
 execute:
   echo: false
@@ -46,7 +46,6 @@ execute:
 
 ```{r packages}
 #| echo: false
-
 library(tidyverse)
 library(kableExtra)
 library(tinytable)
@@ -76,7 +75,6 @@ list.files("../R/functions", pattern = "\\.R$", full.names = TRUE) |>
 
 ```{r}
 #| label: read-data-submissions
-
 submissions <- read_csv("../call_for_collaboration/submissions/cleaned.csv")
 
 n_interventions_per_team <- submissions |>
@@ -113,25 +111,24 @@ escape_md <- function(x) {
   gsub("([*_`#>\\[\\]()])", "\\\\\\1", x, perl = TRUE)
 }
 
-interventions <- read_csv(here::here("data/interventions.csv")) |> 
+interventions <- read_csv(here::here("data/interventions.csv")) |>
   mutate(content = escape_md(content))
 ```
 
 ```{r}
 #| label: read-simulated-main-sample
-
 # we use an .rds file to preserve factor codings for demographics and covariates
 data <- readRDS("../data/simulation/main_sample_preregistration.rds")
-    
+
 # check
 # levels(data$condition)
 ```
 
 ```{r}
 #| label: read-simulated-followup-sample
-
-
-data_followup <- read_csv("../data/simulation/followup_sample_preregistration.csv")
+data_followup <- read_csv(
+  "../data/simulation/followup_sample_preregistration.csv"
+)
 ```
 
 
@@ -187,34 +184,37 @@ An expert reviewer team selected 20 promising treatments for experimental testin
 
 ```{r}
 #| label: build-tbl-interventions
-
 # build table data with category headers manually
 
 intervention_table_data <- interventions |>
   select(title, summary, tag) |>
   mutate(
-    tag = factor(tag, levels = c(
-      "Collaboration and peer-review",
-      "Scientific methods and results",
-      "Applications and impact",
-      "Others' endorsement",
-      "Values",
-      "LLM-chatbot",
-      "Other"
-    ))
+    tag = factor(
+      tag,
+      levels = c(
+        "Collaboration and peer-review",
+        "Scientific methods and results",
+        "Applications and impact",
+        "Others' endorsement",
+        "Values",
+        "LLM-chatbot",
+        "Other"
+      )
+    )
   ) |>
   arrange(tag) |>
-  mutate(number = as.character(row_number())) |> 
+  mutate(number = as.character(row_number())) |>
   group_by(tag) |>
-  group_modify(~ bind_rows(
-    tibble(title = as.character(.y$tag), summary = ""),
-    .x
-  )) |>
+  group_modify(
+    ~ bind_rows(
+      tibble(title = as.character(.y$tag), summary = ""),
+      .x
+    )
+  ) |>
   ungroup() |>
   mutate(` ` = ifelse(title %in% levels(tag), "", number)) |>
-  select(` `, title, summary) |> 
-  rename(`Intervention Title` = title, 
-         Summary = summary)
+  select(` `, title, summary) |>
+  rename(`Intervention Title` = title, Summary = summary)
 
 # identify header rows
 header_rows <- which(intervention_table_data$` ` == "")
@@ -232,16 +232,17 @@ intervention_table <- intervention_table_data |>
 #| label: tbl-interventions
 #| tbl-cap: "Overview of interventions included in the megastudy."
 #| eval: !expr "!knitr::is_latex_output()"
-
 intervention_table
 ```
 
 ```{r}
 #| eval: !expr "knitr::is_latex_output()"
-
-intervention_table |> 
-  theme_latex(multipage = TRUE, rowhead = 1,
-              outer = "caption={Overview of interventions included in the megastudy.}, label={tbl-interventions}")
+intervention_table |>
+  theme_latex(
+    multipage = TRUE,
+    rowhead = 1,
+    outer = "caption={Overview of interventions included in the megastudy.}, label={tbl-interventions}"
+  )
 ```
 
 # Procedure and Design
@@ -293,7 +294,6 @@ The code chunk below defines key sets of variables used throughout the code in t
 ```{r}
 #| label: define-variable-sets
 #| echo: true
-
 outcomes <- c(
   # Primary
   "trust_multidimensional",
@@ -308,12 +308,12 @@ outcomes <- c(
   "belief_post",
   "concern_mean",
   "policy_general",
-  "policy_specific_mean",  # composite — items analyzed separately in appendix
-  "behavior_mean"          # composite — items analyzed separately in appendix
-) # note that this excludes behavioral outcomes 
-  # (donation_ams, newsletter_signup)
-  # which are treated separately due to different scales 
-  # and measurement approaches
+  "policy_specific_mean", # composite — items analyzed separately in appendix
+  "behavior_mean" # composite — items analyzed separately in appendix
+) # note that this excludes behavioral outcomes
+# (donation_ams, newsletter_signup)
+# which are treated separately due to different scales
+# and measurement approaches
 
 # behavioral outcomes — secondary, but require separate treatment
 # donation_ams: real money allocation (0-10 scale)
@@ -340,21 +340,31 @@ inst_trust_items <- c(
 )
 
 policy_specific_items <- c(
-  "policy_specific_1", "policy_specific_2", "policy_specific_3",
-  "policy_specific_4", "policy_specific_5", "policy_specific_6",
+  "policy_specific_1",
+  "policy_specific_2",
+  "policy_specific_3",
+  "policy_specific_4",
+  "policy_specific_5",
+  "policy_specific_6",
   "policy_specific_7"
 )
 
 behavior_items <- c(
-  "behavior_meat", "behavior_transport", "behavior_solar",
-  "behavior_fly", "behavior_talk", "behavior_donate"
+  "behavior_meat",
+  "behavior_transport",
+  "behavior_solar",
+  "behavior_fly",
+  "behavior_talk",
+  "behavior_donate"
 )
 
 # to reduce computation time for this preregistration
-outcomes_illustrative <- c("trust_multidimensional",
-                           "donation_ams",
-                           "funding_perceptions", 
-                           "policy_general")
+outcomes_illustrative <- c(
+  "trust_multidimensional",
+  "donation_ams",
+  "funding_perceptions",
+  "policy_general"
+)
 
 
 secondary_outcomes <- c(
@@ -374,8 +384,13 @@ tertiary_outcomes <- c(
 )
 
 demographics <- c(
-  "age", "gender", "race", "education",
-  "income", "social_class", "urban_rural"
+  "age",
+  "gender",
+  "race",
+  "education",
+  "income",
+  "social_class",
+  "urban_rural"
 )
 
 covariates <- c("age", "gender", "race")
@@ -383,68 +398,75 @@ covariates <- c("age", "gender", "race")
 moderators <- c(
   demographics,
   "party",
-  "religion", "born_again", "religiosity",
+  "religion",
+  "born_again",
+  "religiosity",
   "belief_pre",
   "trust_pre"
 )
 
 # to reduce computation time for this preregistration
-moderators_illustrative <- c("party", "gender", "social_class", "education",
-                             "belief_pre", "age")
+moderators_illustrative <- c(
+  "party",
+  "gender",
+  "social_class",
+  "education",
+  "belief_pre",
+  "age"
+)
 ```
 
 ```{r}
 #| label: define-labels
-
 outcome_label_map <- c(
   # Primary
   trust_multidimensional = "Trust (multidimensional)",
   # Secondary
-  trust_post             = "Trust (post)",
-  distrust_post          = "Distrust (post)",
-  funding_perceptions    = "Funding perceptions",
-  policy_role_mean       = "Policy role",
-  inst_trust_mean        = "Inst. trust",
+  trust_post = "Trust (post)",
+  distrust_post = "Distrust (post)",
+  funding_perceptions = "Funding perceptions",
+  policy_role_mean = "Policy role",
+  inst_trust_mean = "Inst. trust",
   # Tertiary
-  belief_post            = "Belief",
-  concern_mean           = "Concern",
-  policy_general         = "Policy (gen.)",
-  policy_specific_mean   = "Policy (spec.)",
+  belief_post = "Belief",
+  concern_mean = "Concern",
+  policy_general = "Policy (gen.)",
+  policy_specific_mean = "Policy (spec.)",
   # Specific policy items
-  policy_specific_1      = "Fossil fuel taxes",
-  policy_specific_2      = "Public transport",
-  policy_specific_3      = "Renewable energy",
-  policy_specific_4      = "Protect forests",
-  policy_specific_5      = "Food taxes",
-  policy_specific_6      = "Green jobs",
-  policy_specific_7      = "Clean waterways",
+  policy_specific_1 = "Fossil fuel taxes",
+  policy_specific_2 = "Public transport",
+  policy_specific_3 = "Renewable energy",
+  policy_specific_4 = "Protect forests",
+  policy_specific_5 = "Food taxes",
+  policy_specific_6 = "Green jobs",
+  policy_specific_7 = "Clean waterways",
   # Behavior items
-  behavior_mean          = "Behavior (mean)",
-  behavior_meat          = "Eat less meat",
-  behavior_transport     = "Walk/cycle/transit",
-  behavior_solar         = "Install solar",
-  behavior_fly           = "Less air travel",
-  behavior_talk          = "Talk to others",
-  behavior_donate        = "Donate",
+  behavior_mean = "Behavior (mean)",
+  behavior_meat = "Eat less meat",
+  behavior_transport = "Walk/cycle/transit",
+  behavior_solar = "Install solar",
+  behavior_fly = "Less air travel",
+  behavior_talk = "Talk to others",
+  behavior_donate = "Donate",
   # Institutional trust items
-  inst_trust_epa          = "EPA",
-  inst_trust_nasa         = "NASA",
-  inst_trust_noaa         = "NOAA",
+  inst_trust_epa = "EPA",
+  inst_trust_nasa = "NASA",
+  inst_trust_noaa = "NOAA",
   inst_trust_universities = "Universities",
-  inst_trust_federal_gov  = "Federal government",
+  inst_trust_federal_gov = "Federal government",
   # Trust dimensions
-  trust_competence        = "Competence",
-  trust_integrity         = "Integrity",
-  trust_benevolence       = "Benevolence",
-  trust_openness          = "Openness",
+  trust_competence = "Competence",
+  trust_integrity = "Integrity",
+  trust_benevolence = "Benevolence",
+  trust_openness = "Openness",
   # Concern
-  concern_absolute       = "Absolute concern (items 1-2)",
+  concern_absolute = "Absolute concern (items 1-2)",
   concern_1 = "Concern: how concerned?",
   concern_2 = "Concern: how serious?",
   concern_3 = "Concern: relative importance",
   # Behavioral outcomes
-  donation_ams            = "Donation (AMS)",
-  newsletter_signup       = "Newsletter signup"
+  donation_ams = "Donation (AMS)",
+  newsletter_signup = "Newsletter signup"
 )
 ```
 
@@ -452,9 +474,8 @@ outcome_label_map <- c(
 
 ```{r}
 #| label: read-pilot_data
-
 # read pilot data (control condition)
-pilot_data <- read_csv("../data/pilot/cleaned.csv") |> 
+pilot_data <- read_csv("../data/pilot/cleaned.csv") |>
   filter(condition == "control")
 ```
 
@@ -466,12 +487,12 @@ power <- read_csv("../data/simulation/power_simulation.csv")
 ```{r}
 # --- summary stats
 pilot_mean <- mean(pilot_data$trust, na.rm = TRUE)
-pilot_sd   <- sd(pilot_data$trust, na.rm = TRUE)
+pilot_sd <- sd(pilot_data$trust, na.rm = TRUE)
 
 # --- define effect sizes and point shifts
-effect_sizes <- power |> 
-  distinct(effect_size) |> 
-  filter(!effect_size == 0) |> 
+effect_sizes <- power |>
+  distinct(effect_size) |>
+  filter(!effect_size == 0) |>
   pull()
 effect_points <- effect_sizes * pilot_sd
 
@@ -480,7 +501,13 @@ effect_df <- tibble(
   delta_points = effect_points,
   x = pilot_mean + delta_points,
   y_arrow = seq(0.01, 0.03, length.out = length(effect_sizes)),
-  label = paste0("d = ", effect_sizes, "; diff. = ", round(effect_points,1), " pts")
+  label = paste0(
+    "d = ",
+    effect_sizes,
+    "; diff. = ",
+    round(effect_points, 1),
+    " pts"
+  )
 )
 ```
 
@@ -489,16 +516,19 @@ Participants will be recruited from a national, non-probability opt-in panel of 
 ```{r}
 #| label: tbl-quotas
 #| tbl-cap: "Sampling quota targets derived from the 2024 US Census Bureau Population Estimates Program. Total (%) reflects the sum of the targeted size within each category of age and race. Male (%) and Female (%) show the gender breakdown within each category. Absolute numbers are based on a total sample size of N = 22,000"
-
 quota_table_crossed <- read_csv("../data/quotas.csv")
 
 quota_table_crossed |>
   select(-Variable) |>
   tt(width = 0.7) |>
-  group_tt(i = list(
-    "Age"              = which(quota_table_crossed$Variable == "Age")[1],
-    "Race / Ethnicity" = which(quota_table_crossed$Variable == "Race / Ethnicity")[1]
-  )) |>
+  group_tt(
+    i = list(
+      "Age" = which(quota_table_crossed$Variable == "Age")[1],
+      "Race / Ethnicity" = which(
+        quota_table_crossed$Variable == "Race / Ethnicity"
+      )[1]
+    )
+  ) |>
   style_tt(align = "l") |>
   style_tt(i = 0, bold = TRUE) |>
   style_tt(i = "groupi", bold = TRUE) |>
@@ -516,7 +546,6 @@ This power analysis also provides a rough idea for the power of the follow-up su
 ```{r}
 #| label: fig-pilot
 #| fig-cap: !expr paste0("**A** Distribution of trust from the control condition (N=", n_distinct(pilot_data$responseid), ") of a pilot study of one of the submitted interventions. **B** Translation of standardized effect sizes tested in the power simulation to the original 0-100 trust scale.")
-
 # --- colors
 color_1 <- wes_palette("BottleRocket2")[4]
 color_2 <- wes_palette("BottleRocket2")[2]
@@ -524,9 +553,21 @@ color_2 <- wes_palette("BottleRocket2")[2]
 # --- plot A: distribution of trust in pilot
 plot_distribution <- ggplot(pilot_data, aes(x = trust)) +
   geom_density(fill = color_1, alpha = 0.3, size = 1) +
-  geom_vline(xintercept = pilot_mean, color = color_1, linetype = "dashed", size = 1) +
-  annotate("text", x = pilot_mean, y = 0.015, label = "Pilot mean", color = color_1,
-           angle = 90, vjust = -1.2) +
+  geom_vline(
+    xintercept = pilot_mean,
+    color = color_1,
+    linetype = "dashed",
+    size = 1
+  ) +
+  annotate(
+    "text",
+    x = pilot_mean,
+    y = 0.015,
+    label = "Pilot mean",
+    color = color_1,
+    angle = 90,
+    vjust = -1.2
+  ) +
   labs(
     x = "Trust (0–100 scale)",
     y = "Density",
@@ -539,18 +580,46 @@ zoom_range <- c(pilot_mean - 15, pilot_mean + 15)
 
 plot_shift <- ggplot(pilot_data, aes(x = trust)) +
   geom_density(fill = color_1, alpha = 0.3, size = 1) +
-  geom_vline(xintercept = pilot_mean, color = color_1, linetype = "dashed", size = 1, alpha = 0.3) +
-  geom_vline(data = effect_df, aes(xintercept = x), color = color_2, alpha = 0.5,
-             linetype = "dotdash", size = 1) +
-  geom_segment(data = effect_df,
-               aes(x = pilot_mean, xend = x, y = y_arrow, yend = y_arrow),
-               arrow = arrow(length = unit(0.05, "npc")),
-               color = color_2, alpha = 0.8, size = 0.8) +
-  annotate("text", x = pilot_mean, y = 0.015, label = "Pilot mean", color = color_1,
-           angle = 90, vjust = -1.2, alpha = 0.8) +
-  geom_text(data = effect_df,
-            aes(x = pilot_mean, y = y_arrow + 0.003, label = label),
-            color = color_2, size = 3, hjust = 0) +
+  geom_vline(
+    xintercept = pilot_mean,
+    color = color_1,
+    linetype = "dashed",
+    size = 1,
+    alpha = 0.3
+  ) +
+  geom_vline(
+    data = effect_df,
+    aes(xintercept = x),
+    color = color_2,
+    alpha = 0.5,
+    linetype = "dotdash",
+    size = 1
+  ) +
+  geom_segment(
+    data = effect_df,
+    aes(x = pilot_mean, xend = x, y = y_arrow, yend = y_arrow),
+    arrow = arrow(length = unit(0.05, "npc")),
+    color = color_2,
+    alpha = 0.8,
+    size = 0.8
+  ) +
+  annotate(
+    "text",
+    x = pilot_mean,
+    y = 0.015,
+    label = "Pilot mean",
+    color = color_1,
+    angle = 90,
+    vjust = -1.2,
+    alpha = 0.8
+  ) +
+  geom_text(
+    data = effect_df,
+    aes(x = pilot_mean, y = y_arrow + 0.003, label = label),
+    color = color_2,
+    size = 3,
+    hjust = 0
+  ) +
   coord_cartesian(xlim = zoom_range) +
   labs(
     x = "Trust (0–100 scale)",
@@ -560,8 +629,10 @@ plot_shift <- ggplot(pilot_data, aes(x = trust)) +
   plot_theme
 
 # --- combine using patchwork
-combined_plot <- plot_distribution + plot_shift + 
-  plot_layout(ncol = 1) & theme(plot.title = element_text(face = "bold"))
+combined_plot <- plot_distribution +
+  plot_shift +
+  plot_layout(ncol = 1) &
+  theme(plot.title = element_text(face = "bold"))
 
 combined_plot
 ```
@@ -572,7 +643,6 @@ combined_plot
 #| fig-width: 9
 #| fig-height: 7
 #| out-width: "100%"
-
 # bring to long-format
 plot_data <- power |>
   pivot_longer(
@@ -600,9 +670,12 @@ ggplot(plot_data, aes(x = n_per_arm, y = power, color = as.factor(adjusted))) +
     breaks = seq(0, 1, by = 0.1),
     limits = c(0, 1)
   ) +
-  labs(x = 'N (per condition)', y = 'Power', 
-       color = "Adjusted for multiple comparison") +
-  facet_wrap(~ effect_size) +
+  labs(
+    x = 'N (per condition)',
+    y = 'Power',
+    color = "Adjusted for multiple comparison"
+  ) +
+  facet_wrap(~effect_size) +
   plot_theme +
   theme(panel.spacing.x = unit(0.4, "cm"))
 ```
@@ -654,20 +727,19 @@ print_a_function_from_file("run_main_treatment_model")
 #   outcome = "donation",
 #   weight_predictors = demographics,
 #   ntree = 200)
-# 
+#
 # test_weighted <- run_main_treatment_model(
 #   data = dat_ipw,
 #   outcome = "donation",
 #   weights = dat_ipw$ipw
-# ) 
-# 
+# )
+#
 # test_weighted
 ```
 
 ```{r}
 #| label: main-model-run
 #| echo: true
-
 # check if the main control condition is correctly assigned to be the baseline
 # levels(data$condition)
 
@@ -675,11 +747,11 @@ print_a_function_from_file("run_main_treatment_model")
 main_model_results <- map_df(
   outcomes,
   ~ run_main_treatment_model(
-      data = data,
-      outcome = .x,
-      condition_var = "condition",
-      covariates = covariates
-    ) 
+    data = data,
+    outcome = .x,
+    condition_var = "condition",
+    covariates = covariates
+  )
 )
 ```
 
@@ -701,7 +773,6 @@ print_a_function_from_file("run_main_treatment_model_binary")
 ```{r}
 #| label: main-model-run-binary
 #| echo: true
-
 # calculate results for all outcome variables
 main_model_newsletter_signup <- run_main_treatment_model_binary(
   data = data,
@@ -718,7 +789,6 @@ A possible visualization of the treatment effects on newsletter signup can be fo
 #| fig-width: 12
 #| fig-height: 14
 #| out-width: "100%"
-
 # intervention order based on main outcome effect sizes
 intervention_order <- main_model_results |>
   filter(outcome == "trust_multidimensional") |>
@@ -727,9 +797,9 @@ intervention_order <- main_model_results |>
 
 # --- panel A: main outcome ---
 p_main <- plot_treatment_effects(
-  outcomes_group     = "trust_multidimensional",
+  outcomes_group = "trust_multidimensional",
   main_model_results = main_model_results,
-  data               = data
+  data = data
 )
 
 # heatmap setup
@@ -737,40 +807,50 @@ heatmap_data <- main_model_results |>
   filter(outcome %in% c(secondary_outcomes, tertiary_outcomes)) |>
   mutate(
     outcome_label = recode(outcome, !!!outcome_label_map),
-    condition     = factor(condition, levels = rev(intervention_order))
+    condition = factor(condition, levels = rev(intervention_order))
   ) |>
   select(condition, outcome, outcome_label, estimate, significant_adjusted)
 
 okeeffe_colors <- met.brewer("OKeeffe1")
 fill_scale <- scale_fill_gradient2(
-  low      = okeeffe_colors[1],
-  mid      = "white",
-  high     = okeeffe_colors[length(okeeffe_colors)],
+  low = okeeffe_colors[1],
+  mid = "white",
+  high = okeeffe_colors[length(okeeffe_colors)],
   midpoint = 0,
-  name     = "Estimate"
+  name = "Estimate"
 )
 
 heatmap_theme <- list(
   plot_theme,
   theme(
-    axis.text.x     = element_text(angle = 25, hjust = 1, size = 9),
-    axis.text.y     = element_text(size = 9),
+    axis.text.x = element_text(angle = 25, hjust = 1, size = 9),
+    axis.text.y = element_text(size = 9),
     legend.position = "right",
-    panel.grid      = element_blank()
+    panel.grid = element_blank()
   )
 )
 
 # --- panel B: secondary outcomes heatmap ---
 p_heatmap_secondary <- heatmap_data |>
   filter(outcome %in% secondary_outcomes) |>
-  mutate(outcome_label = factor(outcome_label,
-                                levels = outcome_label_map[secondary_outcomes])) |>
+  mutate(
+    outcome_label = factor(
+      outcome_label,
+      levels = outcome_label_map[secondary_outcomes]
+    )
+  ) |>
   ggplot(aes(x = outcome_label, y = condition, fill = estimate)) +
   geom_tile(alpha = 0.7) +
   geom_text(
-    aes(label = paste0(round(estimate, 1),
-                       ifelse(is.na(significant_adjusted), "", significant_adjusted))),
-    size = 2.5, fontface = "bold", color = "grey20"
+    aes(
+      label = paste0(
+        round(estimate, 1),
+        ifelse(is.na(significant_adjusted), "", significant_adjusted)
+      )
+    ),
+    size = 2.5,
+    fontface = "bold",
+    color = "grey20"
   ) +
   fill_scale +
   labs(x = NULL, y = NULL, title = "Secondary outcomes") +
@@ -779,14 +859,24 @@ p_heatmap_secondary <- heatmap_data |>
 # --- panel C: tertiary outcomes heatmap ---
 p_heatmap_tertiary <- heatmap_data |>
   filter(outcome %in% tertiary_outcomes) |>
-  mutate(outcome_label = factor(outcome_label,
-                                levels = outcome_label_map[tertiary_outcomes])) |>
+  mutate(
+    outcome_label = factor(
+      outcome_label,
+      levels = outcome_label_map[tertiary_outcomes]
+    )
+  ) |>
   ggplot(aes(x = outcome_label, y = condition, fill = estimate)) +
   geom_tile(alpha = 0.7) +
   geom_text(
-    aes(label = paste0(round(estimate, 1),
-                       ifelse(is.na(significant_adjusted), "", significant_adjusted))),
-    size = 2.5, fontface = "bold", color = "grey20"
+    aes(
+      label = paste0(
+        round(estimate, 1),
+        ifelse(is.na(significant_adjusted), "", significant_adjusted)
+      )
+    ),
+    size = 2.5,
+    fontface = "bold",
+    color = "grey20"
   ) +
   fill_scale +
   labs(x = NULL, y = NULL, title = "Tertiary outcomes") +
@@ -795,9 +885,9 @@ p_heatmap_tertiary <- heatmap_data |>
 
 # --- panel D: donation ---
 p_donation <- plot_treatment_effects(
-  outcomes_group     = "donation_ams",
+  outcomes_group = "donation_ams",
   main_model_results = main_model_results,
-  data               = data
+  data = data
 )
 
 # --- panel E: newsletter signup ---
@@ -810,31 +900,51 @@ p_newsletter <- main_model_newsletter_signup$marginal_effects |>
   mutate(condition = fct_reorder(condition, estimate)) |>
   ggplot(aes(x = estimate, y = condition)) +
 
-  geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.4) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    color = "grey40",
+    linewidth = 0.4
+  ) +
 
   geom_errorbarh(
     aes(xmin = conf.low, xmax = conf.high),
-    height = 0, linewidth = 0.5, color = "grey30"
+    height = 0,
+    linewidth = 0.5,
+    color = "grey30"
   ) +
 
   geom_point(size = 1, color = "grey20") +
 
   geom_text(
     aes(x = conf.high, label = significant_adjusted),
-    nudge_x = 0.002, hjust = 0, vjust = 0.5, size = 3, fontface = "bold"
+    nudge_x = 0.002,
+    hjust = 0,
+    vjust = 0.5,
+    size = 3,
+    fontface = "bold"
   ) +
 
   geom_text(
     aes(x = estimate, label = scales::percent(estimate, accuracy = 0.1)),
-    vjust = -0.4, size = 3, check_overlap = TRUE
+    vjust = -0.4,
+    size = 3,
+    check_overlap = TRUE
   ) +
 
   annotate(
-    "text", x = Inf, y = -Inf,
-    label = paste0("Baseline signup \n probability (control): ",
-                   scales::percent(baseline_prob, accuracy = 0.1)),
-    hjust = 1, vjust = -0.5, size = 2.5,
-    color = "grey40", fontface = "italic"
+    "text",
+    x = Inf,
+    y = -Inf,
+    label = paste0(
+      "Baseline signup \n probability (control): ",
+      scales::percent(baseline_prob, accuracy = 0.1)
+    ),
+    hjust = 1,
+    vjust = -0.5,
+    size = 2.5,
+    color = "grey40",
+    fontface = "italic"
   ) +
 
   scale_x_continuous(
@@ -842,21 +952,27 @@ p_newsletter <- main_model_newsletter_signup$marginal_effects |>
     expand = expansion(mult = c(0.05, 0.15))
   ) +
   scale_y_discrete(expand = expansion(add = c(0.5, 1.5))) +
-  labs(x = "Avg. prob. difference (pp)", y = NULL,
-     title = outcome_label_map[["newsletter_signup"]]) + 
+  labs(
+    x = "Avg. prob. difference (pp)",
+    y = NULL,
+    title = outcome_label_map[["newsletter_signup"]]
+  ) +
   plot_theme
 
 # --- combine ---
 wrap_plots(
-  p_main, guide_area(),
-  p_heatmap_secondary, p_heatmap_tertiary,
-  p_donation, p_newsletter,
-  ncol    = 2,
+  p_main,
+  guide_area(),
+  p_heatmap_secondary,
+  p_heatmap_tertiary,
+  p_donation,
+  p_newsletter,
+  ncol = 2,
   heights = c(1, 1.5, 1),
-  guides  = "collect"
+  guides = "collect"
 ) +
   plot_annotation(tag_levels = "A") &
-  theme(legend.position = "top") 
+  theme(legend.position = "top")
 ```
 
 ## Attrition and missing values
@@ -875,13 +991,11 @@ First, we estimate whether the number of missing responses differs between condi
 
 ```{r, results='asis'}
 #| label: attrition-f-test-function
-
 print_a_function_from_file("run_attrition_f_test")
 ```
 
 ```{r}
 #| label: attrition-f-test-test
-
 # test
 
 # run_attrition_f_test(
@@ -895,14 +1009,13 @@ print_a_function_from_file("run_attrition_f_test")
 ```{r}
 #| label: attrition-f-test-run
 #| echo: true
-
 # Run attrition test 1: Condition only
 attrition_f_results <- map_df(
   outcomes,
   ~ run_attrition_f_test(
-      data = data,
-      outcome = .x
-    )
+    data = data,
+    outcome = .x
+  )
 )
 
 # check
@@ -913,13 +1026,11 @@ Second, we test whether characteristics of participants with missing values diff
 
 ```{r, results='asis'}
 #| label: attrition-interaction-f-test-function
-
 print_a_function_from_file("run_attrition_interactions")
 ```
 
 ```{r}
 #| label: attrition-interaction-f-test-test
-
 # test
 
 # run_attrition_interactions(
@@ -932,15 +1043,14 @@ print_a_function_from_file("run_attrition_interactions")
 ```{r}
 #| label: attrition-interaction-f-test-run
 #| echo: true
-
 # Run attrition test 2: Condition × Covariates
 attrition_interaction_results <- map_df(
   outcomes_illustrative,
   ~ run_attrition_interactions(
-      data = data,
-      outcome = .x,
-      covariates = covariates
-    )
+    data = data,
+    outcome = .x,
+    covariates = covariates
+  )
 )
 
 # check
@@ -964,7 +1074,6 @@ We resolve this trade-off as follows. As a baseline, we always include condition
 ```{r}
 #| label: determine-ipw-predictors
 #| echo: true
-
 # baseline predictors (mandatory, always included)
 baseline_predictors <- c("gender", "age", "race")
 
@@ -973,11 +1082,12 @@ candidate_predictors <- c("trust_pre", "party", "education")
 
 # check missingness rates
 missingness <- data |>
-  summarise(across(all_of(candidate_predictors),
-                   ~ mean(is.na(.x)))) |>
-  pivot_longer(everything(),
-               names_to  = "variable",
-               values_to = "missingness_rate")
+  summarise(across(all_of(candidate_predictors), ~ mean(is.na(.x)))) |>
+  pivot_longer(
+    everything(),
+    names_to = "variable",
+    values_to = "missingness_rate"
+  )
 
 # build final weight predictor list
 additional_predictors <- missingness |>
@@ -990,41 +1100,38 @@ weight_predictors <- c(baseline_predictors, additional_predictors)
 ```{r}
 #| label: tbl-ipw-predictors
 #| tbl-cap: "Overview of missingness rates for IPW predictor candidate variables."
-
 missingness |>
   mutate(
-    missingness_pct    = scales::percent(missingness_rate, accuracy = 0.1),
-    included_in_ipw    = if_else(missingness_rate < 0.05, "Yes", "No")
+    missingness_pct = scales::percent(missingness_rate, accuracy = 0.1),
+    included_in_ipw = if_else(missingness_rate < 0.05, "Yes", "No")
   ) |>
   select(-missingness_rate) |>
   tt(width = 0.6) |>
   style_tt(align = "l", alignv = "t") |>
-  style_tt(i = 0, bold = TRUE) |> 
+  style_tt(i = 0, bold = TRUE) |>
   format_tt(escape = TRUE)
 ```
 
 ```{r, results='asis'}
 #| label: attrition-ipw-function
-
 print_a_function_from_file("get_ipw_weights_rf")
 ```
 
 ```{r}
 #| label: attrition-ipw-test
-
 # test
 # test <- get_ipw_weights_rf(data = data,
 #                   outcome = "trust_multidimensional",
 #                   weight_predictors = weight_predictors,
 #                   ntree = 200)
-# check 
+# check
 # test |>
 #   select(trust_multidimensional, completed, ipw) # as expected, drop outs get higher weights
 
 # check distribution of weights for participants who do not drop out
 # test |>
-#   select(trust_multidimensional, completed, ipw) |> 
-#   filter(!is.na(trust_multidimensional)) |> 
+#   select(trust_multidimensional, completed, ipw) |>
+#   filter(!is.na(trust_multidimensional)) |>
 #   ggplot(aes(x = ipw)) +
 #   geom_histogram()
 ```
@@ -1032,18 +1139,17 @@ print_a_function_from_file("get_ipw_weights_rf")
 ```{r}
 #| label: attrition-ipw-run
 #| echo: true
-
 # set a seed to make random forest procedure reproducible
 set.seed(28367)
 
-run_all_outcomes_ipw <- function(data,
-                                 outcomes,
-                                 condition_var = "condition",
-                                 weight_predictors,
-                                 covariates = NULL) {
-  
+run_all_outcomes_ipw <- function(
+  data,
+  outcomes,
+  condition_var = "condition",
+  weight_predictors,
+  covariates = NULL
+) {
   purrr::map_df(outcomes, function(outcome) {
-    
     # --- Unweighted main model
     main_unweighted <- run_main_treatment_model(
       data = data,
@@ -1052,7 +1158,7 @@ run_all_outcomes_ipw <- function(data,
       covariates = covariates
     ) %>%
       mutate(model = "Unweighted")
-    
+
     # --- IPW weights via random forest
     dat_ipw <- get_ipw_weights_rf(
       data = data,
@@ -1060,7 +1166,7 @@ run_all_outcomes_ipw <- function(data,
       condition_var = condition_var,
       weight_predictors = weight_predictors
     )
-    
+
     # --- Weighted robustness model
     main_weighted <- run_main_treatment_model(
       data = dat_ipw,
@@ -1070,7 +1176,7 @@ run_all_outcomes_ipw <- function(data,
       weights = "ipw"
     ) %>%
       mutate(model = "IPW")
-    
+
     bind_rows(main_unweighted, main_weighted)
   })
 }

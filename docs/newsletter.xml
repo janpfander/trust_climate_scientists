@@ -10,7 +10,7 @@
 <atom:link href="https://janpfander.github.io/trust_climate_scientists/newsletter.xml" rel="self" type="application/rss+xml"/>
 <description>The Trust-In Megastudy is a collaborative research project to strengthen trust in climate scientists in the United States.</description>
 <generator>quarto-1.8.24</generator>
-<lastBuildDate>Thu, 14 May 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 14 May 2026 22:00:00 GMT</lastBuildDate>
 <item>
   <title>📌 Preregistered &amp; launching data collection!</title>
   <dc:creator>Jan Pfänder</dc:creator>
@@ -39,7 +39,7 @@
   <category>preregistration</category>
   <category>data collection</category>
   <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2026-05-15/</guid>
-  <pubDate>Thu, 14 May 2026 23:00:00 GMT</pubDate>
+  <pubDate>Thu, 14 May 2026 22:00:00 GMT</pubDate>
   <media:content url="https://janpfander.github.io/trust_climate_scientists/images/windmills.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -188,7 +188,7 @@ Figure&nbsp;1: Submissions by days until deadline.
   <category>interventions</category>
   <category>submissions</category>
   <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-11-12/</guid>
-  <pubDate>Wed, 12 Nov 2025 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 11 Nov 2025 23:00:00 GMT</pubDate>
   <media:content url="https://janpfander.github.io/trust_climate_scientists/images/sunrise.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -228,7 +228,7 @@ The most promising interventions will be selected and tested in a <strong>megast
  ]]></description>
   <category>interventions</category>
   <guid>https://janpfander.github.io/trust_climate_scientists/newsletter/2025-10-13/</guid>
-  <pubDate>Sun, 12 Oct 2025 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 12 Oct 2025 22:00:00 GMT</pubDate>
   <media:content url="https://janpfander.github.io/trust_climate_scientists/images/launch.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

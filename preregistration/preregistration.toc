@@ -1,0 +1,53 @@
+\contentsline {section}{\nonumberline Introduction}{4}{section*.1}%
+\contentsline {section}{\nonumberline Research Questions}{6}{section*.2}%
+\contentsline {section}{\nonumberline Ethics}{6}{section*.3}%
+\contentsline {section}{\nonumberline Interventions}{6}{section*.4}%
+\contentsline {section}{\nonumberline Procedure and Design}{8}{section*.5}%
+\contentsline {subsection}{\nonumberline Experiment}{8}{subsection*.6}%
+\contentsline {subsection}{\nonumberline Follow-up survey}{10}{subsection*.7}%
+\contentsline {section}{\nonumberline Measures}{10}{section*.8}%
+\contentsline {paragraph}{\nonumberline Primary outcome}{10}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline Secondary outcomes}{11}{paragraph*.10}%
+\contentsline {paragraph}{\nonumberline Tertiary outcomes}{11}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline Item-level analyses}{11}{paragraph*.12}%
+\contentsline {section}{\nonumberline Sampling Plan}{14}{section*.13}%
+\contentsline {section}{\nonumberline Analysis plan}{18}{section*.17}%
+\contentsline {subsection}{\nonumberline Exclusions}{18}{subsection*.18}%
+\contentsline {subsection}{\nonumberline Treatment effects}{19}{subsection*.19}%
+\contentsline {subsubsection}{\nonumberline Binary outcome: newsletter signup}{21}{subsubsection*.20}%
+\contentsline {subsection}{\nonumberline Attrition and missing values}{25}{subsection*.22}%
+\contentsline {subsubsection}{\nonumberline Tests for differential attrition}{25}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline Account for differential attrition}{29}{subsubsection*.24}%
+\contentsline {subsection}{\nonumberline Moderators}{33}{subsection*.26}%
+\contentsline {subsubsection}{\nonumberline Partisan identity and importance}{39}{subsubsection*.29}%
+\contentsline {subsubsection}{\nonumberline Binary outcome: newsletter signup}{41}{subsubsection*.31}%
+\contentsline {subsection}{\nonumberline Persistence}{44}{subsection*.32}%
+\contentsline {section}{\nonumberline Data and code availability}{50}{section*.34}%
+\contentsline {section}{\nonumberline References}{51}{section*.35}%
+\contentsline {section}{\nonumberline Supplemental Materials}{55}{section*.37}%
+\contentsline {subsection}{\nonumberline Selection of interventions}{55}{subsection*.38}%
+\contentsline {subsubsection}{\nonumberline Independent reviews}{55}{subsubsection*.39}%
+\contentsline {subsubsection}{\nonumberline Plenary meeting and final selection}{57}{subsubsection*.41}%
+\contentsline {subsection}{\nonumberline Power simulation}{57}{subsection*.42}%
+\contentsline {subsection}{\nonumberline Simulated sample characteristics}{58}{subsection*.43}%
+\contentsline {subsection}{\nonumberline Statistical Analyses}{60}{subsection*.44}%
+\contentsline {subsubsection}{\nonumberline Primary outcome}{60}{subsubsection*.45}%
+\contentsline {paragraph}{\nonumberline IPW comparison}{61}{paragraph*.47}%
+\contentsline {paragraph}{\nonumberline Moderators}{62}{paragraph*.49}%
+\contentsline {subparagraph}{\nonumberline Gender}{62}{subparagraph*.50}%
+\contentsline {subparagraph}{\nonumberline Age}{64}{subparagraph*.51}%
+\contentsline {subsubsection}{\nonumberline Secondary outcomes}{66}{subsubsection*.52}%
+\contentsline {paragraph}{\nonumberline Treatment effects}{66}{paragraph*.53}%
+\contentsline {paragraph}{\nonumberline Moderators}{67}{paragraph*.54}%
+\contentsline {subparagraph}{\nonumberline Gender}{67}{subparagraph*.55}%
+\contentsline {subparagraph}{\nonumberline Age}{70}{subparagraph*.57}%
+\contentsline {paragraph}{\nonumberline Persistence}{73}{paragraph*.59}%
+\contentsline {subsubsection}{\nonumberline Tertary outcomes}{75}{subsubsection*.61}%
+\contentsline {subsubsection}{\nonumberline Item-level analyses}{75}{subsubsection*.62}%
+\contentsline {paragraph}{\nonumberline Trust dimensions}{77}{paragraph*.63}%
+\contentsline {paragraph}{\nonumberline Specific climate policies}{78}{paragraph*.65}%
+\contentsline {paragraph}{\nonumberline Individual-level behaviors}{79}{paragraph*.67}%
+\contentsline {paragraph}{\nonumberline Institutional trust}{80}{paragraph*.69}%
+\contentsline {paragraph}{\nonumberline Climate change concern: absolute vs.~relative}{81}{paragraph*.71}%
+\contentsline {subsubsection}{\nonumberline Scale properties}{83}{subsubsection*.73}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

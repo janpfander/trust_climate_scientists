@@ -116,6 +116,60 @@ run_main_treatment_model_binary <- function(data,
 }
 
 
+# main demographic model — OLS of outcome on a single demographic with
+# condition as a fixed effect, so demographic effects are estimated net of
+# treatment assignment (same residual-variance scale as the treatment-effect
+# plot they're compared against). HC2 robust SEs, broom tidy, BH within fit.
+# Factor demographics: one row per non-reference level (level vs baseline).
+# Continuous `age`: rescale estimate/CI by 10 -> "per 10 yrs" interpretation.
+run_main_demographic_model <- function(data,
+                                       outcome,
+                                       demographic,
+                                       condition_var = "condition",
+                                       adjust_method = "BH") {
+
+  model_formula <- as.formula(
+    paste(outcome, "~", demographic, "+", condition_var)
+  )
+  is_factor <- is.factor(data[[demographic]])
+  baseline <- if (is_factor) levels(data[[demographic]])[1] else NA_character_
+
+  fit <- lm(model_formula, data = data)
+  vcov_robust <- sandwich::vcovHC(fit, type = "HC2")
+
+  tidied <- lmtest::coeftest(fit, vcov = vcov_robust) |>
+    broom::tidy(conf.int = TRUE) |>
+    filter(str_detect(term, paste0("^", demographic)))
+
+  if (!is_factor) {
+    # continuous: single slope; rescale to per-10-unit interpretation
+    tidied <- tidied |>
+      mutate(
+        across(c(estimate, conf.low, conf.high, std.error), ~ .x * 10),
+        level = "per 10 yrs"
+      )
+  } else {
+    tidied <- tidied |>
+      mutate(level = str_remove(term, paste0("^", demographic)))
+  }
+
+  tidied |>
+    mutate(
+      outcome              = outcome,
+      demographic          = demographic,
+      baseline             = baseline,
+      p.value_adjusted     = p.adjust(p.value, method = adjust_method),
+      significant_adjusted = case_when(
+        p.value_adjusted < .001 ~ "***",
+        p.value_adjusted < .01  ~ "**",
+        p.value_adjusted < .05  ~ "*",
+        TRUE                    ~ NA_character_
+      )
+    ) |>
+    select(-term)
+}
+
+
 # main moderator model — continuous outcomes (OLS)
 run_moderator_model <- function(data,
                                 outcome,

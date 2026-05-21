@@ -86,8 +86,167 @@ plot_treatment_effects <- function(outcomes_group, main_model_results, data) {
     labs(x = "Treatment effect (OLS estimate)", y = NULL) +
     
     facet_wrap(~ outcome_label, scales = "free_x", ncol = 2) +
-    
+
     plot_theme
+}
+
+# Convert ASCII letters/digits to Unicode mathematical sans-serif bold.
+# Punctuation/whitespace pass through unchanged. Used to render bold-looking
+# y-axis tick labels without ggtext, which is incompatible with ggplot2 4.0+
+# on this system (ggtext 0.1.2 element_markdown is not rendered).
+to_bold_sans <- function(x) {
+  vapply(x, function(s) {
+    if (is.na(s)) return(NA_character_)
+    chars <- strsplit(s, "", fixed = TRUE)[[1]]
+    out <- vapply(chars, function(ch) {
+      c <- utf8ToInt(ch)
+      if (c >= 65 && c <= 90) intToUtf8(0x1D5D4 + (c - 65))      # A-Z
+      else if (c >= 97 && c <= 122) intToUtf8(0x1D5EE + (c - 97)) # a-z
+      else if (c >= 48 && c <= 57) intToUtf8(0x1D7EC + (c - 48))  # 0-9
+      else ch
+    }, character(1), USE.NAMES = FALSE)
+    paste(out, collapse = "")
+  }, character(1), USE.NAMES = FALSE)
+}
+
+# Human-readable names for demographic variables (used in demographic plot
+# row labels and group separators).
+demographic_label_map <- c(
+  age          = "Age",
+  gender       = "Gender",
+  race         = "Race",
+  education    = "Education",
+  income       = "Income",
+  social_class = "Social class",
+  urban_rural  = "Urban / rural",
+  party        = "Party",
+  born_again   = "Born-again"
+)
+
+# Forest plot of demographic effects on an outcome, parallel to
+# plot_treatment_effects. Single panel; before each demographic's data rows
+# we insert a "header" row whose y-axis tick is the variable name + reference
+# level ("Gender (ref: Male)"), rendered bold via ggtext. Continuous `age`
+# (one "per 10 yrs" row) gets a bare "Age" heading.
+plot_demographic_effects <- function(outcomes_group, demographic_main_results) {
+
+  d <- demographic_main_results |>
+    filter(outcome %in% outcomes_group) |>
+    mutate(
+      outcome_label = recode(outcome, !!!outcome_label_map),
+      outcome_label = factor(outcome_label,
+                             levels = outcome_label_map[outcomes_group]),
+      demographic_label = recode(demographic, !!!demographic_label_map),
+      demographic = factor(demographic, levels = names(demographic_label_map)),
+      group_heading = if_else(
+        is.na(baseline),
+        as.character(demographic_label),
+        paste0(demographic_label, " (ref: ", baseline, ")")
+      )
+    ) |>
+    arrange(demographic) |>
+    mutate(row_id = paste(demographic, level, sep = "|"))
+
+  # Build interleaved y-axis: for each demographic in order, a header token
+  # followed by its data-row tokens. Reverse so the first demographic sits at
+  # the top of the plot (ggplot draws factor levels bottom -> top).
+  y_order <- d |>
+    distinct(demographic, row_id) |>
+    group_by(demographic) |>
+    group_modify(~ tibble(
+      row_id = c(paste(.y$demographic, "__HDR__", sep = "|"), .x$row_id)
+    )) |>
+    ungroup() |>
+    pull(row_id)
+
+  d <- d |> mutate(row_id = factor(row_id, levels = rev(y_order)))
+
+  header_lookup <- d |>
+    distinct(demographic, group_heading) |>
+    mutate(row_id = paste(demographic, "__HDR__", sep = "|")) |>
+    { \(x) setNames(x$group_heading, x$row_id) }()
+
+  ggplot(d, aes(x = estimate, y = row_id)) +
+
+    geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.4) +
+
+    geom_errorbarh(
+      aes(xmin = conf.low, xmax = conf.high),
+      height = 0, linewidth = 0.5, color = "grey30"
+    ) +
+
+    geom_point(size = 1, color = "grey20") +
+
+    geom_text(
+      aes(x = conf.high, label = significant_adjusted),
+      nudge_x = 0.05, hjust = 0, vjust = 0.5, size = 3, fontface = "bold"
+    ) +
+
+    geom_text(
+      aes(x = estimate, label = round(estimate, digits = 2)),
+      vjust = -0.4, size = 3, check_overlap = TRUE
+    ) +
+
+    scale_x_continuous(expand = expansion(mult = c(0.05, 0.15))) +
+    scale_y_discrete(
+      drop = FALSE,
+      expand = expansion(add = 0.5),
+      labels = function(rows) {
+        # Headers rendered bold via plotmath bold(); data rows are plain
+        # strings, indented for visual hierarchy. Returning a parsed
+        # expression vector lets each axis label have its own face.
+        # (ggtext::element_markdown would be cleaner but is broken under
+        # ggplot2 4.0+ on this system; Unicode bold doesn't render in the
+        # font Quarto uses.)
+        is_hdr <- grepl("\\|__HDR__$", rows)
+        # plotmath escaping: backslash and double-quote must be escaped.
+        esc <- function(s) gsub('"', '\\\\"', gsub('\\\\', '\\\\\\\\', s))
+        txt <- ifelse(
+          is_hdr,
+          sprintf('bold("%s")', esc(as.character(header_lookup[rows]))),
+          sprintf('"   %s"',    esc(sub("^[^|]+\\|", "", rows)))
+        )
+        parse(text = txt)
+      }
+    ) +
+    labs(x = "Demographic effect (OLS estimate)", y = NULL) +
+
+    facet_wrap(~ outcome_label, scales = "free_x", ncol = 1) +
+
+    plot_theme +
+    theme(
+      axis.text.y = element_text(hjust = 0),
+      panel.grid.major.y = element_blank()
+    )
+}
+
+# Side-by-side composition: treatment effects (left) and demographic effects
+# (right) for a single outcome, on a shared x-axis so magnitudes are visually
+# comparable. Returns a patchwork object.
+plot_treatment_vs_demographic <- function(outcome,
+                                          main_model_results,
+                                          demographic_main_results,
+                                          data) {
+
+  t_rows <- main_model_results       |> filter(outcome == !!outcome)
+  d_rows <- demographic_main_results |> filter(outcome == !!outcome)
+
+  shared_range <- range(
+    c(t_rows$conf.low, t_rows$conf.high, d_rows$conf.low, d_rows$conf.high),
+    na.rm = TRUE
+  )
+  pad <- diff(shared_range) * 0.08
+  xlim <- shared_range + c(-pad, pad)
+
+  p_treat <- plot_treatment_effects(outcome, main_model_results, data) +
+    ggplot2::coord_cartesian(xlim = xlim) +
+    labs(title = "Treatment effects")
+
+  p_demo <- plot_demographic_effects(outcome, demographic_main_results) +
+    ggplot2::coord_cartesian(xlim = xlim) +
+    labs(title = "Demographic effects")
+
+  p_treat + p_demo + patchwork::plot_layout(widths = c(1, 1.15))
 }
 
 plot_persistence <- function(outcomes_group,

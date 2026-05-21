@@ -26,6 +26,13 @@ call_for_collaboration/
 
 emails/
 
+# Contains CloudResearch participant IDs + the relocated quality report
+# (which lists excluded participants). Must never reach the public repo.
+cloudresearch/
+# Quarto freeze cache for the above (participant-derived chunk output) —
+# _freeze/ is otherwise committed, so this exclusion is required.
+_freeze/cloudresearch/
+
 .positai
 
 analysis*
