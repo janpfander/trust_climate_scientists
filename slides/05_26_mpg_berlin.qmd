@@ -920,7 +920,7 @@ for (t in levels(interventions$tag)) {
 
 ```{r}
 #| label: results-setup
-# Precomputed preregistration analyses (analysis/run_preregistration_analyses.R).
+# Precomputed preregistration analyses (analysis/analysis.R).
 # The deck only READS these — no models are fit at render time.
 .res <- here::here("analysis", "results")
 .get <- function(name) readRDS(file.path(.res, paste0(name, ".rds")))
@@ -1582,7 +1582,7 @@ after_dropouts |>
     name = "n_dropouts"
   ) |>
   arrange(desc(n_dropouts)) |>
-  tinytable::tt()
+  tinytable::tt(width = 1, fontsize = 10)
 ```
 
 # Should we be doing only megastudies?
