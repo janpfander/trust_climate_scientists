@@ -60,8 +60,11 @@ list.files(here::here("R/functions"), pattern = "\\.R$", full.names = TRUE) |>
 ```
 
 ```{r}
-# cleaned data (exclusions already applied in data/cleaning.qmd)
-data <- readRDS(here::here("data/experiment/cleaned.rds"))
+# cleaned data (exclusions already applied in data/cleaning.qmd). NB: named
+# `cleaned` rather than `data` so it does not shadow base::data — running this
+# chunk in isolation, with the variable not yet defined, used to silently
+# fall back to base::data (a function) and trigger downstream pipe errors.
+cleaned <- readRDS(here::here("data/experiment/cleaned.rds"))
 
 raw <- read_csv(here("data/experiment/raw.csv"), show_col_types = FALSE) |>
   slice(-(1:2)) # drop Qualtrics' two header rows
@@ -75,26 +78,13 @@ raw <- read_csv(here("data/experiment/raw.csv"), show_col_types = FALSE) |>
 blank_to_na <- function(x) na_if(trimws(x), "")
 
 # --- Intervention timing -----------------------------------------------------
-# Sum every page-submit timer between transition2 (pre-treatment) and
-# Transition3 (post-treatment); each participant only sees their condition's
-# pages, so the sum is total time on that intervention.
-rawnames <- names(raw)
-.i_start <- which(rawnames == "transition2_time_Page Submit")
-.i_end <- which(rawnames == "Transition3_Time_Page Submit")
-interv_cols <- rawnames[(.i_start + 1):(.i_end - 1)]
-interv_cols <- interv_cols[str_detect(interv_cols, "_Page Submit$")]
-
-interv_time <- raw |>
-  select(response_id = ResponseId, all_of(interv_cols)) |>
-  pivot_longer(-response_id, names_to = "page", values_to = "sec") |>
-  mutate(sec = suppressWarnings(as.numeric(na_if(trimws(sec), "")))) |>
-  filter(!is.na(sec)) |>
-  group_by(response_id) |>
-  summarise(interv_sec = sum(sec), .groups = "drop")
-
-it <- data |>
-  select(response_id, condition) |>
-  inner_join(interv_time, by = "response_id")
+# Read directly from `data$intervention_time` (built once in
+# data/cleaning.qmd). Hybrid method: direct sum of intervention page-submit
+# timers for the 15 conditions Qualtrics fully times, and a duration-
+# proportional imputed correction (calibrated from the direct-method
+# conditions) for the 6 conditions with untimed intervention pages.
+it <- cleaned |>
+  select(response_id, condition, interv_sec = intervention_time, time_imputed)
 
 # --- After-treatment dropouts by condition -----------------------------------
 # Treatment is delivered between page "transition2" (order 15) and "Transition3"
@@ -168,6 +158,15 @@ after_dropouts <- raw |>
   mutate(condition = coalesce(title, condition_code))
 ```
 
+
+::: {.callout-caution}
+This talk has been given initially on very preliminary data (N ~ 3,500). All figures on the the slides will keep on updating with more data coming in. 
+
+Currently, we're at N = `r format(n_distinct(cleaned$response_id), big.mark = ",")`
+:::
+
+---
+
 ## Overview
 
 ::: {.fragment fragment-index=1}
@@ -187,7 +186,7 @@ after_dropouts <- raw |>
 :::
 
 ::: {.fragment fragment-index=5}
-5. Results (preliminary, N = `r format(n_distinct(data$response_id), big.mark = ",")`)
+5. Results (preliminary, N = `r format(n_distinct(cleaned$response_id), big.mark = ",")`)
 :::
 
 ::: {.fragment fragment-index=6}
@@ -927,7 +926,7 @@ for (t in levels(interventions$tag)) {
 .get <- function(name) readRDS(file.path(.res, paste0(name, ".rds")))
 
 meta <- .get("_meta")
-data <- .get("data_snapshot") # exact data analysed
+data_snapshot <- .get("data_snapshot") # exact data analysed; renamed away from `data` to avoid shadowing base::data
 main_model_results <- .get("main_model_results")
 main_model_newsletter_signup <- .get("main_model_newsletter_signup")
 demographic_main_results <- .get("demographic_main_results")
@@ -1116,11 +1115,11 @@ half_layers <- function(fill_aes = FALSE) {
 }
 
 desc_dual <- function(var, lab) {
-  d_party <- data |>
+  d_party <- data_snapshot |>
     filter(party %in% c("Democrat", "Republican")) |>
     mutate(party = factor(party, levels = c("Democrat", "Republican")))
 
-  p_overall <- ggplot(data, aes(x = "All", y = .data[[var]])) +
+  p_overall <- ggplot(data_snapshot, aes(x = "All", y = .data[[var]])) +
     half_layers(fill_aes = FALSE) +
     coord_cartesian(ylim = c(0, 100)) +
     labs(title = "Overall", x = NULL, y = lab) +
@@ -1173,9 +1172,9 @@ desc_dual("belief_pre", "Pre-treatment belief in climate change (0–100)")
 
 ```{r}
 #| label: fig-res-desc-dimensions
-#| fig-cap: !expr 'paste0("Distribution of the four trust sub-dimensions (0–100), control group only (N = ", sum(data$condition == levels(data$condition)[1]), ").")'
+#| fig-cap: !expr 'paste0("Distribution of the four trust sub-dimensions (0–100), control group only (N = ", sum(data_snapshot$condition == levels(data_snapshot$condition)[1]), ").")'
 #| out-width: "100%"
-data |>
+data_snapshot |>
   filter(condition == levels(condition)[1]) |>
   select(
     trust_competence,
@@ -1230,7 +1229,11 @@ data |>
 #| label: fig-res-primary
 #| fig-cap: "Points: Treatment effect estimates. Whiskers: 95% CIs (uncorrected). Stars: BH-adjusted across the 20 intervention-vs-control comparisons."
 #| out-width: "100%"
-plot_treatment_effects("trust_multidimensional", main_model_results, data)
+plot_treatment_effects(
+  "trust_multidimensional",
+  main_model_results,
+  data_snapshot
+)
 ```
 
 ---
@@ -1257,7 +1260,7 @@ heatmap_slide(tertiary_outcomes, "Tertiary outcomes")
 #| label: fig-res-donation
 #| fig-cap: "Real-money allocation, 0–10 scale (OLS). Whiskers: 95% CIs (uncorrected). Stars: BH-adjusted across the 20 intervention-vs-control comparisons."
 #| out-width: "100%"
-plot_treatment_effects("donation_ams", main_model_results, data)
+plot_treatment_effects("donation_ams", main_model_results, data_snapshot)
 ```
 
 ---
@@ -1266,7 +1269,7 @@ plot_treatment_effects("donation_ams", main_model_results, data)
 #| label: fig-res-newsletter
 #| fig-cap: "Logistic regression; marginal effects on the probability scale. Stars: BH-adjusted."
 #| out-width: "100%"
-baseline_prob <- data |>
+baseline_prob <- data_snapshot |>
   filter(condition == levels(condition)[1]) |>
   summarise(p = mean(newsletter_signup, na.rm = TRUE)) |>
   pull(p)
@@ -1336,7 +1339,7 @@ main_model_newsletter_signup$marginal_effects |>
 ```{r}
 #| label: tbl-newsletter-clicks
 #| tbl-cap: "Click-through on the Talking Climate newsletter link. The link was shown to all completers regardless of signup answer. Time values are seconds spent on the external page among those who clicked."
-data |>
+data_snapshot |>
   filter(!is.na(newsletter_signup)) |>
   mutate(signup = if_else(newsletter_signup, "Yes", "No")) |>
   group_by(signup) |>
@@ -1512,7 +1515,7 @@ Example:
 
 ```{r}
 #| label: fig-interv-duration
-#| fig-cap: "Sum of all intervention page-submit timers per participant. Conditions ordered by median time on intervention."
+#| fig-cap: "Per participant: hybrid intervention_time (direct timer sum for 15 fully-timed conditions; complement minus duration-proportional imputed correction for 6 multi-page conditions). See data/cleaning.qmd. Conditions ordered by median."
 #| out-width: "100%"
 #| fig-height: 7
 ggplot(
@@ -1520,17 +1523,25 @@ ggplot(
   aes(x = interv_sec, y = fct_reorder(condition, interv_sec, .fun = median))
 ) +
   geom_boxplot(
+    aes(fill = time_imputed),
     outlier.shape = NA,
-    fill = "steelblue",
     alpha = 0.35,
     color = "grey40"
   ) +
   geom_jitter(
+    aes(color = time_imputed),
     height = 0.18,
     width = 0,
     alpha = 0.4,
-    size = 1,
-    color = "steelblue"
+    size = 1
+  ) +
+  scale_fill_manual(
+    "Time imputed",
+    values = c(no = "steelblue", yes = "darkorange")
+  ) +
+  scale_color_manual(
+    "Time imputed",
+    values = c(no = "steelblue", yes = "darkorange")
   ) +
   scale_x_continuous(
     labels = scales::label_number(),
@@ -1650,7 +1661,7 @@ plot_treatment_vs_demographic(
   "trust_multidimensional",
   main_model_results,
   demographic_main_results,
-  data
+  data_snapshot
 )
 ```
 
@@ -1668,7 +1679,7 @@ plot_treatment_vs_demographic(
   "donation_ams",
   main_model_results,
   demographic_main_results,
-  data
+  data_snapshot
 )
 ```
 
