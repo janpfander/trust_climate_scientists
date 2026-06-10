@@ -12,7 +12,10 @@ project:
     - "!**/contact_list.qmd"
     - "!**/report_cloudresearch.qmd"
     - "!**/generate_followup_invitations.qmd"
-  
+    # Slides temporarily removed from the public site (reveal results;
+    # teams must stay blind). Re-enable when results can be published.
+    - "!slides/**"
+
 freeze: auto 
 
 website:
@@ -31,8 +34,10 @@ website:
         text: "Collaborate"
       - href: team.qmd
         text: "Team"
-      - href: slides/talks.qmd
-        text: "Talks"      
+      # Slides temporarily removed from the public site (reveal results;
+      # teams must stay blind). Re-enable when results can be published.
+      # - href: slides/talks.qmd
+      #   text: "Talks"
     # Contact
     right:
       - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}} Write us an email"

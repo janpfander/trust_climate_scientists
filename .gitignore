@@ -37,4 +37,12 @@ _freeze/cloudresearch/
 
 analysis*
 
+# Slides reveal study results; teams must stay blind. Kept local only,
+# removed from the public site. Re-add when results can be published.
+slides/
+docs/slides/
+# Freeze cache holds rendered slide result-figure PNGs — exclude even though
+# _freeze/ is otherwise committed.
+_freeze/slides/
+
 CLAUDE.md
